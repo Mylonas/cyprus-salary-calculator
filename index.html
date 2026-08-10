@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cyprus Salary Calculator 2026 — Net Take-Home Pay</title>
 <meta name="description" content="Free Cyprus net salary calculator for 2026. Calculate take-home pay after income tax, Social Insurance (8.8%) and GESY (2.65%) using the post-reform 2026 tax bands. Works for 12 or 13 salaries.">
+<link rel="canonical" href="https://cyprus-salary-calculator.pages.dev/">
+<meta property="og:title" content="Cyprus Salary Calculator 2026 — Net Take-Home Pay">
+<meta property="og:description" content="Calculate your Cyprus net salary after tax, Social Insurance and GESY. 2026 post-reform bands. EN/EL.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7a53'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E€%3C/text%3E%3C/svg%3E">
+<!-- ==== Verification hooks: uncomment + paste each service's value ==== -->
+<!-- <meta name="google-site-verification" content="PASTE_SC_TOKEN"> -->
+<!-- <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> -->
+<!-- AdSense ads activate when you set ADSENSE_CLIENT near the bottom of this file (needs a custom domain — pages.dev cannot run AdSense). -->
 <style>
   :root{
     --bg:#f4f6f5; --ink:#16211d; --soft:#4c5a54; --line:#dce2df; --card:#ffffff;
@@ -74,15 +83,33 @@
   .seo h2{color:var(--ink);font-size:19px;margin:1.4em 0 .3em}
   details{border:1px solid var(--line);border-radius:9px;padding:2px 14px;margin:8px 0;background:var(--card)}
   summary{cursor:pointer;font-weight:700;padding:10px 0;color:var(--ink)}
+  .nav{display:flex;gap:14px;font-size:14px;align-items:center}
+  .nav a{color:var(--soft);text-decoration:none;font-weight:600}
+  .nav a:hover{color:var(--brand)}
+  .adslot{margin:24px 0;min-height:90px;display:flex;align-items:center;justify-content:center;
+    border:1px dashed var(--line);border-radius:10px;color:var(--soft);font-size:12px;background:var(--card)}
+  .adslot[data-live="1"]{border:0;min-height:0;background:transparent}
+  .guides h2{font-size:19px;color:var(--ink)}
+  .guidelinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .guidelinks a{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px 14px;
+    font-size:13px;font-weight:600;text-decoration:none;color:var(--ink)}
+  .guidelinks a:hover{border-color:var(--brand);color:var(--brand)}
+  footer a{color:var(--soft)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="brand"><span class="flag"></span> <span data-i="brand">Cyprus Salary Calculator</span></div>
-    <div class="lang">
-      <button id="l-en" class="on" onclick="setLang('en')">EN</button>
-      <button id="l-el" onclick="setLang('el')">ΕΛ</button>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav">
+        <a href="/guides.html" data-i="navGuides">Guides</a>
+        <a href="/privacy.html" data-i="navPrivacy">Privacy</a>
+      </nav>
+      <div class="lang">
+        <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="l-el" onclick="setLang('el')">ΕΛ</button>
+      </div>
     </div>
   </header>
 
@@ -150,6 +177,18 @@
     </div>
   </div>
 
+  <div class="adslot" data-ad="top">Advertisement</div>
+
+  <section class="guides">
+    <h2 data-i="guidesTitle">Guides &amp; explainers</h2>
+    <div class="guidelinks">
+      <a href="/cyprus-tax-2026.html" data-i="gl1">Cyprus tax bands 2026</a>
+      <a href="/13th-salary.html" data-i="gl2">13th &amp; 14th salary</a>
+      <a href="/self-employed-tax.html" data-i="gl3">Self-employed tax</a>
+      <a href="/social-insurance-gesy.html" data-i="gl4">Social Insurance &amp; GESY</a>
+    </div>
+  </section>
+
   <section class="seo">
     <h2 data-i="howTitle">How the 2026 Cyprus salary calculation works</h2>
     <p data-i="howBody">Your income tax is calculated on your gross salary after deducting Social Insurance and GESY contributions, which are tax-deductible. The first €22,000 of taxable income is tax-free following the January 2026 reform. The remaining income is taxed progressively: 20% from €22,001 to €32,000, 25% up to €42,000, 30% up to €72,000, and 35% above that. Social Insurance is 8.8% of gross (capped at €68,904 of insurable earnings) and the General Healthcare System (GESY/ΓεΣΥ) contribution is 2.65% (capped at €180,000).</p>
@@ -158,7 +197,13 @@
     <details><summary data-i="q3">Does this include the 13th salary?</summary><p data-i="a3">Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.</p></details>
   </section>
 
-  <footer><span data-i="foot">Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus</span></footer>
+  <div class="adslot" data-ad="bottom">Advertisement</div>
+
+  <footer>
+    <a href="/privacy.html" data-i="navPrivacy">Privacy</a> ·
+    <a href="/guides.html" data-i="navGuides">Guides</a> ·
+    <span data-i="foot">Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus</span>
+  </footer>
 </div>
 
 <script>
@@ -193,6 +238,12 @@ const T = {
   q3:{en:"Does this include the 13th salary?",el:"Περιλαμβάνει τον 13ο μισθό;"},
   a3:{en:"Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.",el:"Ναι — επιλέξτε 12, 13 ή 14 μισθούς. Ο ετήσιος μικτός φορολογείται συνολικά και μετά διαιρείται στις πληρωμές που επιλέγετε."},
   foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου"},
+  navGuides:{en:"Guides",el:"Οδηγοί"}, navPrivacy:{en:"Privacy",el:"Απόρρητο"},
+  guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις"},
+  gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026"},
+  gl2:{en:"13th & 14th salary",el:"13ος & 14ος μισθός"},
+  gl3:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων"},
+  gl4:{en:"Social Insurance & GESY",el:"Κοιν. Ασφαλίσεις & ΓεΣΥ"},
   pm:{en:"per month",el:"τον μήνα"}, pmo:{en:"per payment",el:"ανά πληρωμή"}
 };
 
@@ -276,6 +327,27 @@ document.getElementById('over60').addEventListener('change',e=>{
   document.getElementById('employerBox').style.display=e.target.checked?'table':'none';
 });
 calc();
+
+/* ===== AdSense: needs a custom domain (pages.dev cannot run ads). After approval,
+   paste your "ca-pub-…" id here; the loader + slots activate automatically. ===== */
+const ADSENSE_CLIENT = "";
+(function initAds(){
+  if(!ADSENSE_CLIENT) return;
+  const s=document.createElement('script');
+  s.async=true; s.crossOrigin="anonymous";
+  s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+ADSENSE_CLIENT;
+  document.head.appendChild(s);
+  document.querySelectorAll('.adslot').forEach(slot=>{
+    slot.dataset.live="1"; slot.textContent="";
+    const ins=document.createElement('ins');
+    ins.className="adsbygoogle"; ins.style.display="block"; ins.style.width="100%";
+    ins.setAttribute("data-ad-client",ADSENSE_CLIENT);
+    ins.setAttribute("data-ad-format","auto");
+    ins.setAttribute("data-full-width-responsive","true");
+    slot.appendChild(ins);
+    (window.adsbygoogle=window.adsbygoogle||[]).push({});
+  });
+})();
 </script>
 </body>
 </html>
