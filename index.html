@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyprus Salary Calculator 2026 — Net Take-Home Pay</title>
+<meta name="description" content="Free Cyprus net salary calculator for 2026. Calculate take-home pay after income tax, Social Insurance (8.8%) and GESY (2.65%) using the post-reform 2026 tax bands. Works for 12 or 13 salaries.">
+<style>
+  :root{
+    --bg:#f4f6f5; --ink:#16211d; --soft:#4c5a54; --line:#dce2df; --card:#ffffff;
+    --brand:#0e7a53; --brand-soft:#e2f1ea; --accent:#c9a227; --danger:#b23a2e;
+    --sans:"Helvetica Neue",Arial,system-ui,sans-serif;
+    --num:"SFMono-Regular",ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0f1513;--ink:#e8ece9;--soft:#a5b0ab;--line:#26302c;--card:#151d1a;
+      --brand:#3fbd88;--brand-soft:#13312a;--accent:#e0c25a;--danger:#e07a5f;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55}
+  .wrap{max-width:860px;margin:0 auto;padding:clamp(16px,4vw,40px)}
+  header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:18px}
+  .flag{width:30px;height:20px;border-radius:3px;background:linear-gradient(#fff,#fff);
+    border:1px solid var(--line);position:relative;overflow:hidden}
+  .flag::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 50% 42%, #d57800 0 18%, transparent 19%);opacity:.85}
+  .lang{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:13px;font-weight:700}
+  .lang button{border:0;background:transparent;color:var(--soft);padding:6px 14px;cursor:pointer}
+  .lang button.on{background:var(--brand);color:#fff}
+  h1{font-size:clamp(24px,4.5vw,34px);letter-spacing:-.02em;margin:.6em 0 .1em;text-wrap:balance}
+  .sub{color:var(--soft);margin:0 0 1.4em;font-size:15px}
+  .grid{display:grid;gap:20px}
+  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr;align-items:start}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+  label{display:block;font-size:13px;font-weight:700;color:var(--soft);margin:14px 0 5px;letter-spacing:.01em}
+  label:first-child{margin-top:0}
+  .field{position:relative}
+  .field .cur{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--soft);font-family:var(--num)}
+  input[type=number]{width:100%;padding:12px 14px 12px 30px;font-size:18px;font-family:var(--num);
+    border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+  .seg{display:flex;gap:8px;margin-top:4px}
+  .seg button{flex:1;padding:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--soft);
+    border-radius:9px;font-weight:700;cursor:pointer;font-size:14px}
+  .seg button.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+  .row{display:flex;align-items:center;gap:10px;margin-top:12px}
+  .row input{width:auto}
+  .hint{font-size:12px;color:var(--soft);margin-top:6px}
+  /* result */
+  .headline{text-align:center;padding:6px 0 14px;border-bottom:1px dashed var(--line);margin-bottom:14px}
+  .headline .lab{font-size:13px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .headline .big{font-size:clamp(32px,7vw,46px);font-weight:800;font-family:var(--num);
+    letter-spacing:-.02em;color:var(--brand);margin:2px 0}
+  .headline .per{font-size:13px;color:var(--soft)}
+  .bd{width:100%;border-collapse:collapse;font-size:14px}
+  .bd td{padding:8px 2px;border-bottom:1px solid var(--line)}
+  .bd td:last-child{text-align:right;font-family:var(--num);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .bd tr.ded td:last-child{color:var(--danger)}
+  .bd tr.tot td{font-weight:800;border-bottom:none;padding-top:12px}
+  .bar{display:flex;height:12px;border-radius:7px;overflow:hidden;margin:16px 0 6px;border:1px solid var(--line)}
+  .bar i{display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--soft)}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .stats{display:flex;gap:10px;margin-top:16px}
+  .stat{flex:1;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:10px;text-align:center}
+  .stat b{display:block;font-family:var(--num);font-size:18px}
+  .stat small{color:var(--soft);font-size:11px}
+  .disc{font-size:12px;color:var(--soft);margin-top:22px;background:var(--brand-soft);
+    border-radius:9px;padding:12px 14px;line-height:1.5}
+  footer{margin-top:30px;font-size:12px;color:var(--soft);text-align:center}
+  .seo{margin-top:40px;font-size:14px;color:var(--soft);line-height:1.7}
+  .seo h2{color:var(--ink);font-size:19px;margin:1.4em 0 .3em}
+  details{border:1px solid var(--line);border-radius:9px;padding:2px 14px;margin:8px 0;background:var(--card)}
+  summary{cursor:pointer;font-weight:700;padding:10px 0;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><span class="flag"></span> <span data-i="brand">Cyprus Salary Calculator</span></div>
+    <div class="lang">
+      <button id="l-en" class="on" onclick="setLang('en')">EN</button>
+      <button id="l-el" onclick="setLang('el')">ΕΛ</button>
+    </div>
+  </header>
+
+  <h1 data-i="h1">Cyprus net salary calculator — 2026</h1>
+  <p class="sub" data-i="sub">Post-reform 2026 tax bands. See your take-home pay after income tax, Social Insurance and GESY.</p>
+
+  <div class="grid">
+    <div class="card">
+      <label data-i="gross">Gross salary</label>
+      <div class="field"><span class="cur">€</span><input id="amount" type="number" min="0" step="100" value="30000" inputmode="decimal"></div>
+      <div class="seg" id="period">
+        <button data-p="year" class="on" onclick="setPeriod('year')" data-i="perYear">Per year</button>
+        <button data-p="month" onclick="setPeriod('month')" data-i="perMonth">Per month</button>
+      </div>
+
+      <label data-i="salaries">Salaries per year</label>
+      <div class="seg" id="months">
+        <button data-m="12" class="on" onclick="setMonths(12)">12</button>
+        <button data-m="13" onclick="setMonths(13)">13</button>
+        <button data-m="14" onclick="setMonths(14)">14</button>
+      </div>
+      <p class="hint" data-i="salHint">13th / 14th salary is common in Cyprus. The annual total is split across this many payments.</p>
+
+      <div class="row">
+        <input id="over60" type="checkbox">
+        <label for="over60" style="margin:0" data-i="over60">Show employer cost too</label>
+      </div>
+      <p class="disc" data-i="disc"><strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). Assumes SI &amp; GESY are tax-deductible. Not tax advice — verify with the Cyprus Tax Department or an accountant.</p>
+    </div>
+
+    <div class="card">
+      <div class="headline">
+        <div class="lab" data-i="takehome">Net take-home</div>
+        <div class="big" id="netMonthly">€0</div>
+        <div class="per"><span id="perLabel">per month</span> · <span id="netYearly">€0</span> <span data-i="peryr">/ year</span></div>
+      </div>
+
+      <table class="bd">
+        <tr><td data-i="grossAnnual">Gross (annual)</td><td id="rGross">€0</td></tr>
+        <tr class="ded"><td>− <span data-i="incomeTax">Income tax</span></td><td id="rTax">€0</td></tr>
+        <tr class="ded"><td>− <span data-i="si">Social Insurance (8.8%)</span></td><td id="rSI">€0</td></tr>
+        <tr class="ded"><td>− GESY (2.65%)</td><td id="rGesy">€0</td></tr>
+        <tr class="tot"><td data-i="netAnnual">Net (annual)</td><td id="rNet">€0</td></tr>
+      </table>
+
+      <div class="bar" id="bar"></div>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--brand)"></i> <span data-i="net">Net</span> <b id="pNet"></b></span>
+        <span><i class="dot" style="background:var(--danger)"></i> <span data-i="tax">Tax</span> <b id="pTax"></b></span>
+        <span><i class="dot" style="background:var(--accent)"></i> <span data-i="contrib">Contributions</span> <b id="pCon"></b></span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b id="effRate">0%</b><small data-i="effLbl">Effective rate</small></div>
+        <div class="stat"><b id="margRate">0%</b><small data-i="margLbl">Marginal band</small></div>
+        <div class="stat"><b id="takePct">0%</b><small data-i="takeLbl">You keep</small></div>
+      </div>
+
+      <table class="bd" id="employerBox" style="display:none;margin-top:16px">
+        <tr><td data-i="empSI">Employer Social Insurance (8.8%)</td><td id="rEmpSI">€0</td></tr>
+        <tr><td data-i="empGesy">Employer GESY (2.90%)</td><td id="rEmpGesy">€0</td></tr>
+        <tr><td data-i="empOther">Other employer funds (~4.7%)</td><td id="rEmpOther">€0</td></tr>
+        <tr class="tot"><td data-i="empTotal">Total cost to employer</td><td id="rEmpTotal">€0</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <section class="seo">
+    <h2 data-i="howTitle">How the 2026 Cyprus salary calculation works</h2>
+    <p data-i="howBody">Your income tax is calculated on your gross salary after deducting Social Insurance and GESY contributions, which are tax-deductible. The first €22,000 of taxable income is tax-free following the January 2026 reform. The remaining income is taxed progressively: 20% from €22,001 to €32,000, 25% up to €42,000, 30% up to €72,000, and 35% above that. Social Insurance is 8.8% of gross (capped at €68,904 of insurable earnings) and the General Healthcare System (GESY/ΓεΣΥ) contribution is 2.65% (capped at €180,000).</p>
+    <details><summary data-i="q1">What is the tax-free amount in Cyprus for 2026?</summary><p data-i="a1">After the 2026 reform, the personal income tax-free threshold rose from €19,500 to €22,000 per year.</p></details>
+    <details><summary data-i="q2">What is deducted from a Cyprus salary?</summary><p data-i="a2">Employees pay income tax, Social Insurance (8.8%) and GESY (2.65%). Employers pay their own Social Insurance and GESY plus contributions to other state funds.</p></details>
+    <details><summary data-i="q3">Does this include the 13th salary?</summary><p data-i="a3">Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.</p></details>
+  </section>
+
+  <footer><span data-i="foot">Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus</span></footer>
+</div>
+
+<script>
+const T = {
+  brand:{en:"Cyprus Salary Calculator",el:"Υπολογιστής Μισθού Κύπρου"},
+  h1:{en:"Cyprus net salary calculator — 2026",el:"Υπολογιστής καθαρού μισθού Κύπρου — 2026"},
+  sub:{en:"Post-reform 2026 tax bands. See your take-home pay after income tax, Social Insurance and GESY.",el:"Φορολογικές κλίμακες 2026. Δείτε τον καθαρό σας μισθό μετά φόρο, Κοιν. Ασφαλίσεις και ΓεΣΥ."},
+  gross:{en:"Gross salary",el:"Μικτός μισθός"},
+  perYear:{en:"Per year",el:"Ετήσιος"}, perMonth:{en:"Per month",el:"Μηνιαίος"},
+  salaries:{en:"Salaries per year",el:"Μισθοί ανά έτος"},
+  salHint:{en:"13th / 14th salary is common in Cyprus. The annual total is split across this many payments.",el:"Ο 13ος/14ος μισθός είναι συνήθης στην Κύπρο. Το ετήσιο σύνολο κατανέμεται σε τόσες πληρωμές."},
+  over60:{en:"Show employer cost too",el:"Εμφάνιση κόστους εργοδότη"},
+  disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). Assumes SI & GESY are tax-deductible. Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). Θεωρεί ότι ΚΑ & ΓεΣΥ εκπίπτουν φόρου. Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή."},
+  takehome:{en:"Net take-home",el:"Καθαρός μισθός"},
+  peryr:{en:"/ year",el:"/ έτος"},
+  grossAnnual:{en:"Gross (annual)",el:"Μικτός (ετήσιος)"},
+  incomeTax:{en:"Income tax",el:"Φόρος εισοδήματος"},
+  si:{en:"Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις (8,8%)"},
+  netAnnual:{en:"Net (annual)",el:"Καθαρός (ετήσιος)"},
+  net:{en:"Net",el:"Καθαρός"}, tax:{en:"Tax",el:"Φόρος"}, contrib:{en:"Contributions",el:"Εισφορές"},
+  effLbl:{en:"Effective rate",el:"Πραγμ. συντελεστής"}, margLbl:{en:"Marginal band",el:"Οριακή κλίμακα"}, takeLbl:{en:"You keep",el:"Κρατάτε"},
+  empSI:{en:"Employer Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις εργοδότη (8,8%)"},
+  empGesy:{en:"Employer GESY (2.90%)",el:"ΓεΣΥ εργοδότη (2,90%)"},
+  empOther:{en:"Other employer funds (~4.7%)",el:"Άλλα ταμεία εργοδότη (~4,7%)"},
+  empTotal:{en:"Total cost to employer",el:"Συνολικό κόστος εργοδότη"},
+  howTitle:{en:"How the 2026 Cyprus salary calculation works",el:"Πώς γίνεται ο υπολογισμός μισθού Κύπρου 2026"},
+  howBody:{en:"Your income tax is calculated on your gross salary after deducting Social Insurance and GESY contributions, which are tax-deductible. The first €22,000 of taxable income is tax-free following the January 2026 reform. The remaining income is taxed progressively: 20% from €22,001 to €32,000, 25% up to €42,000, 30% up to €72,000, and 35% above that. Social Insurance is 8.8% of gross (capped at €68,904 of insurable earnings) and the General Healthcare System (GESY) contribution is 2.65% (capped at €180,000).",el:"Ο φόρος εισοδήματος υπολογίζεται στον μικτό μισθό μετά την αφαίρεση των εισφορών Κοιν. Ασφαλίσεων και ΓεΣΥ, που εκπίπτουν φόρου. Οι πρώτες €22.000 φορολογητέου εισοδήματος είναι αφορολόγητες μετά τη μεταρρύθμιση του 2026. Το υπόλοιπο φορολογείται προοδευτικά: 20% από €22.001 έως €32.000, 25% έως €42.000, 30% έως €72.000 και 35% άνω αυτού. Οι Κοιν. Ασφαλίσεις είναι 8,8% (όριο €68.904) και η εισφορά ΓεΣΥ 2,65% (όριο €180.000)."},
+  q1:{en:"What is the tax-free amount in Cyprus for 2026?",el:"Ποιο είναι το αφορολόγητο στην Κύπρο για το 2026;"},
+  a1:{en:"After the 2026 reform, the personal income tax-free threshold rose from €19,500 to €22,000 per year.",el:"Μετά τη μεταρρύθμιση του 2026, το αφορολόγητο αυξήθηκε από €19.500 σε €22.000 ετησίως."},
+  q2:{en:"What is deducted from a Cyprus salary?",el:"Τι αφαιρείται από έναν μισθό στην Κύπρο;"},
+  a2:{en:"Employees pay income tax, Social Insurance (8.8%) and GESY (2.65%). Employers pay their own Social Insurance and GESY plus contributions to other state funds.",el:"Οι εργαζόμενοι πληρώνουν φόρο, Κοιν. Ασφαλίσεις (8,8%) και ΓεΣΥ (2,65%). Οι εργοδότες πληρώνουν δικές τους εισφορές συν άλλα κρατικά ταμεία."},
+  q3:{en:"Does this include the 13th salary?",el:"Περιλαμβάνει τον 13ο μισθό;"},
+  a3:{en:"Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.",el:"Ναι — επιλέξτε 12, 13 ή 14 μισθούς. Ο ετήσιος μικτός φορολογείται συνολικά και μετά διαιρείται στις πληρωμές που επιλέγετε."},
+  foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου"},
+  pm:{en:"per month",el:"τον μήνα"}, pmo:{en:"per payment",el:"ανά πληρωμή"}
+};
+
+let lang='en', period='year', months=12;
+
+const BANDS=[[22000,0],[32000,.20],[42000,.25],[72000,.30],[Infinity,.35]];
+const SI_RATE=.088, SI_CAP=68904, GESY_RATE=.0265, GESY_CAP=180000;
+const EMP_SI=.088, EMP_GESY=.029, EMP_OTHER=.047; // redundancy/training/social cohesion approx
+
+const eur=n=>'€'+Math.round(n).toLocaleString(lang==='el'?'el-CY':'en-CY');
+const pct=n=>(n*100).toFixed(1).replace('.',lang==='el'?',':'.')+'%';
+
+function incomeTax(taxable){
+  let tax=0, prev=0;
+  for(const [ceil,rate] of BANDS){
+    if(taxable>prev){ tax+=(Math.min(taxable,ceil)-prev)*rate; prev=ceil; } else break;
+  }
+  return tax;
+}
+function marginalBand(taxable){
+  let prev=0;
+  for(const [ceil,rate] of BANDS){ if(taxable<=ceil) return rate; prev=ceil; }
+  return .35;
+}
+
+function calc(){
+  const amt=parseFloat(document.getElementById('amount').value)||0;
+  const gross = period==='year'? amt : amt*months;
+  const si = Math.min(gross,SI_CAP)*SI_RATE;
+  const gesy = Math.min(gross,GESY_CAP)*GESY_RATE;
+  const taxable = Math.max(0, gross - si - gesy);
+  const tax = incomeTax(taxable);
+  const net = gross - si - gesy - tax;
+
+  document.getElementById('rGross').textContent=eur(gross);
+  document.getElementById('rTax').textContent='−'+eur(tax);
+  document.getElementById('rSI').textContent='−'+eur(si);
+  document.getElementById('rGesy').textContent='−'+eur(gesy);
+  document.getElementById('rNet').textContent=eur(net);
+
+  const perPay = net/months;
+  document.getElementById('netMonthly').textContent=eur(perPay);
+  document.getElementById('perLabel').textContent = months===12? T.pm[lang] : T.pmo[lang];
+  document.getElementById('netYearly').textContent=eur(net);
+
+  const totalDed = tax+si+gesy;
+  const contrib = si+gesy;
+  const g=gross||1;
+  document.getElementById('bar').innerHTML=
+    `<i style="flex:${net} 0;background:var(--brand)"></i>`+
+    `<i style="flex:${tax} 0;background:var(--danger)"></i>`+
+    `<i style="flex:${contrib} 0;background:var(--accent)"></i>`;
+  document.getElementById('pNet').textContent=pct(net/g);
+  document.getElementById('pTax').textContent=pct(tax/g);
+  document.getElementById('pCon').textContent=pct(contrib/g);
+
+  document.getElementById('effRate').textContent=pct(totalDed/g);
+  document.getElementById('margRate').textContent=pct(marginalBand(taxable));
+  document.getElementById('takePct').textContent=pct(net/g);
+
+  // employer
+  const eSI=Math.min(gross,SI_CAP)*EMP_SI, eG=gross*EMP_GESY, eO=Math.min(gross,SI_CAP)*EMP_OTHER;
+  document.getElementById('rEmpSI').textContent=eur(eSI);
+  document.getElementById('rEmpGesy').textContent=eur(eG);
+  document.getElementById('rEmpOther').textContent=eur(eO);
+  document.getElementById('rEmpTotal').textContent=eur(gross+eSI+eG+eO);
+}
+
+function setPeriod(p){period=p;document.querySelectorAll('#period button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));calc();}
+function setMonths(m){months=m;document.querySelectorAll('#months button').forEach(b=>b.classList.toggle('on',+b.dataset.m===m));calc();}
+function setLang(l){
+  lang=l;
+  document.getElementById('l-en').classList.toggle('on',l==='en');
+  document.getElementById('l-el').classList.toggle('on',l==='el');
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i; if(T[k]) el.innerHTML=T[k][l];});
+  calc();
+}
+document.getElementById('amount').addEventListener('input',calc);
+document.getElementById('over60').addEventListener('change',e=>{
+  document.getElementById('employerBox').style.display=e.target.checked?'table':'none';
+});
+calc();
+</script>
+</body>
+</html>
