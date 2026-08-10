@@ -1,0 +1,4 @@
+# Google AdSense authorized sellers.
+# After AdSense approval, replace pub-0000000000000000 with your publisher ID.
+# Note: AdSense requires a custom domain — pages.dev cannot serve ads.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
