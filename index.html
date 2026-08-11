@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/theme.js"></script>
 <title>Cyprus Salary Calculator 2026 — Net Take-Home Pay</title>
 <meta name="description" content="Free Cyprus net salary calculator for 2026. See take-home pay per year, month, week, day and hour after income tax, Social Insurance (8.8%) and GESY (2.65%). Reverse net-to-gross, compare two job offers, 13th/14th salary, pension and 50% expat relief.">
 <link rel="canonical" href="https://cyprussalary.com/">
@@ -37,10 +38,12 @@
     --sans:"Helvetica Neue",Arial,system-ui,sans-serif;
     --num:"SFMono-Regular",ui-monospace,Consolas,monospace;
   }
-  @media (prefers-color-scheme:dark){
-    :root{--bg:#0f1513;--ink:#e8ece9;--soft:#a5b0ab;--line:#26302c;--card:#151d1a;
+  :root[data-theme="dark"]{--bg:#0f1513;--ink:#e8ece9;--soft:#a5b0ab;--line:#26302c;--card:#151d1a;
       --brand:#3fbd88;--brand-soft:#13312a;--accent:#e0c25a;--danger:#e07a5f;}
-  }
+  .themetog{border:1px solid var(--line);background:var(--card);color:var(--soft);cursor:pointer;
+    width:34px;height:34px;border-radius:50%;font-size:15px;line-height:1;display:inline-flex;
+    align-items:center;justify-content:center;padding:0;flex:none}
+  .themetog:hover{border-color:var(--brand);color:var(--brand)}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55}
   .wrap{max-width:900px;margin:0 auto;padding:clamp(16px,4vw,40px)}
