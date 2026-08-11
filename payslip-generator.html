@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/theme.js"></script>
+<title>Free Payslip Generator — Create &amp; Download a Payslip (PDF &amp; Word)</title>
+<meta name="description" content="Free online payslip generator. Enter pay details, see a live professional payslip preview and download it as PDF or editable Word (DOCX). No signup — your data stays on your device. Cyprus SI/GESY auto-fill and custom earnings/deductions for any country.">
+<link rel="canonical" href="https://cyprussalary.com/payslip-generator.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7a53'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E€%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/style.css">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Free Payslip Generator — PDF & Word">
+<meta property="og:description" content="Create a professional payslip in minutes. Live preview, PDF & Word download, company logo. No signup — data stays on your device.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Payslip Generator","url":"https://cyprussalary.com/payslip-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Free browser-based payslip generator with live preview and PDF/DOCX download. No account required; data stays on the device."},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cyprus Salary Calculator","item":"https://cyprussalary.com/"},{"@type":"ListItem","position":2,"name":"Payslip Generator","item":"https://cyprussalary.com/payslip-generator.html"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is the payslip generator free and does it need an account?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is free and needs no account. Everything runs in your browser and your data stays on your device — nothing is uploaded to a server."}},
+{"@type":"Question","name":"Can I download the payslip as PDF and Word?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can download a print-ready A4 PDF or an editable Word (.docx) document, and you can also print directly."}},
+{"@type":"Question","name":"Can I add my company logo and custom earnings or deductions?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload a logo and add unlimited custom earning and deduction lines. Gross pay, total deductions and net pay are calculated automatically."}}
+]}
+]}
+</script>
+<style>
+  .pg-wrap{max-width:1180px}
+  .lead{max-width:none}
+  .privacy{display:flex;align-items:center;gap:10px;background:var(--brand-soft);border:1px solid var(--line);
+    border-radius:11px;padding:11px 15px;font-size:13px;color:var(--soft);margin:0 0 20px}
+  .privacy b{color:var(--ink)}
+  .pg{display:grid;gap:24px}
+  @media(min-width:940px){.pg{grid-template-columns:minmax(0,420px) minmax(0,1fr);align-items:start}
+    .preview-col{position:sticky;top:20px}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .panel h3{margin:0 0 4px;font-size:14px;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+  .panel .sub{font-size:12px;color:var(--soft);margin:0 0 10px}
+  .fg{margin-top:10px}
+  .fg label{display:block;font-size:12px;font-weight:700;color:var(--soft);margin:0 0 4px}
+  .fg input,.fg select,.fg textarea{width:100%;padding:9px 11px;font-size:14px;border:1.5px solid var(--line);
+    border-radius:8px;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .line{display:grid;grid-template-columns:1fr 96px 28px;gap:6px;margin-top:7px;align-items:center}
+  .line.ytd-on{grid-template-columns:1fr 84px 84px 28px}
+  .line input{padding:8px 9px;font-size:13px;border:1.5px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
+  .line .rm{border:0;background:transparent;color:var(--danger,#b23a2e);font-size:20px;cursor:pointer;padding:0;line-height:1}
+  .line .rm:hover{opacity:.6}
+  .lineHead{display:grid;grid-template-columns:1fr 96px 28px;gap:6px;font-size:11px;color:var(--soft);
+    text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+  .lineHead.ytd-on{grid-template-columns:1fr 84px 84px 28px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .chip{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:5px 11px;font-size:12px;
+    font-weight:600;cursor:pointer;color:var(--ink)}
+  .chip:hover{border-color:var(--brand);color:var(--brand)}
+  .addln{margin-top:10px;background:transparent;border:1.5px dashed var(--line);border-radius:8px;padding:9px;
+    width:100%;font-weight:700;font-size:13px;color:var(--brand);cursor:pointer}
+  .addln:hover{border-color:var(--brand)}
+  .rowck{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--soft);font-weight:600}
+  .rowck input{width:17px;height:17px;accent-color:var(--brand)}
+  .logo-drop{margin-top:8px;border:1.5px dashed var(--line);border-radius:8px;padding:12px;text-align:center;font-size:12px;color:var(--soft);cursor:pointer}
+  .logo-drop img{max-height:48px;max-width:100%;border-radius:4px}
+  .exports{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .exbtn{flex:1;min-width:120px;border:0;border-radius:10px;padding:12px;font-weight:800;font-size:14px;cursor:pointer;
+    background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+  .exbtn.alt{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+  .exbtn.alt:hover{border-color:var(--brand);color:var(--brand)}
+  .exbtn:disabled{opacity:.6;cursor:wait}
+  .savebar{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;margin-top:4px}
+  .savebar button{background:transparent;border:1px solid var(--line);border-radius:16px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--soft);cursor:pointer}
+  .savebar button:hover{border-color:var(--brand);color:var(--brand)}
+
+  /* ===== The payslip document — always light, print/PDF safe ===== */
+  .paper{background:#f0f1f0;border-radius:12px;padding:clamp(10px,2vw,22px);overflow:auto}
+  .payslip{background:#fff;color:#1a1a1a;width:100%;max-width:794px;margin:0 auto;padding:34px 38px;
+    font-family:"Helvetica Neue",Arial,sans-serif;font-size:13px;line-height:1.5;
+    box-shadow:0 2px 10px rgba(0,0,0,.12);min-height:520px}
+  .ps-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding-bottom:16px}
+  .ps-co{max-width:60%}
+  .ps-co .nm{font-size:19px;font-weight:800;letter-spacing:-.01em;color:#0e7a53}
+  .ps-co .addr{color:#555;font-size:12px;white-space:pre-line;margin-top:3px}
+  .ps-logo{max-height:60px;max-width:180px;object-fit:contain}
+  .ps-title{text-align:right}
+  .ps-title .t{font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#1a1a1a}
+  .ps-title .p{font-size:12px;color:#555;margin-top:2px}
+  .ps-meta{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;border-top:2px solid #0e7a53;border-bottom:1px solid #e2e2e2;padding:12px 0;margin-bottom:14px}
+  .ps-meta .blk{font-size:12px}
+  .ps-meta .blk h4{margin:0 0 4px;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#888}
+  .ps-meta .kv{display:flex;justify-content:space-between;gap:12px;padding:1.5px 0}
+  .ps-meta .kv span:first-child{color:#666}
+  .ps-meta .kv span:last-child{font-weight:600;text-align:right}
+  .ps-tables{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:520px){.ps-tables{grid-template-columns:1fr}.ps-meta{grid-template-columns:1fr}}
+  table.ps{width:100%;border-collapse:collapse;font-size:12px}
+  table.ps caption{text-align:left;font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:11px;
+    color:#0e7a53;padding:0 0 6px;border-bottom:2px solid #eee;margin-bottom:2px}
+  table.ps th,table.ps td{padding:6px 2px;text-align:left;border-bottom:1px solid #eee;font-variant-numeric:tabular-nums}
+  table.ps td.num,table.ps th.num{text-align:right;white-space:nowrap}
+  table.ps tfoot td{font-weight:800;border-top:2px solid #ddd;border-bottom:none;padding-top:8px}
+  .ps-net{margin-top:20px;display:flex;justify-content:space-between;align-items:center;background:#e2f1ea;
+    border-radius:10px;padding:14px 20px}
+  .ps-net .lab{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:#0e7a53}
+  .ps-net .val{font-size:24px;font-weight:800;color:#0e7a53;font-variant-numeric:tabular-nums}
+  .ps-emp{margin-top:16px}
+  .ps-notes{margin-top:16px;font-size:11px;color:#555;white-space:pre-line;border-top:1px solid #eee;padding-top:10px}
+  .ps-foot{margin-top:16px;text-align:center;font-size:10px;color:#999}
+  /* template: minimal */
+  .payslip.minimal .ps-co .nm,.payslip.minimal table.ps caption,.payslip.minimal .ps-net .lab,.payslip.minimal .ps-net .val{color:#1a1a1a}
+  .payslip.minimal .ps-meta{border-top-color:#1a1a1a}
+  .payslip.minimal .ps-net{background:#f4f4f4}
+  /* template: classic (serif) */
+  .payslip.classic{font-family:Georgia,"Times New Roman",serif;border:2px solid #333;padding:30px 34px}
+  .payslip.classic .ps-co .nm{color:#333;font-family:Georgia,serif}
+  .payslip.classic table.ps caption,.payslip.classic .ps-net .lab,.payslip.classic .ps-net .val{color:#333}
+  .payslip.classic .ps-meta{border-top-color:#333}
+  .payslip.classic .ps-net{background:#efeae0}
+
+  @media print{
+    body *{visibility:hidden}
+    #printArea,#printArea *{visibility:visible}
+    #printArea{position:absolute;left:0;top:0;width:100%}
+    .paper{background:#fff;padding:0}
+    .payslip{box-shadow:none;max-width:none;padding:6mm 8mm}
+    @page{size:A4;margin:10mm}
+  }
+  .hint2{font-size:11px;color:var(--soft);margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap pg-wrap">
+  <div class="topbar">
+    <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
+    <nav class="nav">
+      <a href="/" class="home">Calculator</a>
+      <a href="/payslip-generator.html">Payslip</a>
+      <a href="/guides.html">Guides</a>
+    </nav>
+  </div>
+
+  <h1>Free payslip generator</h1>
+  <p class="lead">Fill in the details, watch the payslip build itself, and download a print-ready <strong>PDF</strong> or editable <strong>Word</strong> document. No account, no payroll knowledge needed.</p>
+  <div class="privacy">🔒 <span><b>Private by design.</b> Everything runs in your browser — your payslip data never leaves your device.</span></div>
+
+  <div class="pg">
+    <!-- ===================== FORM ===================== -->
+    <div class="form-col">
+      <div class="panel">
+        <h3>Template &amp; currency</h3>
+        <div class="two">
+          <div class="fg"><label>Template</label>
+            <select id="tpl"><option value="professional">Professional</option><option value="minimal">Minimal</option><option value="classic">Classic (serif)</option></select>
+          </div>
+          <div class="fg"><label>Currency</label>
+            <select id="cur">
+              <option value="€" data-code="EUR">€ Euro</option>
+              <option value="£" data-code="GBP">£ Pound</option>
+              <option value="$" data-code="USD">$ Dollar</option>
+              <option value="₹" data-code="INR">₹ Rupee</option>
+              <option value="CHF " data-code="CHF">CHF Franc</option>
+              <option value="₦" data-code="NGN">₦ Naira</option>
+              <option value="R" data-code="ZAR">R Rand</option>
+              <option value="A$" data-code="AUD">A$ AUD</option>
+              <option value="C$" data-code="CAD">C$ CAD</option>
+            </select>
+          </div>
+        </div>
+        <label class="rowck"><input type="checkbox" id="ytd"> Show Year-to-Date (YTD) column</label>
+      </div>
+
+      <div class="panel">
+        <h3>Employer</h3>
+        <div class="fg"><label>Company name</label><input id="coName" placeholder="Acme Ltd" value="Acme Ltd"></div>
+        <div class="fg"><label>Address</label><textarea id="coAddr" rows="2" placeholder="12 Business Ave, Nicosia 1010, Cyprus">12 Business Ave, Nicosia 1010, Cyprus</textarea></div>
+        <div class="two">
+          <div class="fg"><label>Reg / Employer no.</label><input id="coReg" placeholder="HE123456"></div>
+          <div class="fg"><label>Contact (email/phone)</label><input id="coContact" placeholder="hr@acme.com"></div>
+        </div>
+        <div class="fg"><label>Company logo</label>
+          <label class="logo-drop" id="logoDrop"><span id="logoTxt">Click to upload a logo (PNG/JPG)</span>
+            <input type="file" id="logoInput" accept="image/*" hidden></label>
+          <div class="hint2" id="logoClear" style="display:none"><a href="#" onclick="clearLogo();return false">Remove logo</a></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Employee</h3>
+        <div class="fg"><label>Full name</label><input id="emName" placeholder="Jane Employee" value="Jane Employee"></div>
+        <div class="two">
+          <div class="fg"><label>Employee no.</label><input id="emNo" placeholder="EMP-001"></div>
+          <div class="fg"><label>Position</label><input id="emPos" placeholder="Software Engineer"></div>
+        </div>
+        <div class="two">
+          <div class="fg"><label>Department</label><input id="emDept" placeholder="Engineering"></div>
+          <div class="fg"><label>Tax / Social Ins. no.</label><input id="emTax" placeholder="1234567X"></div>
+        </div>
+        <div class="two">
+          <div class="fg"><label>Payment method</label><input id="emMethod" placeholder="Bank transfer" value="Bank transfer"></div>
+          <div class="fg"><label>Bank / IBAN (last 4)</label><input id="emBank" placeholder="••• 4321"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Pay period</h3>
+        <div class="two">
+          <div class="fg"><label>Period start</label><input id="pStart" type="date"></div>
+          <div class="fg"><label>Period end</label><input id="pEnd" type="date"></div>
+        </div>
+        <div class="two">
+          <div class="fg"><label>Pay date</label><input id="pDate" type="date"></div>
+          <div class="fg"><label>Frequency</label>
+            <select id="pFreq"><option>Monthly</option><option>Weekly</option><option>Bi-weekly</option><option>Fortnightly</option><option>Annual</option><option>One-off</option></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Earnings</h3>
+        <p class="sub">Add any earning lines. Gross pay is the total.</p>
+        <div class="lineHead" data-head="earn"><span>Description</span><span style="text-align:right">Amount</span><span></span></div>
+        <div id="earnLines"></div>
+        <div class="chips">
+          <button class="chip" onclick="addLine('earn','Basic salary')">+ Basic salary</button>
+          <button class="chip" onclick="addLine('earn','Overtime')">+ Overtime</button>
+          <button class="chip" onclick="addLine('earn','Bonus')">+ Bonus</button>
+          <button class="chip" onclick="addLine('earn','Commission')">+ Commission</button>
+          <button class="chip" onclick="addLine('earn','Allowance')">+ Allowance</button>
+          <button class="chip" onclick="addLine('earn','13th salary')">+ 13th salary</button>
+        </div>
+        <button class="addln" onclick="addLine('earn','')">+ Add earning line</button>
+      </div>
+
+      <div class="panel">
+        <h3>Deductions</h3>
+        <p class="sub">Taxes, contributions and anything withheld.</p>
+        <div class="lineHead" data-head="ded"><span>Description</span><span style="text-align:right">Amount</span><span></span></div>
+        <div id="dedLines"></div>
+        <div class="chips">
+          <button class="chip" onclick="addLine('ded','Income tax (PAYE)')">+ Income tax</button>
+          <button class="chip" onclick="addLine('ded','Social Insurance')">+ Social Insurance</button>
+          <button class="chip" onclick="addLine('ded','GESY')">+ GESY</button>
+          <button class="chip" onclick="addLine('ded','Pension / Provident')">+ Pension</button>
+          <button class="chip" onclick="addLine('ded','Health insurance')">+ Health ins.</button>
+        </div>
+        <button class="addln" onclick="addLine('ded','')">+ Add deduction line</button>
+        <div class="hint2" style="margin-top:12px">💡 <a href="/">Use the salary calculator</a> then click “Generate payslip” to fill Cyprus tax, Social Insurance &amp; GESY automatically.</div>
+      </div>
+
+      <div class="panel">
+        <h3>Employer contributions <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></h3>
+        <label class="rowck"><input type="checkbox" id="empCk"> Show employer contributions on the payslip</label>
+        <div id="empWrap" style="display:none">
+          <div class="lineHead" data-head="emp"><span>Description</span><span style="text-align:right">Amount</span><span></span></div>
+          <div id="empLines"></div>
+          <div class="chips">
+            <button class="chip" onclick="addLine('emp','Employer Social Insurance')">+ Employer SI</button>
+            <button class="chip" onclick="addLine('emp','Employer GESY')">+ Employer GESY</button>
+            <button class="chip" onclick="addLine('emp','Social Cohesion Fund')">+ Social Cohesion</button>
+            <button class="chip" onclick="addLine('emp','Redundancy Fund')">+ Redundancy</button>
+          </div>
+          <button class="addln" onclick="addLine('emp','')">+ Add contribution line</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Notes</h3>
+        <div class="fg"><textarea id="notes" rows="2" placeholder="Optional note shown at the bottom of the payslip"></textarea></div>
+        <div class="savebar">
+          <button onclick="saveLocal('company')">💾 Save company to device</button>
+          <button onclick="saveLocal('employee')">💾 Save employee</button>
+          <button onclick="clearSaved()">Clear saved</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== PREVIEW ===================== -->
+    <div class="preview-col">
+      <div class="exports">
+        <button class="exbtn" id="pdfBtn" onclick="exportPDF()">⬇ Download PDF</button>
+        <button class="exbtn alt" id="docBtn" onclick="exportDOCX()">⬇ Word (.docx)</button>
+        <button class="exbtn alt" onclick="window.print()">🖨 Print</button>
+      </div>
+      <div class="paper" id="printArea">
+        <div class="payslip professional" id="payslip"><!-- rendered --></div>
+      </div>
+      <p class="hint2" style="text-align:center">A4-ready · updates live · totals always reconcile</p>
+    </div>
+  </div>
+
+  <section style="margin-top:44px" class="seo-copy">
+    <h2>How to create a payslip</h2>
+    <ol>
+      <li>Enter your <strong>company</strong> and <strong>employee</strong> details and (optionally) upload a logo.</li>
+      <li>Set the <strong>pay period</strong>, then add <strong>earnings</strong> and <strong>deductions</strong> — the payslip totals update instantly.</li>
+      <li>Pick a template and download a <strong>PDF</strong> or editable <strong>Word</strong> file, or print it.</li>
+    </ol>
+    <p>Coming from the <a href="/">Cyprus salary calculator</a>? Calculate your net pay first, then hit “Generate payslip” to carry the gross, income tax, Social Insurance and GESY straight into a ready-made Cyprus payslip.</p>
+    <details class="faq"><summary>Is it free and private?</summary><p>Yes. There is no account and no cost. The generator runs entirely in your browser, so your payslip details never leave your device.</p></details>
+    <details class="faq"><summary>Can I download PDF and Word?</summary><p>Yes — a print-ready A4 PDF and an editable Word (.docx) document, plus direct printing.</p></details>
+    <details class="faq"><summary>Which countries does it support?</summary><p>Any country: earnings and deductions are fully custom. Cyprus figures can be auto-filled from the salary calculator; for other countries just type the amounts.</p></details>
+  </section>
+
+  <footer><a href="/">Cyprus Salary Calculator</a> · Payslip generator · Documents you create are estimates for record-keeping, not certified payroll · <a href="/privacy.html">Privacy</a></footer>
+</div>
+
+<script>
+const CUR = ()=>document.getElementById('cur').value;
+const $=id=>document.getElementById(id);
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function fmt(n){return CUR()+Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+let logoData='';
+
+/* ---------- dynamic lines ---------- */
+function lineRow(kind,desc,amt,ytd){
+  const on=$('ytd').checked;
+  const div=document.createElement('div');
+  div.className='line'+(on?' ytd-on':'');
+  div.dataset.line=kind;
+  div.innerHTML=`<input class="desc" placeholder="Description" value="${esc(desc||'')}">`+
+    `<input class="amt" type="number" step="0.01" inputmode="decimal" placeholder="0.00" value="${amt!=null?amt:''}">`+
+    (on?`<input class="ytd" type="number" step="0.01" placeholder="YTD" value="${ytd!=null?ytd:''}">`:'')+
+    `<button class="rm" title="Remove" onclick="this.parentNode.remove();render()">×</button>`;
+  return div;
+}
+function addLine(kind,desc,amt,ytd){
+  const map={earn:'earnLines',ded:'dedLines',emp:'empLines'};
+  $(map[kind]).appendChild(lineRow(kind,desc,amt,ytd));
+  render();
+}
+function readLines(kind){
+  const map={earn:'earnLines',ded:'dedLines',emp:'empLines'};
+  return [...$(map[kind]).querySelectorAll('.line')].map(l=>({
+    desc:l.querySelector('.desc').value,
+    amt:parseFloat(l.querySelector('.amt').value)||0,
+    ytd:l.querySelector('.ytd')?(parseFloat(l.querySelector('.ytd').value)||0):null
+  })).filter(x=>x.desc||x.amt);
+}
+function rebuildYTD(){
+  // re-render existing lines to add/remove YTD input, preserving values
+  ['earn','ded','emp'].forEach(kind=>{
+    const map={earn:'earnLines',ded:'dedLines',emp:'empLines'};
+    const data=readLines(kind); const host=$(map[kind]); host.innerHTML='';
+    data.forEach(d=>host.appendChild(lineRow(kind,d.desc,d.amt,d.ytd)));
+  });
+  const on=$('ytd').checked;
+  document.querySelectorAll('.lineHead').forEach(h=>{
+    h.classList.toggle('ytd-on',on);
+    if(on&&!h.dataset.ytdDone){h.children[1].insertAdjacentHTML('afterend','<span style="text-align:right">YTD</span>');h.dataset.ytdDone='1';}
+    if(!on&&h.dataset.ytdDone){h.children[2].remove();h.dataset.ytdDone='';}
+  });
+  render();
+}
+
+/* ---------- dates ---------- */
+function fdate(v){ if(!v) return '—'; const d=new Date(v+'T00:00:00'); return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
+function periodLabel(){
+  const s=$('pStart').value,e=$('pEnd').value;
+  if(s&&e) return fdate(s)+' – '+fdate(e);
+  if($('pDate').value) return fdate($('pDate').value);
+  return '—';
+}
+
+/* ---------- render preview ---------- */
+function render(){
+  const on=$('ytd').checked;
+  const earn=readLines('earn'), ded=readLines('ded'), emp=readLines('emp');
+  const gross=earn.reduce((a,b)=>a+b.amt,0);
+  const totDed=ded.reduce((a,b)=>a+b.amt,0);
+  const net=gross-totDed;
+  const totEmp=emp.reduce((a,b)=>a+b.amt,0);
+  const grossY=earn.reduce((a,b)=>a+(b.ytd||0),0), dedY=ded.reduce((a,b)=>a+(b.ytd||0),0);
+
+  const tplRows=(arr,ytdTotal)=>arr.map(r=>`<tr><td>${esc(r.desc)||'—'}</td>`+
+    (on?`<td class="num">${r.ytd!=null?fmt(r.ytd):''}</td>`:'')+
+    `<td class="num">${fmt(r.amt)}</td></tr>`).join('')||`<tr><td style="color:#aaa">No lines</td>${on?'<td></td>':''}<td></td></tr>`;
+
+  const co=$('coName').value||'Company', em=$('emName').value||'Employee';
+  const logo=logoData?`<img class="ps-logo" src="${logoData}" alt="logo">`:'';
+  const kv=(k,v)=>v?`<div class="kv"><span>${k}</span><span>${esc(v)}</span></div>`:'';
+
+  const empBlock = ($('empCk').checked&&emp.length)?`
+    <div class="ps-emp"><table class="ps"><caption>Employer contributions (not deducted from pay)</caption>
+      <tbody>${emp.map(r=>`<tr><td>${esc(r.desc)||'—'}</td><td class="num">${fmt(r.amt)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><td>Total employer cost of contributions</td><td class="num">${fmt(totEmp)}</td></tr></tfoot>
+    </table></div>`:'';
+
+  const notes=$('notes').value?`<div class="ps-notes">${esc($('notes').value)}</div>`:'';
+  const colspan=on?3:2;
+
+  $('payslip').className='payslip '+$('tpl').value;
+  $('payslip').innerHTML=`
+    <div class="ps-head">
+      <div class="ps-co">${logo?logo:`<div class="nm">${esc(co)}</div>`}
+        ${logo?`<div class="nm" style="margin-top:6px">${esc(co)}</div>`:''}
+        <div class="addr">${esc($('coAddr').value)}${$('coReg').value?'\nReg: '+esc($('coReg').value):''}${$('coContact').value?'\n'+esc($('coContact').value):''}</div>
+      </div>
+      <div class="ps-title"><div class="t">Payslip</div><div class="p">${esc($('pFreq').value)}</div><div class="p">${periodLabel()}</div></div>
+    </div>
+    <div class="ps-meta">
+      <div class="blk"><h4>Employee</h4>
+        ${kv('Name',em)}${kv('Employee no.',$('emNo').value)}${kv('Position',$('emPos').value)}${kv('Department',$('emDept').value)}${kv('Tax / SI no.',$('emTax').value)}
+      </div>
+      <div class="blk"><h4>Payment</h4>
+        ${kv('Pay date',$('pDate').value?fdate($('pDate').value):'')}${kv('Period',periodLabel())}${kv('Frequency',$('pFreq').value)}${kv('Method',$('emMethod').value)}${kv('Account',$('emBank').value)}
+      </div>
+    </div>
+    <div class="ps-tables">
+      <table class="ps"><caption>Earnings</caption>
+        <thead><tr><th>Description</th>${on?'<th class="num">YTD</th>':''}<th class="num">Amount</th></tr></thead>
+        <tbody>${tplRows(earn)}</tbody>
+        <tfoot><tr><td>Gross pay</td>${on?`<td class="num">${fmt(grossY)}</td>`:''}<td class="num">${fmt(gross)}</td></tr></tfoot>
+      </table>
+      <table class="ps"><caption>Deductions</caption>
+        <thead><tr><th>Description</th>${on?'<th class="num">YTD</th>':''}<th class="num">Amount</th></tr></thead>
+        <tbody>${tplRows(ded)}</tbody>
+        <tfoot><tr><td>Total deductions</td>${on?`<td class="num">${fmt(dedY)}</td>`:''}<td class="num">${fmt(totDed)}</td></tr></tfoot>
+      </table>
+    </div>
+    <div class="ps-net"><span class="lab">Net pay</span><span class="val">${fmt(net)}</span></div>
+    ${empBlock}${notes}
+    <div class="ps-foot">Generated with cyprussalary.com · This document is an estimate for record-keeping.</div>`;
+}
+
+/* ---------- logo ---------- */
+$('logoInput').addEventListener('change',e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader(); r.onload=()=>{logoData=r.result;$('logoTxt').textContent=f.name;$('logoClear').style.display='block';render();}; r.readAsDataURL(f);
+});
+function clearLogo(){logoData='';$('logoInput').value='';$('logoTxt').textContent='Click to upload a logo (PNG/JPG)';$('logoClear').style.display='none';render();}
+
+/* ---------- filename ---------- */
+function fileBase(){
+  const co=($('coName').value||'Company').replace(/[^\w]+/g,'');
+  const em=($('emName').value||'Employee').replace(/[^\w]+/g,'');
+  let per='';const d=$('pDate').value||$('pEnd').value;
+  if(d){const dt=new Date(d+'T00:00:00');per='_'+dt.toLocaleDateString('en-US',{month:'long'})+'_'+dt.getFullYear();}
+  return `${co}_${em}${per}_Payslip`;
+}
+
+/* ---------- lazy library loader ---------- */
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('load '+src));document.head.appendChild(s);});}
+
+/* ---------- PDF ---------- */
+async function exportPDF(){
+  const b=$('pdfBtn');b.disabled=true;const old=b.textContent;b.textContent='Building…';
+  try{
+    if(!window.html2pdf) await loadScript('/vendor/html2pdf.bundle.min.js');
+    const node=$('payslip');
+    await html2pdf().set({margin:[8,8,8,8],filename:fileBase()+'.pdf',
+      image:{type:'jpeg',quality:.98},
+      html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff'},
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
+      pagebreak:{mode:['css','legacy']}}).from(node).save();
+  }catch(err){alert('Could not build the PDF. You can use Print → Save as PDF instead.');console.error(err);}
+  b.disabled=false;b.textContent=old;
+}
+
+/* ---------- DOCX (structured) ---------- */
+async function exportDOCX(){
+  const b=$('docBtn');b.disabled=true;const old=b.textContent;b.textContent='Building…';
+  try{
+    if(!window.docx) await loadScript('/vendor/docx.umd.js');
+    const D=window.docx;
+    const on=$('ytd').checked;
+    const earn=readLines('earn'),ded=readLines('ded'),emp=readLines('emp');
+    const gross=earn.reduce((a,b)=>a+b.amt,0),totDed=ded.reduce((a,b)=>a+b.amt,0),net=gross-totDed;
+    const GREEN='0E7A53';
+    const cell=(t,{b=false,al='left',color,size=20,fill}={})=>new D.TableCell({shading:fill?{fill}:undefined,margins:{top:40,bottom:40,left:80,right:80},
+      children:[new D.Paragraph({alignment:al==='right'?D.AlignmentType.RIGHT:D.AlignmentType.LEFT,children:[new D.TextRun({text:t,bold:b,color,size})]})]});
+    const row=(cells)=>new D.TableRow({children:cells});
+    const noBorder={top:{style:D.BorderStyle.NONE},bottom:{style:D.BorderStyle.NONE},left:{style:D.BorderStyle.NONE},right:{style:D.BorderStyle.NONE},insideHorizontal:{style:D.BorderStyle.SINGLE,size:2,color:'DDDDDD'},insideVertical:{style:D.BorderStyle.NONE}};
+    const money=n=>CUR()+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+    const tbl=(rows)=>new D.Table({width:{size:100,type:D.WidthType.PERCENTAGE},borders:noBorder,rows});
+
+    const infoTable=tbl([
+      row([cell('Employee',{b:true,color:GREEN}),cell('Payment',{b:true,color:GREEN})]),
+      row([cell($('emName').value),cell('Pay date: '+($('pDate').value?fdate($('pDate').value):'—'))]),
+      row([cell('No: '+($('emNo').value||'—')+'   Position: '+($('emPos').value||'—')),cell('Period: '+periodLabel())]),
+      row([cell('Dept: '+($('emDept').value||'—')+'   Tax/SI: '+($('emTax').value||'—')),cell('Frequency: '+$('pFreq').value)]),
+    ]);
+    const secTable=(title,arr,totLabel,tot)=>tbl([
+      row([cell(title,{b:true,color:GREEN}),cell('Amount',{b:true,color:GREEN,al:'right'})]),
+      ...arr.map(r=>row([cell(r.desc||'—'),cell(money(r.amt),{al:'right'})])),
+      row([cell(totLabel,{b:true}),cell(money(tot),{b:true,al:'right'})]),
+    ]);
+
+    const doc=new D.Document({sections:[{properties:{page:{margin:{top:720,bottom:720,left:720,right:720}}},children:[
+      new D.Paragraph({children:[new D.TextRun({text:$('coName').value||'Company',bold:true,size:32,color:GREEN})]}),
+      new D.Paragraph({children:[new D.TextRun({text:[$('coAddr').value,$('coReg').value?'Reg: '+$('coReg').value:'',$('coContact').value].filter(Boolean).join('  ·  '),size:18,color:'666666'})]}),
+      new D.Paragraph({spacing:{before:120,after:120},border:{bottom:{color:GREEN,style:D.BorderStyle.SINGLE,size:12}},children:[new D.TextRun({text:'PAYSLIP',bold:true,size:26})]}),
+      infoTable,
+      new D.Paragraph({text:'',spacing:{after:120}}),
+      secTable('Earnings',earn,'Gross pay',gross),
+      new D.Paragraph({text:'',spacing:{after:120}}),
+      secTable('Deductions',ded,'Total deductions',totDed),
+      new D.Paragraph({text:'',spacing:{after:120}}),
+      new D.Table({width:{size:100,type:D.WidthType.PERCENTAGE},borders:noBorder,rows:[row([cell('NET PAY',{b:true,color:GREEN,fill:'E2F1EA'}),cell(money(net),{b:true,al:'right',color:GREEN,fill:'E2F1EA',size:28})])]}),
+      ...($('empCk').checked&&emp.length?[new D.Paragraph({text:'',spacing:{after:120}}),secTable('Employer contributions',emp,'Total',emp.reduce((a,b)=>a+b.amt,0))]:[]),
+      ...($('notes').value?[new D.Paragraph({spacing:{before:200},children:[new D.TextRun({text:$('notes').value,size:16,color:'555555'})]})]:[]),
+      new D.Paragraph({spacing:{before:200},children:[new D.TextRun({text:'Generated with cyprussalary.com — estimate for record-keeping.',size:14,color:'999999'})]}),
+    ]}]});
+    const blob=await D.Packer.toBlob(doc);
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fileBase()+'.docx';a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  }catch(err){alert('Could not build the Word file. Please try the PDF or Print option.');console.error(err);}
+  b.disabled=false;b.textContent=old;
+}
+
+/* ---------- local save ---------- */
+const COMPANY_FIELDS=['coName','coAddr','coReg','coContact'];
+const EMP_FIELDS=['emName','emNo','emPos','emDept','emTax','emMethod','emBank'];
+function saveLocal(which){
+  const f=which==='company'?COMPANY_FIELDS:EMP_FIELDS;
+  const o={};f.forEach(id=>o[id]=$(id).value); if(which==='company')o.logo=logoData;
+  localStorage.setItem('payslip_'+which,JSON.stringify(o));
+  flash(which==='company'?'Company saved to this device ✓':'Employee saved ✓');
+}
+function loadLocal(){
+  ['company','employee'].forEach(which=>{
+    try{const o=JSON.parse(localStorage.getItem('payslip_'+which)||'null');if(!o)return;
+      Object.keys(o).forEach(k=>{if(k==='logo'){if(o.logo){logoData=o.logo;$('logoTxt').textContent='Saved logo';$('logoClear').style.display='block';}}else if($(k))$(k).value=o[k];});
+    }catch(e){}
+  });
+}
+function clearSaved(){localStorage.removeItem('payslip_company');localStorage.removeItem('payslip_employee');flash('Saved details cleared');}
+let flashT;function flash(msg){let f=$('flash');if(!f){f=document.createElement('div');f.id='flash';f.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--brand);color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:700;z-index:99;box-shadow:var(--shadow)';document.body.appendChild(f);}f.textContent=msg;f.style.opacity='1';clearTimeout(flashT);flashT=setTimeout(()=>f.style.opacity='0',1800);}
+
+/* ---------- prefill from salary calculator ---------- */
+function prefillFromURL(){
+  const p=new URLSearchParams(location.search);
+  if(![...p.keys()].length) return false;
+  const num=k=>{const v=parseFloat(p.get(k));return isNaN(v)?null:v;};
+  const months=num('m')||12;
+  const per=(p.get('per')==='month'||num('gross')<12000)?'month':'month'; // payslip is per-payment
+  const div=months; // per payment
+  const gross=num('gross'),tax=num('tax'),si=num('si'),gesy=num('gesy'),pension=num('pen_amt'),net=num('net');
+  if(gross==null) return false;
+  // clear defaults
+  $('earnLines').innerHTML='';$('dedLines').innerHTML='';
+  addLine('earn','Basic salary',(gross/div).toFixed(2));
+  if(tax)addLine('ded','Income tax (PAYE)',(tax/div).toFixed(2));
+  if(si)addLine('ded','Social Insurance',(si/div).toFixed(2));
+  if(gesy)addLine('ded','GESY',(gesy/div).toFixed(2));
+  if(pension)addLine('ded','Pension / Provident',(pension/div).toFixed(2));
+  $('pFreq').value = months>=12?'Monthly':'One-off';
+  flash('Filled from your salary calculation ✓');
+  return true;
+}
+
+/* ---------- defaults ---------- */
+function seedDefaults(){
+  addLine('earn','Basic salary',2500);
+  addLine('ded','Income tax (PAYE)',210);
+  addLine('ded','Social Insurance',220);
+  addLine('ded','GESY',66.25);
+  // default dates: current month
+  const now=new Date(),y=now.getFullYear(),m=now.getMonth();
+  const iso=d=>d.toISOString().slice(0,10);
+  $('pStart').value=iso(new Date(y,m,1));$('pEnd').value=iso(new Date(y,m+1,0));$('pDate').value=iso(new Date(y,m+1,0));
+}
+
+/* ---------- wire up ---------- */
+document.addEventListener('input',e=>{ if(e.target.closest('.form-col')) render(); });
+document.addEventListener('change',e=>{ if(e.target.closest('.form-col')) render(); });
+$('ytd').addEventListener('change',rebuildYTD);
+$('empCk').addEventListener('change',e=>{$('empWrap').style.display=e.target.checked?'block':'none';if(e.target.checked&&!$('empLines').children.length){addLine('emp','Employer Social Insurance');addLine('emp','Employer GESY');}render();});
+$('logoDrop').addEventListener('click',()=>$('logoInput').click());
+
+loadLocal();
+if(!prefillFromURL()) seedDefaults();
+render();
+</script>
+</body>
+</html>

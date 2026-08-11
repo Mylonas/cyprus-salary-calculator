@@ -158,6 +158,7 @@
     <div class="brand"><span class="flag"></span> <span data-i="brand">Cyprus Salary Calculator</span></div>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
       <nav class="nav">
+        <a href="/payslip-generator.html" data-i="navPayslip">Payslip</a>
         <a href="/guides.html" data-i="navGuides">Guides</a>
         <a href="/privacy.html" data-i="navPrivacy">Privacy</a>
       </nav>
@@ -283,6 +284,7 @@
           <tr class="tot"><td data-i="empTotal">Total cost to employer</td><td id="rEmpTotal">€0</td></tr>
         </table>
 
+        <a class="btn" id="payslipBtn" href="/payslip-generator.html" onclick="gotoPayslip();return false" style="display:block;margin-top:16px;background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none" data-i="genPayslip">Generate a payslip from this →</a>
         <div class="actions">
           <button class="btn" id="shareBtn" onclick="share()" data-i="share">Copy shareable link</button>
           <button class="btn" onclick="window.print()" data-i="print">Print / save PDF</button>
@@ -422,7 +424,8 @@ const T = {
   q5:{en:"What is the 50% expat tax relief?",el:"Τι είναι η έκπτωση 50% για ξένους;"},
   a5:{en:"Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick \"50% expat relief\" under Advanced options to estimate it.",el:"Άτομα που αναλαμβάνουν πρώτη εργασία στην Κύπρο με αμοιβή άνω €55.000 ετησίως μπορούν να εξαιρέσουν το 50% από τον φόρο για έως 17 έτη. Επιλέξτε «έκπτωση 50% ξένων» στις Προχωρημένες επιλογές."},
   foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου"},
-  navGuides:{en:"Guides",el:"Οδηγοί"}, navPrivacy:{en:"Privacy",el:"Απόρρητο"},
+  navGuides:{en:"Guides",el:"Οδηγοί"}, navPrivacy:{en:"Privacy",el:"Απόρρητο"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία"},
+  genPayslip:{en:"Generate a payslip from this →",el:"Δημιουργία μισθοδοσίας από αυτό →"},
   guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις"},
   gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026"},
   gl2:{en:"13th & 14th salary",el:"13ος & 14ος μισθός"},
@@ -544,6 +547,8 @@ function renderSingle(){
   $('margRate').textContent=pct(marginalBand(r.taxable));
   $('takePct').textContent=pct(r.net/g);
 
+  window.LR={gross:r.gross,tax:r.tax,si:r.si,gesy:r.gesy,pension:r.pension,net:r.net};
+
   // employer
   const eSI=Math.min(r.gross,SI_CAP)*EMP_SI, eG=r.gross*EMP_GESY, eO=Math.min(r.gross,SI_CAP)*EMP_OTHER;
   $('rEmpSI').textContent=eur(eSI);
@@ -568,6 +573,15 @@ function renderCompare(){
 }
 
 function calc(){ if(mode==='compare') renderCompare(); else renderSingle(); }
+
+function gotoPayslip(){
+  const r=window.LR||{}; const p=new URLSearchParams();
+  p.set('gross',Math.round(r.gross||0)); p.set('tax',Math.round(r.tax||0));
+  p.set('si',Math.round(r.si||0)); p.set('gesy',Math.round(r.gesy||0));
+  if(r.pension>0) p.set('pen_amt',Math.round(r.pension));
+  p.set('net',Math.round(r.net||0)); p.set('m',months); p.set('lang',lang);
+  location.href='/payslip-generator.html?'+p.toString();
+}
 
 function setMode(m){
   mode=m;
