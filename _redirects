@@ -1,0 +1,2 @@
+# Canonicalise host: www -> apex
+https://www.cyprussalary.com/* https://cyprussalary.com/:splat 301!
