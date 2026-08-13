@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b1f17"/>
+  <rect x="64" y="64" width="1072" height="502" rx="28" fill="#0f2a1f" stroke="#1c3b2e" stroke-width="2"/>
+  <g transform="translate(112,116)">
+    <rect width="64" height="64" rx="14" fill="#0e7a53"/>
+    <text x="32" y="46" font-size="38" text-anchor="middle" fill="#fff" font-family="Arial" font-weight="bold">€</text>
+  </g>
+  <text x="196" y="162" font-family="Helvetica,Arial,sans-serif" font-size="46" font-weight="800" fill="#e9f5ef">Cyprus Salary Calculator</text>
+  <text x="112" y="300" font-family="Helvetica,Arial,sans-serif" font-size="60" font-weight="800" fill="#e9f5ef">Your 2026 net take-home pay</text>
+  <text x="112" y="372" font-family="Helvetica,Arial,sans-serif" font-size="38" fill="#8fb3a4">Income tax · Social Insurance 8.8% · GESY 2.65%</text>
+  <g transform="translate(112,428)">
+    <rect width="470" height="56" rx="28" fill="#12352763"/>
+    <rect width="470" height="56" rx="28" fill="#123527"/>
+    <text x="30" y="37" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#4bd6a0">Free · no signup · figures stay on your device</text>
+  </g>
+  <text x="112" y="536" font-family="Helvetica,Arial,sans-serif" font-size="26" fill="#5f7d70">cyprussalary.com — post-reform 2026 bands, €22,000 tax-free</text>
+</svg>

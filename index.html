@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/theme.js"></script>
 <title>Cyprus Salary Calculator 2026 — Net Take-Home Pay</title>
-<meta name="description" content="Free Cyprus net salary calculator for 2026. See take-home pay per year, month, week, day and hour after income tax, Social Insurance (8.8%) and GESY (2.65%). Reverse net-to-gross, compare two job offers, 13th/14th salary, pension and 50% expat relief.">
+<meta name="description" content="Free Cyprus net salary calculator for 2026 — take-home pay after income tax, Social Insurance (8.8%) and GESY (2.65%). Reverse net-to-gross and compare two offers.">
 <link rel="canonical" href="https://cyprussalary.com/">
+<meta property="og:image" content="https://cyprussalary.com/og-image.svg">
+<meta name="twitter:image" content="https://cyprussalary.com/og-image.svg">
 <meta property="og:title" content="Cyprus Salary Calculator 2026 — Net Take-Home Pay">
 <meta property="og:description" content="Calculate your Cyprus net salary after tax, Social Insurance and GESY. Reverse calculator, offer comparison, 2026 post-reform bands. EN/EL.">
 <meta property="og:type" content="website">
@@ -158,9 +160,10 @@
     <div class="brand"><span class="flag"></span> <span data-i="brand">Cyprus Salary Calculator</span></div>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
       <nav class="nav">
-        <a href="/payslip-generator.html" data-i="navPayslip">Payslip</a>
-        <a href="/guides.html" data-i="navGuides">Guides</a>
-        <a href="/privacy.html" data-i="navPrivacy">Privacy</a>
+        <a href="/payslip-generator" data-i="navPayslip">Payslip</a>
+        <a href="/guides" data-i="navGuides">Guides</a>
+        <a href="/about">About</a>
+        <a href="/privacy" data-i="navPrivacy">Privacy</a>
       </nav>
       <div class="lang">
         <button id="l-en" class="on" onclick="setLang('en')">EN</button>
@@ -284,7 +287,7 @@
           <tr class="tot"><td data-i="empTotal">Total cost to employer</td><td id="rEmpTotal">€0</td></tr>
         </table>
 
-        <a class="btn" id="payslipBtn" href="/payslip-generator.html" onclick="gotoPayslip();return false" style="display:block;margin-top:16px;background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none" data-i="genPayslip">Generate a payslip from this →</a>
+        <a class="btn" id="payslipBtn" href="/payslip-generator" onclick="gotoPayslip();return false" style="display:block;margin-top:16px;background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none" data-i="genPayslip">Generate a payslip from this →</a>
         <div class="actions">
           <button class="btn" id="shareBtn" onclick="share()" data-i="share">Copy shareable link</button>
           <button class="btn" onclick="window.print()" data-i="print">Print / save PDF</button>
@@ -344,10 +347,10 @@
   <section class="guides">
     <h2 data-i="guidesTitle">Guides &amp; explainers</h2>
     <div class="guidelinks">
-      <a href="/cyprus-tax-2026.html" data-i="gl1">Cyprus tax bands 2026</a>
-      <a href="/13th-salary.html" data-i="gl2">13th &amp; 14th salary</a>
-      <a href="/self-employed-tax.html" data-i="gl3">Self-employed tax</a>
-      <a href="/social-insurance-gesy.html" data-i="gl4">Social Insurance &amp; GESY</a>
+      <a href="/cyprus-tax-2026" data-i="gl1">Cyprus tax bands 2026</a>
+      <a href="/13th-salary" data-i="gl2">13th &amp; 14th salary</a>
+      <a href="/self-employed-tax" data-i="gl3">Self-employed tax</a>
+      <a href="/social-insurance-gesy" data-i="gl4">Social Insurance &amp; GESY</a>
     </div>
   </section>
 
@@ -364,8 +367,12 @@
   <div class="adslot" data-ad="bottom">Advertisement</div>
 
   <footer>
-    <a href="/privacy.html" data-i="navPrivacy">Privacy</a> ·
-    <a href="/guides.html" data-i="navGuides">Guides</a> ·
+    <a href="/about">About</a> ·
+    <a href="/contact">Contact</a> ·
+    <a href="/guides" data-i="navGuides">Guides</a> ·
+    <a href="/privacy" data-i="navPrivacy">Privacy</a> ·
+    <a href="/cookie-policy">Cookies</a> ·
+    <a href="/terms">Terms</a><br>
     <span data-i="foot">Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus</span>
   </footer>
 </div>
