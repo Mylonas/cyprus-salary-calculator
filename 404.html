@@ -15,20 +15,45 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <h1>Page not found</h1>
-  <p class="lead">The page you were looking for doesn't exist or has moved. Here's where to go next.</p>
+  <h1 data-i="h1">Page not found</h1>
+  <p class="lead" data-i="lead">The page you were looking for doesn't exist or has moved. Here's where to go next.</p>
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/payslip-generator">Payslip generator</a>
-    <a href="/cyprus-tax-2026">Tax bands 2026</a>
-    <a href="/social-insurance-gesy">Social Insurance &amp; GESY</a>
-    <a href="/13th-salary">13th &amp; 14th salary</a>
-    <a href="/guides">All guides</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/payslip-generator" data-i="relPayslip">Payslip generator</a>
+    <a href="/cyprus-tax-2026" data-i="relTax">Tax bands 2026</a>
+    <a href="/social-insurance-gesy" data-i="relSI">Social Insurance &amp; GESY</a>
+    <a href="/13th-salary" data-i="rel13">13th &amp; 14th salary</a>
+    <a href="/guides" data-i="relGuides">All guides</a>
   </div>
-  <p style="margin-top:24px"><a href="/">← Back to the calculator</a></p>
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a></footer>
+  <p style="margin-top:24px"><a href="/" data-i="relBack">← Back to the calculator</a></p>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  h1:{en:"Page not found",el:"Η σελίδα δεν βρέθηκε",ru:"Страница не найдена"},
+  lead:{en:"The page you were looking for doesn't exist or has moved. Here's where to go next.",el:"Η σελίδα που ψάχνατε δεν υπάρχει ή έχει μετακινηθεί. Δείτε πού να πάτε στη συνέχεια.",ru:"Страница, которую вы искали, не существует или была перемещена. Вот куда можно пойти дальше."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relPayslip:{en:"Payslip generator",el:"Δημιουργία μισθοδοσίας",ru:"Генератор расчётного листа"},
+  relTax:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  relSI:{en:"Social Insurance &amp; GESY",el:"Κοιν. Ασφαλίσεις &amp; ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  rel13:{en:"13th &amp; 14th salary",el:"13ος &amp; 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  relGuides:{en:"All guides",el:"Όλοι οι οδηγοί",ru:"Все гиды"},
+  relBack:{en:"← Back to the calculator",el:"← Επιστροφή στον υπολογιστή",ru:"← Назад к калькулятору"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

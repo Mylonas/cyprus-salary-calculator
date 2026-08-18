@@ -168,6 +168,7 @@
       <div class="lang">
         <button id="l-en" class="on" onclick="setLang('en')">EN</button>
         <button id="l-el" onclick="setLang('el')">ΕΛ</button>
+        <button id="l-ru" onclick="setLang('ru')">РУ</button>
       </div>
     </div>
   </header>
@@ -379,66 +380,66 @@
 
 <script>
 const T = {
-  brand:{en:"Cyprus Salary Calculator",el:"Υπολογιστής Μισθού Κύπρου"},
-  h1:{en:"Cyprus net salary calculator — 2026",el:"Υπολογιστής καθαρού μισθού Κύπρου — 2026"},
-  sub:{en:"Enter your salary, see exactly what lands in your bank — per year, month, week, day and hour. 2026 post-reform rates.",el:"Βάλτε τον μισθό σας και δείτε ακριβώς τι μπαίνει στην τράπεζα — ανά έτος, μήνα, εβδομάδα, ημέρα και ώρα. Συντελεστές 2026."},
-  modeTake:{en:"Take-home",el:"Καθαρός μισθός"}, modeReverse:{en:"Reverse",el:"Αντίστροφα"}, modeCompare:{en:"Compare offers",el:"Σύγκριση προσφορών"},
-  gross:{en:"Gross salary",el:"Μικτός μισθός"},
-  perYear:{en:"Per year",el:"Ετήσιος"}, perMonth:{en:"Per month",el:"Μηνιαίος"},
-  wantNet:{en:"Net take-home you want",el:"Καθαρός μισθός που θέλετε"},
-  revHint:{en:"We work backwards to the gross salary you'd need to sign for.",el:"Υπολογίζουμε αντίστροφα τον μικτό μισθό που θα χρειαστείτε."},
-  salaries:{en:"Salaries per year",el:"Μισθοί ανά έτος"},
-  salHint:{en:"13th / 14th salary is common in Cyprus. The annual total is split across this many payments.",el:"Ο 13ος/14ος μισθός είναι συνήθης στην Κύπρο. Το ετήσιο σύνολο κατανέμεται σε τόσες πληρωμές."},
-  advanced:{en:"Advanced options",el:"Προχωρημένες επιλογές"},
-  pension:{en:"Pension / provident fund contribution",el:"Εισφορά σύνταξης / ταμείου προνοίας"},
-  pensionHint:{en:"Your own contribution. Reduces taxable income (tax-deductible) and take-home.",el:"Δική σας εισφορά. Μειώνει το φορολογητέο εισόδημα (εκπίπτει) και τον καθαρό μισθό."},
-  pensionRow:{en:"Pension / provident",el:"Σύνταξη / πρόνοια"},
-  expat:{en:"50% expat relief (first job in Cyprus, over €55,000)",el:"Έκπτωση 50% ξένων (πρώτη εργασία στην Κύπρο, άνω €55.000)"},
-  hoursWk:{en:"Hours / week",el:"Ώρες / εβδομάδα"}, daysWk:{en:"Days / week",el:"Ημέρες / εβδομάδα"},
-  over60:{en:"Show employer cost too",el:"Εμφάνιση κόστους εργοδότη"},
-  disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are treated as tax-deductible. Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). ΚΑ, ΓεΣΥ και σύνταξη θεωρούνται εκπιπτόμενα. Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή."},
-  takehome:{en:"Net take-home",el:"Καθαρός μισθός"},
-  reqGross:{en:"Gross salary required",el:"Απαιτούμενος μικτός μισθός"},
-  grossAnnual:{en:"Gross (annual)",el:"Μικτός (ετήσιος)"},
-  incomeTax:{en:"Income tax",el:"Φόρος εισοδήματος"},
-  si:{en:"Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις (8,8%)"},
-  netAnnual:{en:"Net (annual)",el:"Καθαρός (ετήσιος)"},
-  net:{en:"Net",el:"Καθαρός"}, tax:{en:"Tax",el:"Φόρος"}, contrib:{en:"Contributions",el:"Εισφορές"},
-  effLbl:{en:"Effective rate",el:"Πραγμ. συντελεστής"}, margLbl:{en:"Marginal band",el:"Οριακή κλίμακα"}, takeLbl:{en:"You keep",el:"Κρατάτε"},
-  empSI:{en:"Employer Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις εργοδότη (8,8%)"},
-  empGesy:{en:"Employer GESY (2.90%)",el:"ΓεΣΥ εργοδότη (2,90%)"},
-  empOther:{en:"Other employer funds (~4.7%)",el:"Άλλα ταμεία εργοδότη (~4,7%)"},
-  empTotal:{en:"Total cost to employer",el:"Συνολικό κόστος εργοδότη"},
-  py:{en:"Year",el:"Έτος"}, pmo:{en:"Month",el:"Μήνας"}, pw:{en:"Week",el:"Εβδομ."}, pd:{en:"Day",el:"Ημέρα"}, ph:{en:"Hour",el:"Ώρα"},
-  share:{en:"Copy shareable link",el:"Αντιγραφή συνδέσμου"}, shared:{en:"Link copied ✓",el:"Αντιγράφηκε ✓"},
-  print:{en:"Print / save PDF",el:"Εκτύπωση / PDF"},
-  offer:{en:"Offer",el:"Προσφορά"}, bonus:{en:"Annual bonus",el:"Ετήσιο μπόνους"},
-  offerA:{en:"Offer A",el:"Προσφορά Α"}, offerB:{en:"Offer B",el:"Προσφορά Β"},
-  metric:{en:"Metric",el:"Στοιχείο"}, totalComp:{en:"Total gross (salary + bonus)",el:"Συνολικός μικτός (μισθός + μπόνους)"},
-  netAnnualShort:{en:"Net per year",el:"Καθαρός ανά έτος"}, netMonth:{en:"Net per month",el:"Καθαρός ανά μήνα"},
-  moreNet:{en:"more net per year",el:"περισσότερα καθαρά ανά έτος"},
-  aBetter:{en:"Offer A is better",el:"Η Προσφορά Α είναι καλύτερη"}, bBetter:{en:"Offer B is better",el:"Η Προσφορά Β είναι καλύτερη"}, tie:{en:"They're equal",el:"Είναι ίσες"},
-  howTitle:{en:"How the 2026 Cyprus salary calculation works",el:"Πώς γίνεται ο υπολογισμός μισθού Κύπρου 2026"},
-  howBody:{en:"Your income tax is calculated on your gross salary after deducting Social Insurance, GESY and any pension contributions, which are tax-deductible. The first €22,000 of taxable income is tax-free following the January 2026 reform. The remaining income is taxed progressively: 20% from €22,001 to €32,000, 25% up to €42,000, 30% up to €72,000, and 35% above that. Social Insurance is 8.8% of gross (capped at €68,904 of insurable earnings) and the General Healthcare System (GESY) contribution is 2.65% (capped at €180,000).",el:"Ο φόρος εισοδήματος υπολογίζεται στον μικτό μισθό μετά την αφαίρεση των εισφορών Κοιν. Ασφαλίσεων, ΓεΣΥ και σύνταξης, που εκπίπτουν φόρου. Οι πρώτες €22.000 φορολογητέου εισοδήματος είναι αφορολόγητες μετά τη μεταρρύθμιση του 2026. Το υπόλοιπο φορολογείται προοδευτικά: 20% από €22.001 έως €32.000, 25% έως €42.000, 30% έως €72.000 και 35% άνω αυτού. Οι Κοιν. Ασφαλίσεις είναι 8,8% (όριο €68.904) και η εισφορά ΓεΣΥ 2,65% (όριο €180.000)."},
-  q1:{en:"What is the tax-free amount in Cyprus for 2026?",el:"Ποιο είναι το αφορολόγητο στην Κύπρο για το 2026;"},
-  a1:{en:"After the 2026 reform, the personal income tax-free threshold rose from €19,500 to €22,000 per year.",el:"Μετά τη μεταρρύθμιση του 2026, το αφορολόγητο αυξήθηκε από €19.500 σε €22.000 ετησίως."},
-  q2:{en:"What is deducted from a Cyprus salary?",el:"Τι αφαιρείται από έναν μισθό στην Κύπρο;"},
-  a2:{en:"Employees pay income tax, Social Insurance (8.8%) and GESY (2.65%). Employers pay their own Social Insurance and GESY plus contributions to other state funds.",el:"Οι εργαζόμενοι πληρώνουν φόρο, Κοιν. Ασφαλίσεις (8,8%) και ΓεΣΥ (2,65%). Οι εργοδότες πληρώνουν δικές τους εισφορές συν άλλα κρατικά ταμεία."},
-  q3:{en:"Does this include the 13th salary?",el:"Περιλαμβάνει τον 13ο μισθό;"},
-  a3:{en:"Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.",el:"Ναι — επιλέξτε 12, 13 ή 14 μισθούς. Ο ετήσιος μικτός φορολογείται συνολικά και μετά διαιρείται στις πληρωμές που επιλέγετε."},
-  q4:{en:"What gross salary do I need to take home a certain amount?",el:"Τι μικτό μισθό χρειάζομαι για συγκεκριμένο καθαρό;"},
-  a4:{en:"Use the Reverse tab: enter the net take-home you want per month or per year and the calculator works out the gross salary you'd need to sign for.",el:"Χρησιμοποιήστε την καρτέλα Αντίστροφα: βάλτε τον καθαρό μισθό που θέλετε ανά μήνα ή έτος και υπολογίζουμε τον απαιτούμενο μικτό."},
-  q5:{en:"What is the 50% expat tax relief?",el:"Τι είναι η έκπτωση 50% για ξένους;"},
-  a5:{en:"Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick \"50% expat relief\" under Advanced options to estimate it.",el:"Άτομα που αναλαμβάνουν πρώτη εργασία στην Κύπρο με αμοιβή άνω €55.000 ετησίως μπορούν να εξαιρέσουν το 50% από τον φόρο για έως 17 έτη. Επιλέξτε «έκπτωση 50% ξένων» στις Προχωρημένες επιλογές."},
-  foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου"},
-  navGuides:{en:"Guides",el:"Οδηγοί"}, navPrivacy:{en:"Privacy",el:"Απόρρητο"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία"},
-  genPayslip:{en:"Generate a payslip from this →",el:"Δημιουργία μισθοδοσίας από αυτό →"},
-  guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις"},
-  gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026"},
-  gl2:{en:"13th & 14th salary",el:"13ος & 14ος μισθός"},
-  gl3:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων"},
-  gl4:{en:"Social Insurance & GESY",el:"Κοιν. Ασφαλίσεις & ΓεΣΥ"},
-  pmLbl:{en:"per month",el:"τον μήνα"}, ppLbl:{en:"per payment",el:"ανά πληρωμή"}, pyLbl:{en:"per year",el:"τον χρόνο"}
+  brand:{en:"Cyprus Salary Calculator",el:"Υπολογιστής Μισθού Κύπρου",ru:"Калькулятор зарплаты на Кипре"},
+  h1:{en:"Cyprus net salary calculator — 2026",el:"Υπολογιστής καθαρού μισθού Κύπρου — 2026",ru:"Калькулятор чистой зарплаты на Кипре — 2026"},
+  sub:{en:"Enter your salary, see exactly what lands in your bank — per year, month, week, day and hour. 2026 post-reform rates.",el:"Βάλτε τον μισθό σας και δείτε ακριβώς τι μπαίνει στην τράπεζα — ανά έτος, μήνα, εβδομάδα, ημέρα και ώρα. Συντελεστές 2026.",ru:"Введите зарплату и увидите, что именно поступит на счёт — за год, месяц, неделю, день и час. Ставки после реформы 2026."},
+  modeTake:{en:"Take-home",el:"Καθαρός μισθός",ru:"Чистыми"}, modeReverse:{en:"Reverse",el:"Αντίστροφα",ru:"Обратный расчёт"}, modeCompare:{en:"Compare offers",el:"Σύγκριση προσφορών",ru:"Сравнить предложения"},
+  gross:{en:"Gross salary",el:"Μικτός μισθός",ru:"Валовая зарплата"},
+  perYear:{en:"Per year",el:"Ετήσιος",ru:"За год"}, perMonth:{en:"Per month",el:"Μηνιαίος",ru:"За месяц"},
+  wantNet:{en:"Net take-home you want",el:"Καθαρός μισθός που θέλετε",ru:"Желаемая чистая зарплата"},
+  revHint:{en:"We work backwards to the gross salary you'd need to sign for.",el:"Υπολογίζουμε αντίστροφα τον μικτό μισθό που θα χρειαστείτε.",ru:"Мы рассчитаем обратно валовую зарплату, которая для этого нужна."},
+  salaries:{en:"Salaries per year",el:"Μισθοί ανά έτος",ru:"Зарплат в год"},
+  salHint:{en:"13th / 14th salary is common in Cyprus. The annual total is split across this many payments.",el:"Ο 13ος/14ος μισθός είναι συνήθης στην Κύπρο. Το ετήσιο σύνολο κατανέμεται σε τόσες πληρωμές.",ru:"13-я/14-я зарплата обычна на Кипре. Годовая сумма делится на это число выплат."},
+  advanced:{en:"Advanced options",el:"Προχωρημένες επιλογές",ru:"Расширенные настройки"},
+  pension:{en:"Pension / provident fund contribution",el:"Εισφορά σύνταξης / ταμείου προνοίας",ru:"Взнос в пенсионный фонд / фонд обеспечения"},
+  pensionHint:{en:"Your own contribution. Reduces taxable income (tax-deductible) and take-home.",el:"Δική σας εισφορά. Μειώνει το φορολογητέο εισόδημα (εκπίπτει) και τον καθαρό μισθό.",ru:"Ваш собственный взнос. Уменьшает налогооблагаемый доход (вычитается) и чистую зарплату."},
+  pensionRow:{en:"Pension / provident",el:"Σύνταξη / πρόνοια",ru:"Пенсия / фонд"},
+  expat:{en:"50% expat relief (first job in Cyprus, over €55,000)",el:"Έκπτωση 50% ξένων (πρώτη εργασία στην Κύπρο, άνω €55.000)",ru:"Льгота 50% для иностранцев (первая работа на Кипре, свыше €55 000)"},
+  hoursWk:{en:"Hours / week",el:"Ώρες / εβδομάδα",ru:"Часов / неделю"}, daysWk:{en:"Days / week",el:"Ημέρες / εβδομάδα",ru:"Дней / неделю"},
+  over60:{en:"Show employer cost too",el:"Εμφάνιση κόστους εργοδότη",ru:"Показать и расходы работодателя"},
+  disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are treated as tax-deductible. Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). ΚΑ, ΓεΣΥ και σύνταξη θεωρούνται εκπιπτόμενα. Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή.",ru:"<strong>Только оценка.</strong> Ставки 2026: не облагается до €22 000; ступени 20/25/30/35%; Соц. страхование 8,8% (потолок €68 904); ГеСИ 2,65% (потолок €180 000). Соц. страхование, ГеСИ и пенсия считаются вычитаемыми. Не является налоговой консультацией — уточняйте в Налоговом департаменте Кипра или у бухгалтера."},
+  takehome:{en:"Net take-home",el:"Καθαρός μισθός",ru:"Чистая зарплата"},
+  reqGross:{en:"Gross salary required",el:"Απαιτούμενος μικτός μισθός",ru:"Требуемая валовая зарплата"},
+  grossAnnual:{en:"Gross (annual)",el:"Μικτός (ετήσιος)",ru:"Валовая (за год)"},
+  incomeTax:{en:"Income tax",el:"Φόρος εισοδήματος",ru:"Подоходный налог"},
+  si:{en:"Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις (8,8%)",ru:"Соц. страхование (8,8%)"},
+  netAnnual:{en:"Net (annual)",el:"Καθαρός (ετήσιος)",ru:"Чистая (за год)"},
+  net:{en:"Net",el:"Καθαρός",ru:"Чистыми"}, tax:{en:"Tax",el:"Φόρος",ru:"Налог"}, contrib:{en:"Contributions",el:"Εισφορές",ru:"Взносы"},
+  effLbl:{en:"Effective rate",el:"Πραγμ. συντελεστής",ru:"Эффективная ставка"}, margLbl:{en:"Marginal band",el:"Οριακή κλίμακα",ru:"Предельная ступень"}, takeLbl:{en:"You keep",el:"Κρατάτε",ru:"Вы оставляете"},
+  empSI:{en:"Employer Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις εργοδότη (8,8%)",ru:"Соц. страхование работодателя (8,8%)"},
+  empGesy:{en:"Employer GESY (2.90%)",el:"ΓεΣΥ εργοδότη (2,90%)",ru:"ГеСИ работодателя (2,90%)"},
+  empOther:{en:"Other employer funds (~4.7%)",el:"Άλλα ταμεία εργοδότη (~4,7%)",ru:"Прочие фонды работодателя (~4,7%)"},
+  empTotal:{en:"Total cost to employer",el:"Συνολικό κόστος εργοδότη",ru:"Общие расходы работодателя"},
+  py:{en:"Year",el:"Έτος",ru:"Год"}, pmo:{en:"Month",el:"Μήνας",ru:"Месяц"}, pw:{en:"Week",el:"Εβδομ.",ru:"Нед."}, pd:{en:"Day",el:"Ημέρα",ru:"День"}, ph:{en:"Hour",el:"Ώρα",ru:"Час"},
+  share:{en:"Copy shareable link",el:"Αντιγραφή συνδέσμου",ru:"Скопировать ссылку"}, shared:{en:"Link copied ✓",el:"Αντιγράφηκε ✓",ru:"Ссылка скопирована ✓"},
+  print:{en:"Print / save PDF",el:"Εκτύπωση / PDF",ru:"Печать / PDF"},
+  offer:{en:"Offer",el:"Προσφορά",ru:"Предложение"}, bonus:{en:"Annual bonus",el:"Ετήσιο μπόνους",ru:"Годовой бонус"},
+  offerA:{en:"Offer A",el:"Προσφορά Α",ru:"Предложение А"}, offerB:{en:"Offer B",el:"Προσφορά Β",ru:"Предложение Б"},
+  metric:{en:"Metric",el:"Στοιχείο",ru:"Показатель"}, totalComp:{en:"Total gross (salary + bonus)",el:"Συνολικός μικτός (μισθός + μπόνους)",ru:"Всего валовыми (зарплата + бонус)"},
+  netAnnualShort:{en:"Net per year",el:"Καθαρός ανά έτος",ru:"Чистыми в год"}, netMonth:{en:"Net per month",el:"Καθαρός ανά μήνα",ru:"Чистыми в месяц"},
+  moreNet:{en:"more net per year",el:"περισσότερα καθαρά ανά έτος",ru:"больше чистыми в год"},
+  aBetter:{en:"Offer A is better",el:"Η Προσφορά Α είναι καλύτερη",ru:"Предложение А выгоднее"}, bBetter:{en:"Offer B is better",el:"Η Προσφορά Β είναι καλύτερη",ru:"Предложение Б выгоднее"}, tie:{en:"They're equal",el:"Είναι ίσες",ru:"Они равны"},
+  howTitle:{en:"How the 2026 Cyprus salary calculation works",el:"Πώς γίνεται ο υπολογισμός μισθού Κύπρου 2026",ru:"Как работает расчёт зарплаты на Кипре 2026"},
+  howBody:{en:"Your income tax is calculated on your gross salary after deducting Social Insurance, GESY and any pension contributions, which are tax-deductible. The first €22,000 of taxable income is tax-free following the January 2026 reform. The remaining income is taxed progressively: 20% from €22,001 to €32,000, 25% up to €42,000, 30% up to €72,000, and 35% above that. Social Insurance is 8.8% of gross (capped at €68,904 of insurable earnings) and the General Healthcare System (GESY) contribution is 2.65% (capped at €180,000).",el:"Ο φόρος εισοδήματος υπολογίζεται στον μικτό μισθό μετά την αφαίρεση των εισφορών Κοιν. Ασφαλίσεων, ΓεΣΥ και σύνταξης, που εκπίπτουν φόρου. Οι πρώτες €22.000 φορολογητέου εισοδήματος είναι αφορολόγητες μετά τη μεταρρύθμιση του 2026. Το υπόλοιπο φορολογείται προοδευτικά: 20% από €22.001 έως €32.000, 25% έως €42.000, 30% έως €72.000 και 35% άνω αυτού. Οι Κοιν. Ασφαλίσεις είναι 8,8% (όριο €68.904) και η εισφορά ΓεΣΥ 2,65% (όριο €180.000).",ru:"Подоходный налог рассчитывается с валовой зарплаты после вычета соц. страхования, ГеСИ и пенсионных взносов, которые вычитаются из налоговой базы. Первые €22 000 налогооблагаемого дохода не облагаются налогом после реформы января 2026. Остальной доход облагается прогрессивно: 20% с €22 001 до €32 000, 25% до €42 000, 30% до €72 000 и 35% свыше. Соц. страхование — 8,8% от валовой (потолок застрахованного дохода €68 904), а взнос в систему здравоохранения (ГеСИ) — 2,65% (потолок €180 000)."},
+  q1:{en:"What is the tax-free amount in Cyprus for 2026?",el:"Ποιο είναι το αφορολόγητο στην Κύπρο για το 2026;",ru:"Какая сумма не облагается налогом на Кипре в 2026 году?"},
+  a1:{en:"After the 2026 reform, the personal income tax-free threshold rose from €19,500 to €22,000 per year.",el:"Μετά τη μεταρρύθμιση του 2026, το αφορολόγητο αυξήθηκε από €19.500 σε €22.000 ετησίως.",ru:"После реформы 2026 года необлагаемый порог вырос с €19 500 до €22 000 в год."},
+  q2:{en:"What is deducted from a Cyprus salary?",el:"Τι αφαιρείται από έναν μισθό στην Κύπρο;",ru:"Что удерживается из зарплаты на Кипре?"},
+  a2:{en:"Employees pay income tax, Social Insurance (8.8%) and GESY (2.65%). Employers pay their own Social Insurance and GESY plus contributions to other state funds.",el:"Οι εργαζόμενοι πληρώνουν φόρο, Κοιν. Ασφαλίσεις (8,8%) και ΓεΣΥ (2,65%). Οι εργοδότες πληρώνουν δικές τους εισφορές συν άλλα κρατικά ταμεία.",ru:"Работники платят подоходный налог, соц. страхование (8,8%) и ГеСИ (2,65%). Работодатели платят свои взносы на соц. страхование и ГеСИ, а также в другие государственные фонды."},
+  q3:{en:"Does this include the 13th salary?",el:"Περιλαμβάνει τον 13ο μισθό;",ru:"Учитывается ли 13-я зарплата?"},
+  a3:{en:"Yes — choose 12, 13 or 14 salaries. The annual gross is taxed as a whole and then divided across the number of payments you select.",el:"Ναι — επιλέξτε 12, 13 ή 14 μισθούς. Ο ετήσιος μικτός φορολογείται συνολικά και μετά διαιρείται στις πληρωμές που επιλέγετε.",ru:"Да — выберите 12, 13 или 14 зарплат. Годовая валовая облагается налогом целиком, а затем делится на выбранное число выплат."},
+  q4:{en:"What gross salary do I need to take home a certain amount?",el:"Τι μικτό μισθό χρειάζομαι για συγκεκριμένο καθαρό;",ru:"Какая валовая зарплата нужна, чтобы получать на руки определённую сумму?"},
+  a4:{en:"Use the Reverse tab: enter the net take-home you want per month or per year and the calculator works out the gross salary you'd need to sign for.",el:"Χρησιμοποιήστε την καρτέλα Αντίστροφα: βάλτε τον καθαρό μισθό που θέλετε ανά μήνα ή έτος και υπολογίζουμε τον απαιτούμενο μικτό.",ru:"Используйте вкладку «Обратный расчёт»: введите желаемую чистую сумму в месяц или в год, и калькулятор определит нужную валовую зарплату."},
+  q5:{en:"What is the 50% expat tax relief?",el:"Τι είναι η έκπτωση 50% για ξένους;",ru:"Что такое налоговая льгота 50% для иностранцев?"},
+  a5:{en:"Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick \"50% expat relief\" under Advanced options to estimate it.",el:"Άτομα που αναλαμβάνουν πρώτη εργασία στην Κύπρο με αμοιβή άνω €55.000 ετησίως μπορούν να εξαιρέσουν το 50% από τον φόρο για έως 17 έτη. Επιλέξτε «έκπτωση 50% ξένων» στις Προχωρημένες επιλογές.",ru:"Лица, впервые устроившиеся на работу на Кипре с оплатой свыше €55 000 в год, могут освободить 50% этого трудового дохода от подоходного налога на срок до 17 лет. Отметьте «Льгота 50% для иностранцев» в расширенных настройках, чтобы учесть её."},
+  foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου",ru:"Ориентировочные оценки · ставки 2026 · не связано с Правительством Кипра"},
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"}, navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},
+  genPayslip:{en:"Generate a payslip from this →",el:"Δημιουργία μισθοδοσίας από αυτό →",ru:"Создать расчётный лист из этого →"},
+  guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις",ru:"Гиды и разъяснения"},
+  gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени Кипра 2026"},
+  gl2:{en:"13th & 14th salary",el:"13ος & 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  gl3:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  gl4:{en:"Social Insurance & GESY",el:"Κοιν. Ασφαλίσεις & ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  pmLbl:{en:"per month",el:"τον μήνα",ru:"в месяц"}, ppLbl:{en:"per payment",el:"ανά πληρωμή",ru:"за выплату"}, pyLbl:{en:"per year",el:"τον χρόνο",ru:"в год"}
 };
 
 let lang='en', mode='take', period='year', revPeriod='month', months=12;
@@ -606,8 +607,10 @@ function setLang(l){
   lang=l;
   $('l-en').classList.toggle('on',l==='en');
   $('l-el').classList.toggle('on',l==='el');
+  $('l-ru').classList.toggle('on',l==='ru');
   document.documentElement.lang=l;
-  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i; if(T[k]) el.innerHTML=T[k][l];});
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i; if(T[k]) el.innerHTML=T[k][l]||T[k].en;});
+  try{localStorage.setItem('csLang',l);}catch(e){}
   calc();
 }
 
@@ -633,7 +636,7 @@ function share(){
 function loadFromURL(){
   const p=new URLSearchParams(location.search);
   if(![...p.keys()].length) return;
-  if(p.get('lang')==='el') setLang('el');
+  if(['en','el','ru'].includes(p.get('lang'))) setLang(p.get('lang'));
   if(p.get('pen')!=null)$('pension').value=p.get('pen');
   if(p.get('expat'))$('expat').checked=true;
   if(p.get('h'))$('hours').value=p.get('h');
@@ -662,6 +665,7 @@ document.querySelectorAll('input').forEach(el=>{
 });
 $('employer').addEventListener('change',e=>{ $('employerBox').style.display=e.target.checked?'table':'none'; });
 
+try{const sl=localStorage.getItem('csLang'); if(sl==='el'||sl==='ru') setLang(sl);}catch(e){}
 loadFromURL();
 calc();
 

@@ -24,69 +24,121 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Tax bands 2026</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Tax bands 2026</span></nav>
 
-  <h1>Cyprus income tax bands for 2026</h1>
-  <p class="lead">Following the reform effective 1 January 2026, the tax-free threshold rose to €22,000 and the bands were widened.</p>
-  <a class="cta" href="/">Calculate my net salary →</a>
+  <h1 data-i="h1">Cyprus income tax bands for 2026</h1>
+  <p class="lead" data-i="lead">Following the reform effective 1 January 2026, the tax-free threshold rose to €22,000 and the bands were widened.</p>
+  <a class="cta" href="/" data-i="cta">Calculate my net salary →</a>
 
-  <h2>The 2026 tax bands</h2>
+  <h2 data-i="h2bands">The 2026 tax bands</h2>
   <table class="rates">
-    <tr><th>Taxable income</th><th>Rate</th></tr>
+    <tr><th data-i="thIncome">Taxable income</th><th data-i="thRate">Rate</th></tr>
     <tr><td>€0 – €22,000</td><td>0%</td></tr>
     <tr><td>€22,001 – €32,000</td><td>20%</td></tr>
     <tr><td>€32,001 – €42,000</td><td>25%</td></tr>
     <tr><td>€42,001 – €72,000</td><td>30%</td></tr>
-    <tr><td>Over €72,000</td><td>35%</td></tr>
+    <tr><td data-i="rOver">Over €72,000</td><td>35%</td></tr>
   </table>
-  <p>The bands are <strong>progressive</strong>: each rate applies only to the slice of income inside that band, not to your whole salary. Earning €1 into a higher band never reduces your take-home pay.</p>
+  <p data-i="pProg">The bands are <strong>progressive</strong>: each rate applies only to the slice of income inside that band, not to your whole salary. Earning €1 into a higher band never reduces your take-home pay.</p>
 
-  <h2>What counts as taxable income</h2>
-  <p>Income tax in Cyprus is charged on your gross pay <em>after</em> deducting your Social Insurance (8.8%) and GESY (2.65%) contributions, which are tax-deductible. So the taxable figure is lower than your headline gross.</p>
+  <h2 data-i="h2taxable">What counts as taxable income</h2>
+  <p data-i="pTaxable">Income tax in Cyprus is charged on your gross pay <em>after</em> deducting your Social Insurance (8.8%) and GESY (2.65%) contributions, which are tax-deductible. So the taxable figure is lower than your headline gross.</p>
 
   <div class="adslot" data-ad="guide">Advertisement</div>
 
-  <h2>Worked example: €40,000 gross</h2>
+  <h2 data-i="h2worked">Worked example: €40,000 gross</h2>
   <ul>
-    <li>Social Insurance: 8.8% × €40,000 = €3,520</li>
-    <li>GESY: 2.65% × €40,000 = €1,060</li>
-    <li>Taxable income: €40,000 − €3,520 − €1,060 = €35,420</li>
-    <li>Tax: 0% on first €22,000 + 20% on next €10,000 (€2,000) + 25% on €3,420 (€855) = <strong>€2,855</strong></li>
-    <li>Net: €40,000 − €3,520 − €1,060 − €2,855 = <strong>€32,565</strong></li>
+    <li data-i="w1">Social Insurance: 8.8% × €40,000 = €3,520</li>
+    <li data-i="w2">GESY: 2.65% × €40,000 = €1,060</li>
+    <li data-i="w3">Taxable income: €40,000 − €3,520 − €1,060 = €35,420</li>
+    <li data-i="w4">Tax: 0% on first €22,000 + 20% on next €10,000 (€2,000) + 25% on €3,420 (€855) = <strong>€2,855</strong></li>
+    <li data-i="w5">Net: €40,000 − €3,520 − €1,060 − €2,855 = <strong>€32,565</strong></li>
   </ul>
-  <p>Want your own figure? The <a href="/">calculator</a> does this instantly and also handles 13th/14th salaries and the employer cost.</p>
+  <p data-i="pOwn">Want your own figure? The <a href="/">calculator</a> does this instantly and also handles 13th/14th salaries and the employer cost.</p>
 
-  <h2>What changed in the 2026 reform</h2>
+  <h2 data-i="h2changed">What changed in the 2026 reform</h2>
   <ul>
-    <li>Tax-free threshold raised from €19,500 to <strong>€22,000</strong>.</li>
-    <li>Top 35% band entry moved from €60,000 to <strong>€72,000</strong>.</li>
-    <li>New family allowances were introduced for qualifying households.</li>
+    <li data-i="c1">Tax-free threshold raised from €19,500 to <strong>€22,000</strong>.</li>
+    <li data-i="c2">Top 35% band entry moved from €60,000 to <strong>€72,000</strong>.</li>
+    <li data-i="c3">New family allowances were introduced for qualifying households.</li>
   </ul>
 
-  <div class="callout"><strong>Estimate only.</strong> Rates and rules change; always confirm with the Cyprus Tax Department or an accountant.</div>
+  <div class="callout" data-i="callout"><strong>Estimate only.</strong> Rates and rules change; always confirm with the Cyprus Tax Department or an accountant.</div>
 
 
-  <h2>How the bands actually work</h2>
-  <p>Cyprus income tax is <strong>progressive</strong> and <strong>marginal</strong>: each band's rate applies only to the slice of income that falls inside it, not to your whole salary. So a higher salary never leaves you worse off — only the euros above each threshold are taxed at the higher rate. The first €22,000 is tax-free for everyone.</p>
+  <h2 data-i="h2how">How the bands actually work</h2>
+  <p data-i="pHow">Cyprus income tax is <strong>progressive</strong> and <strong>marginal</strong>: each band's rate applies only to the slice of income that falls inside it, not to your whole salary. So a higher salary never leaves you worse off — only the euros above each threshold are taxed at the higher rate. The first €22,000 is tax-free for everyone.</p>
 
-  <h2>A worked example</h2>
-  <p>Take a €40,000 annual taxable income (after Social Insurance and GESY, which are deducted before income tax). The first €22,000 is tax-free. The next slice from €22,001 to €30,000 (€8,000) is taxed at 20% = €1,600. The slice from €30,001 to €40,000 (€10,000) is taxed at 25% = €2,500. Total income tax is roughly €4,100 — an <em>effective</em> rate of about 10%, even though the top <em>marginal</em> rate touched is 25%. The <a href="/">salary calculator</a> does this automatically and also subtracts Social Insurance and GESY first.</p>
+  <h2 data-i="h2example">A worked example</h2>
+  <p data-i="pExample">Take a €40,000 annual taxable income (after Social Insurance and GESY, which are deducted before income tax). The first €22,000 is tax-free. The next slice from €22,001 to €30,000 (€8,000) is taxed at 20% = €1,600. The slice from €30,001 to €40,000 (€10,000) is taxed at 25% = €2,500. Total income tax is roughly €4,100 — an <em>effective</em> rate of about 10%, even though the top <em>marginal</em> rate touched is 25%. The <a href="/">salary calculator</a> does this automatically and also subtracts Social Insurance and GESY first.</p>
 
-  <h2>What counts as taxable income</h2>
-  <p>Taxable income is your gross employment income minus contributions that are deductible for tax — chiefly Social Insurance and GESY — and any reliefs you qualify for. Certain items (like part of an approved pension contribution, or the 50% expat relief for qualifying new arrivals earning over €55,000) reduce the amount that reaches the bands.</p>
+  <h2 data-i="h2taxable2">What counts as taxable income</h2>
+  <p data-i="pTaxable2">Taxable income is your gross employment income minus contributions that are deductible for tax — chiefly Social Insurance and GESY — and any reliefs you qualify for. Certain items (like part of an approved pension contribution, or the 50% expat relief for qualifying new arrivals earning over €55,000) reduce the amount that reaches the bands.</p>
 
-  <h2>What changed in the 2026 reform</h2>
-  <p>The headline change is the tax-free threshold rising from €19,500 to €22,000, with the bands above it restructured to 20%, 25%, 30% and 35%. For most employees this lowers the tax bill at the lower and middle of the scale. Because rates can be revised, always check the current position with the <a href="https://www.mof.gov.cy/mof/tax/taxdep.nsf" rel="nofollow noopener" target="_blank">Cyprus Tax Department</a> before relying on a figure.</p>
+  <h2 data-i="h2changed2">What changed in the 2026 reform</h2>
+  <p data-i="pChanged2">The headline change is the tax-free threshold rising from €19,500 to €22,000, with the bands above it restructured to 20%, 25%, 30% and 35%. For most employees this lowers the tax bill at the lower and middle of the scale. Because rates can be revised, always check the current position with the <a href="https://www.mof.gov.cy/mof/tax/taxdep.nsf" rel="nofollow noopener" target="_blank">Cyprus Tax Department</a> before relying on a figure.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/social-insurance-gesy">Social Insurance &amp; GESY</a>
-    <a href="/13th-salary">13th &amp; 14th salary</a>
-    <a href="/self-employed-tax">Self-employed tax</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/social-insurance-gesy" data-i="relSI">Social Insurance &amp; GESY</a>
+    <a href="/13th-salary" data-i="rel13">13th &amp; 14th salary</a>
+    <a href="/self-employed-tax" data-i="relSelf">Self-employed tax</a>
   </div>
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  h1:{en:"Cyprus income tax bands for 2026",el:"Φορολογικές κλίμακες εισοδήματος Κύπρου για το 2026",ru:"Ступени подоходного налога Кипра на 2026"},
+  lead:{en:"Following the reform effective 1 January 2026, the tax-free threshold rose to €22,000 and the bands were widened.",el:"Μετά τη μεταρρύθμιση που ισχύει από 1 Ιανουαρίου 2026, το αφορολόγητο ανέβηκε στις €22.000 και οι κλίμακες διευρύνθηκαν.",ru:"После реформы, вступившей в силу 1 января 2026 года, необлагаемый порог вырос до €22 000, а ступени были расширены."},
+  cta:{en:"Calculate my net salary →",el:"Υπολογισμός καθαρού μισθού →",ru:"Рассчитать мою чистую зарплату →"},
+  h2bands:{en:"The 2026 tax bands",el:"Οι φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  thIncome:{en:"Taxable income",el:"Φορολογητέο εισόδημα",ru:"Налогооблагаемый доход"},
+  thRate:{en:"Rate",el:"Συντελεστής",ru:"Ставка"},
+  rOver:{en:"Over €72,000",el:"Άνω των €72.000",ru:"Свыше €72 000"},
+  pProg:{en:"The bands are <strong>progressive</strong>: each rate applies only to the slice of income inside that band, not to your whole salary. Earning €1 into a higher band never reduces your take-home pay.",el:"Οι κλίμακες είναι <strong>προοδευτικές</strong>: κάθε συντελεστής εφαρμόζεται μόνο στο τμήμα του εισοδήματος εντός της κλίμακας, όχι σε ολόκληρο τον μισθό. Το να κερδίσετε €1 σε υψηλότερη κλίμακα δεν μειώνει ποτέ τον καθαρό σας μισθό.",ru:"Ступени <strong>прогрессивные</strong>: каждая ставка применяется только к части дохода внутри этой ступени, а не ко всей зарплате. Заработок на €1 выше в новой ступени никогда не уменьшает вашу зарплату на руки."},
+  h2taxable:{en:"What counts as taxable income",el:"Τι θεωρείται φορολογητέο εισόδημα",ru:"Что считается налогооблагаемым доходом"},
+  pTaxable:{en:"Income tax in Cyprus is charged on your gross pay <em>after</em> deducting your Social Insurance (8.8%) and GESY (2.65%) contributions, which are tax-deductible. So the taxable figure is lower than your headline gross.",el:"Ο φόρος εισοδήματος στην Κύπρο επιβάλλεται στον μικτό μισθό <em>μετά</em> την αφαίρεση των εισφορών Κοιν. Ασφαλίσεων (8,8%) και ΓεΣΥ (2,65%), που εκπίπτουν φόρου. Έτσι το φορολογητέο ποσό είναι χαμηλότερο από τον ονομαστικό μικτό.",ru:"Подоходный налог на Кипре начисляется на валовую зарплату <em>после</em> вычета взносов соц. страхования (8,8%) и ГеСИ (2,65%), которые вычитаются из налоговой базы. Поэтому налогооблагаемая сумма меньше номинальной валовой."},
+  h2worked:{en:"Worked example: €40,000 gross",el:"Παράδειγμα: €40.000 μικτά",ru:"Разбор примера: €40 000 валовыми"},
+  w1:{en:"Social Insurance: 8.8% × €40,000 = €3,520",el:"Κοιν. Ασφαλίσεις: 8,8% × €40.000 = €3.520",ru:"Соц. страхование: 8,8% × €40 000 = €3 520"},
+  w2:{en:"GESY: 2.65% × €40,000 = €1,060",el:"ΓεΣΥ: 2,65% × €40.000 = €1.060",ru:"ГеСИ: 2,65% × €40 000 = €1 060"},
+  w3:{en:"Taxable income: €40,000 − €3,520 − €1,060 = €35,420",el:"Φορολογητέο εισόδημα: €40.000 − €3.520 − €1.060 = €35.420",ru:"Налогооблагаемый доход: €40 000 − €3 520 − €1 060 = €35 420"},
+  w4:{en:"Tax: 0% on first €22,000 + 20% on next €10,000 (€2,000) + 25% on €3,420 (€855) = <strong>€2,855</strong>",el:"Φόρος: 0% στις πρώτες €22.000 + 20% στις επόμενες €10.000 (€2.000) + 25% στις €3.420 (€855) = <strong>€2.855</strong>",ru:"Налог: 0% на первые €22 000 + 20% на следующие €10 000 (€2 000) + 25% на €3 420 (€855) = <strong>€2 855</strong>"},
+  w5:{en:"Net: €40,000 − €3,520 − €1,060 − €2,855 = <strong>€32,565</strong>",el:"Καθαρός: €40.000 − €3.520 − €1.060 − €2.855 = <strong>€32.565</strong>",ru:"Чистыми: €40 000 − €3 520 − €1 060 − €2 855 = <strong>€32 565</strong>"},
+  pOwn:{en:"Want your own figure? The <a href=\"/\">calculator</a> does this instantly and also handles 13th/14th salaries and the employer cost.",el:"Θέλετε τον δικό σας αριθμό; Ο <a href=\"/\">υπολογιστής</a> το κάνει άμεσα και χειρίζεται και τον 13ο/14ο μισθό και το κόστος εργοδότη.",ru:"Хотите свою цифру? <a href=\"/\">Калькулятор</a> сделает это мгновенно и учтёт 13-ю/14-ю зарплату и расходы работодателя."},
+  h2changed:{en:"What changed in the 2026 reform",el:"Τι άλλαξε στη μεταρρύθμιση του 2026",ru:"Что изменилось в реформе 2026"},
+  c1:{en:"Tax-free threshold raised from €19,500 to <strong>€22,000</strong>.",el:"Το αφορολόγητο αυξήθηκε από €19.500 σε <strong>€22.000</strong>.",ru:"Необлагаемый порог повышен с €19 500 до <strong>€22 000</strong>."},
+  c2:{en:"Top 35% band entry moved from €60,000 to <strong>€72,000</strong>.",el:"Η είσοδος στην ανώτατη κλίμακα 35% μετακινήθηκε από €60.000 σε <strong>€72.000</strong>.",ru:"Порог верхней ступени 35% сдвинут с €60 000 на <strong>€72 000</strong>."},
+  c3:{en:"New family allowances were introduced for qualifying households.",el:"Θεσπίστηκαν νέα οικογενειακά επιδόματα για δικαιούχα νοικοκυριά.",ru:"Введены новые семейные пособия для соответствующих домохозяйств."},
+  callout:{en:"<strong>Estimate only.</strong> Rates and rules change; always confirm with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Οι συντελεστές και οι κανόνες αλλάζουν· επιβεβαιώνετε πάντα με το Τμήμα Φορολογίας ή λογιστή.",ru:"<strong>Только оценка.</strong> Ставки и правила меняются; всегда уточняйте в Налоговом департаменте Кипра или у бухгалтера."},
+  h2how:{en:"How the bands actually work",el:"Πώς λειτουργούν πραγματικά οι κλίμακες",ru:"Как на самом деле работают ступени"},
+  pHow:{en:"Cyprus income tax is <strong>progressive</strong> and <strong>marginal</strong>: each band's rate applies only to the slice of income that falls inside it, not to your whole salary. So a higher salary never leaves you worse off — only the euros above each threshold are taxed at the higher rate. The first €22,000 is tax-free for everyone.",el:"Ο φόρος εισοδήματος στην Κύπρο είναι <strong>προοδευτικός</strong> και <strong>οριακός</strong>: ο συντελεστής κάθε κλίμακας εφαρμόζεται μόνο στο τμήμα του εισοδήματος που εμπίπτει σε αυτήν, όχι σε ολόκληρο τον μισθό. Έτσι ένας υψηλότερος μισθός δεν σας αφήνει ποτέ σε χειρότερη θέση — μόνο τα ευρώ πάνω από κάθε όριο φορολογούνται με υψηλότερο συντελεστή. Οι πρώτες €22.000 είναι αφορολόγητες για όλους.",ru:"Подоходный налог на Кипре <strong>прогрессивный</strong> и <strong>предельный</strong>: ставка каждой ступени применяется только к части дохода внутри неё, а не ко всей зарплате. Поэтому более высокая зарплата никогда не ухудшает положение — по повышенной ставке облагаются только евро выше каждого порога. Первые €22 000 не облагаются налогом ни у кого."},
+  h2example:{en:"A worked example",el:"Ένα παράδειγμα",ru:"Разобранный пример"},
+  pExample:{en:"Take a €40,000 annual taxable income (after Social Insurance and GESY, which are deducted before income tax). The first €22,000 is tax-free. The next slice from €22,001 to €30,000 (€8,000) is taxed at 20% = €1,600. The slice from €30,001 to €40,000 (€10,000) is taxed at 25% = €2,500. Total income tax is roughly €4,100 — an <em>effective</em> rate of about 10%, even though the top <em>marginal</em> rate touched is 25%. The <a href=\"/\">salary calculator</a> does this automatically and also subtracts Social Insurance and GESY first.",el:"Πάρτε ένα ετήσιο φορολογητέο εισόδημα €40.000 (μετά τις Κοιν. Ασφαλίσεις και το ΓεΣΥ, που αφαιρούνται πριν τον φόρο). Οι πρώτες €22.000 είναι αφορολόγητες. Το επόμενο τμήμα από €22.001 έως €30.000 (€8.000) φορολογείται με 20% = €1.600. Το τμήμα από €30.001 έως €40.000 (€10.000) με 25% = €2.500. Ο συνολικός φόρος είναι περίπου €4.100 — <em>πραγματικός</em> συντελεστής περίπου 10%, αν και ο ανώτατος <em>οριακός</em> συντελεστής που αγγίζεται είναι 25%. Ο <a href=\"/\">υπολογιστής μισθού</a> το κάνει αυτόματα και αφαιρεί πρώτα τις Κοιν. Ασφαλίσεις και το ΓεΣΥ.",ru:"Возьмём годовой налогооблагаемый доход €40 000 (после соц. страхования и ГеСИ, которые вычитаются до подоходного налога). Первые €22 000 не облагаются. Следующая часть от €22 001 до €30 000 (€8 000) облагается по 20% = €1 600. Часть от €30 001 до €40 000 (€10 000) — по 25% = €2 500. Итого подоходный налог около €4 100 — <em>эффективная</em> ставка примерно 10%, хотя верхняя затронутая <em>предельная</em> ставка — 25%. <a href=\"/\">Калькулятор зарплаты</a> делает это автоматически и сначала вычитает соц. страхование и ГеСИ."},
+  h2taxable2:{en:"What counts as taxable income",el:"Τι θεωρείται φορολογητέο εισόδημα",ru:"Что считается налогооблагаемым доходом"},
+  pTaxable2:{en:"Taxable income is your gross employment income minus contributions that are deductible for tax — chiefly Social Insurance and GESY — and any reliefs you qualify for. Certain items (like part of an approved pension contribution, or the 50% expat relief for qualifying new arrivals earning over €55,000) reduce the amount that reaches the bands.",el:"Το φορολογητέο εισόδημα είναι το μικτό εισόδημα από εργασία μείον τις εισφορές που εκπίπτουν φόρου — κυρίως Κοιν. Ασφαλίσεις και ΓεΣΥ — και τυχόν εκπτώσεις που δικαιούστε. Ορισμένα στοιχεία (όπως μέρος εγκεκριμένης εισφοράς σύνταξης ή η έκπτωση 50% για νεοαφιχθέντες που κερδίζουν άνω των €55.000) μειώνουν το ποσό που φτάνει στις κλίμακες.",ru:"Налогооблагаемый доход — это ваш валовой трудовой доход за вычетом взносов, вычитаемых из налога, — прежде всего соц. страхования и ГеСИ, — а также любых льгот, на которые вы имеете право. Некоторые позиции (например, часть одобренного пенсионного взноса или льгота 50% для новоприбывших с доходом свыше €55 000) уменьшают сумму, доходящую до ступеней."},
+  h2changed2:{en:"What changed in the 2026 reform",el:"Τι άλλαξε στη μεταρρύθμιση του 2026",ru:"Что изменилось в реформе 2026"},
+  pChanged2:{en:"The headline change is the tax-free threshold rising from €19,500 to €22,000, with the bands above it restructured to 20%, 25%, 30% and 35%. For most employees this lowers the tax bill at the lower and middle of the scale. Because rates can be revised, always check the current position with the <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Cyprus Tax Department</a> before relying on a figure.",el:"Η κύρια αλλαγή είναι η αύξηση του αφορολόγητου από €19.500 σε €22.000, με τις κλίμακες πάνω από αυτό να αναδιαρθρώνονται σε 20%, 25%, 30% και 35%. Για τους περισσότερους εργαζομένους αυτό μειώνει τον φόρο στο κάτω και μεσαίο μέρος της κλίμακας. Επειδή οι συντελεστές μπορεί να αναθεωρηθούν, ελέγχετε πάντα την τρέχουσα κατάσταση με το <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Τμήμα Φορολογίας Κύπρου</a> πριν βασιστείτε σε έναν αριθμό.",ru:"Главное изменение — рост необлагаемого порога с €19 500 до €22 000, а ступени выше него перестроены на 20%, 25%, 30% и 35%. Для большинства работников это снижает налог в нижней и средней части шкалы. Поскольку ставки могут пересматриваться, всегда проверяйте текущее положение в <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Налоговом департаменте Кипра</a>, прежде чем полагаться на цифру."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relSI:{en:"Social Insurance &amp; GESY",el:"Κοιν. Ασφαλίσεις &amp; ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  rel13:{en:"13th &amp; 14th salary",el:"13ος &amp; 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  relSelf:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

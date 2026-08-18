@@ -25,44 +25,82 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Cookie Policy</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Cookie Policy</span></nav>
 
-  <h1>Cookie Policy</h1>
-  <p class="lead">Last updated: 11 August 2026. What this site stores in your browser, and how to control it.</p>
+  <h1 data-i="h1">Cookie Policy</h1>
+  <p class="lead" data-i="lead">Last updated: 11 August 2026. What this site stores in your browser, and how to control it.</p>
 
-  <h2>In plain English</h2>
-  <p>The calculator is light on tracking. It does <strong>not</strong> use cookies to store your salary figures or identify you — those figures stay in your browser and are never uploaded. The storage that is used falls into two groups.</p>
+  <h2 data-i="h2plain">In plain English</h2>
+  <p data-i="pPlain">The calculator is light on tracking. It does <strong>not</strong> use cookies to store your salary figures or identify you — those figures stay in your browser and are never uploaded. The storage that is used falls into two groups.</p>
 
-  <h2>1. Essential / preferences</h2>
+  <h2 data-i="h2essential">1. Essential / preferences</h2>
   <ul>
-    <li><strong>Language and theme</strong> — your EN/EL choice and light/dark preference are saved in your browser's local storage so the site remembers them. They never leave your device.</li>
-    <li><strong>Hosting</strong> — the site is served through Cloudflare, which may set a strictly necessary cookie for security.</li>
+    <li data-i="e1"><strong>Language and theme</strong> — your EN/EL/RU choice and light/dark preference are saved in your browser's local storage so the site remembers them. They never leave your device.</li>
+    <li data-i="e2"><strong>Hosting</strong> — the site is served through Cloudflare, which may set a strictly necessary cookie for security.</li>
   </ul>
 
-  <h2>2. Advertising (Google AdSense)</h2>
-  <p>To keep the calculator free, the site uses Google AdSense. Google and its partners may set cookies — including the <strong>DoubleClick</strong> cookie — to serve and measure ads, and, where you consent, to personalise them based on your prior visits to this and other sites.</p>
+  <h2 data-i="h2ads">2. Advertising (Google AdSense)</h2>
+  <p data-i="pAds">To keep the calculator free, the site uses Google AdSense. Google and its partners may set cookies — including the <strong>DoubleClick</strong> cookie — to serve and measure ads, and, where you consent, to personalise them based on your prior visits to this and other sites.</p>
   <ul>
-    <li>Manage or turn off personalised ads at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a>.</li>
-    <li>Opt out of many vendors at <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info/choices</a> and <a href="https://www.youronlinechoices.eu/" rel="nofollow noopener" target="_blank">youronlinechoices.eu</a>.</li>
-    <li>In the EEA, UK and Switzerland, personalised-advertising cookies are set only after you consent via the notice shown on the site.</li>
+    <li data-i="a1">Manage or turn off personalised ads at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a>.</li>
+    <li data-i="a2">Opt out of many vendors at <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info/choices</a> and <a href="https://www.youronlinechoices.eu/" rel="nofollow noopener" target="_blank">youronlinechoices.eu</a>.</li>
+    <li data-i="a3">In the EEA, UK and Switzerland, personalised-advertising cookies are set only after you consent via the notice shown on the site.</li>
   </ul>
 
-  <h2>Controlling cookies</h2>
-  <p>You can block or delete cookies and clear local storage in your browser settings at any time. Blocking preference storage will reset your language and theme; blocking advertising cookies means ads won't be personalised.</p>
+  <h2 data-i="h2control">Controlling cookies</h2>
+  <p data-i="pControl">You can block or delete cookies and clear local storage in your browser settings at any time. Blocking preference storage will reset your language and theme; blocking advertising cookies means ads won't be personalised.</p>
 
-  <h2>Contact</h2>
-  <p>Questions? Email <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a> or use the <a href="/contact">contact page</a>.</p>
+  <h2 data-i="h2contact">Contact</h2>
+  <p data-i="pContact">Questions? Email <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a> or use the <a href="/contact">contact page</a>.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/privacy">Privacy Policy</a>
-    <a href="/terms">Terms of Service</a>
-    <a href="/about">About</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/privacy" data-i="relPrivacy">Privacy Policy</a>
+    <a href="/terms" data-i="relTerms">Terms of Service</a>
+    <a href="/about" data-i="relAbout">About</a>
   </div>
 
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Cookie Policy",el:"Πολιτική Cookies",ru:"Политика Cookies"},
+  h1:{en:"Cookie Policy",el:"Πολιτική Cookies",ru:"Политика Cookies"},
+  lead:{en:"Last updated: 11 August 2026. What this site stores in your browser, and how to control it.",el:"Τελευταία ενημέρωση: 11 Αυγούστου 2026. Τι αποθηκεύει ο ιστότοπος στον browser σας και πώς να το ελέγξετε.",ru:"Последнее обновление: 11 августа 2026. Что этот сайт хранит в вашем браузере и как этим управлять."},
+  h2plain:{en:"In plain English",el:"Με απλά λόγια",ru:"Простыми словами"},
+  pPlain:{en:"The calculator is light on tracking. It does <strong>not</strong> use cookies to store your salary figures or identify you — those figures stay in your browser and are never uploaded. The storage that is used falls into two groups.",el:"Ο υπολογιστής έχει ελάχιστη παρακολούθηση. <strong>Δεν</strong> χρησιμοποιεί cookies για να αποθηκεύσει τα ποσά του μισθού σας ή να σας ταυτοποιήσει — αυτά τα ποσά μένουν στον browser σας και δεν ανεβαίνουν ποτέ. Η αποθήκευση που χρησιμοποιείται χωρίζεται σε δύο ομάδες.",ru:"Калькулятор почти не отслеживает. Он <strong>не</strong> использует cookies для хранения ваших сумм зарплаты или идентификации вас — эти цифры остаются в вашем браузере и никогда не загружаются. Используемое хранилище делится на две группы."},
+  h2essential:{en:"1. Essential / preferences",el:"1. Απαραίτητα / προτιμήσεις",ru:"1. Необходимые / настройки"},
+  e1:{en:"<strong>Language and theme</strong> — your EN/EL/RU choice and light/dark preference are saved in your browser's local storage so the site remembers them. They never leave your device.",el:"<strong>Γλώσσα και θέμα</strong> — η επιλογή σας EN/EL/RU και η προτίμηση φωτεινό/σκοτεινό αποθηκεύονται στην τοπική αποθήκευση του browser σας ώστε ο ιστότοπος να τις θυμάται. Δεν φεύγουν ποτέ από τη συσκευή σας.",ru:"<strong>Язык и тема</strong> — ваш выбор EN/EL/RU и предпочтение светлой/тёмной темы сохраняются в локальном хранилище вашего браузера, чтобы сайт их помнил. Они никогда не покидают ваше устройство."},
+  e2:{en:"<strong>Hosting</strong> — the site is served through Cloudflare, which may set a strictly necessary cookie for security.",el:"<strong>Φιλοξενία</strong> — ο ιστότοπος εξυπηρετείται μέσω Cloudflare, που μπορεί να ορίσει ένα αυστηρά απαραίτητο cookie για ασφάλεια.",ru:"<strong>Хостинг</strong> — сайт обслуживается через Cloudflare, который может установить строго необходимый cookie в целях безопасности."},
+  h2ads:{en:"2. Advertising (Google AdSense)",el:"2. Διαφήμιση (Google AdSense)",ru:"2. Реклама (Google AdSense)"},
+  pAds:{en:"To keep the calculator free, the site uses Google AdSense. Google and its partners may set cookies — including the <strong>DoubleClick</strong> cookie — to serve and measure ads, and, where you consent, to personalise them based on your prior visits to this and other sites.",el:"Για να παραμείνει ο υπολογιστής δωρεάν, ο ιστότοπος χρησιμοποιεί Google AdSense. Η Google και οι συνεργάτες της μπορεί να ορίσουν cookies — συμπεριλαμβανομένου του cookie <strong>DoubleClick</strong> — για την προβολή και μέτρηση διαφημίσεων και, όπου συναινείτε, για την εξατομίκευσή τους με βάση προηγούμενες επισκέψεις σας εδώ και σε άλλους ιστότοπους.",ru:"Чтобы калькулятор оставался бесплатным, сайт использует Google AdSense. Google и его партнёры могут устанавливать cookies — включая cookie <strong>DoubleClick</strong> — для показа и измерения рекламы, а при вашем согласии — для её персонализации на основе ваших предыдущих посещений этого и других сайтов."},
+  a1:{en:"Manage or turn off personalised ads at <a href=\"https://www.google.com/settings/ads\" rel=\"nofollow noopener\" target=\"_blank\">Google Ads Settings</a>.",el:"Διαχειριστείτε ή απενεργοποιήστε τις εξατομικευμένες διαφημίσεις στις <a href=\"https://www.google.com/settings/ads\" rel=\"nofollow noopener\" target=\"_blank\">Ρυθμίσεις Διαφημίσεων Google</a>.",ru:"Управляйте персонализированной рекламой или отключите её в <a href=\"https://www.google.com/settings/ads\" rel=\"nofollow noopener\" target=\"_blank\">Настройках рекламы Google</a>."},
+  a2:{en:"Opt out of many vendors at <a href=\"https://www.aboutads.info/choices/\" rel=\"nofollow noopener\" target=\"_blank\">aboutads.info/choices</a> and <a href=\"https://www.youronlinechoices.eu/\" rel=\"nofollow noopener\" target=\"_blank\">youronlinechoices.eu</a>.",el:"Εξαιρεθείτε από πολλούς προμηθευτές στο <a href=\"https://www.aboutads.info/choices/\" rel=\"nofollow noopener\" target=\"_blank\">aboutads.info/choices</a> και στο <a href=\"https://www.youronlinechoices.eu/\" rel=\"nofollow noopener\" target=\"_blank\">youronlinechoices.eu</a>.",ru:"Откажитесь от многих поставщиков на <a href=\"https://www.aboutads.info/choices/\" rel=\"nofollow noopener\" target=\"_blank\">aboutads.info/choices</a> и <a href=\"https://www.youronlinechoices.eu/\" rel=\"nofollow noopener\" target=\"_blank\">youronlinechoices.eu</a>."},
+  a3:{en:"In the EEA, UK and Switzerland, personalised-advertising cookies are set only after you consent via the notice shown on the site.",el:"Σε ΕΟΧ, ΗΒ και Ελβετία, τα cookies εξατομικευμένης διαφήμισης ορίζονται μόνο αφού συναινέσετε μέσω της ειδοποίησης που εμφανίζεται στον ιστότοπο.",ru:"В ЕЭЗ, Великобритании и Швейцарии cookies персонализированной рекламы устанавливаются только после вашего согласия через уведомление на сайте."},
+  h2control:{en:"Controlling cookies",el:"Έλεγχος cookies",ru:"Управление cookies"},
+  pControl:{en:"You can block or delete cookies and clear local storage in your browser settings at any time. Blocking preference storage will reset your language and theme; blocking advertising cookies means ads won't be personalised.",el:"Μπορείτε να μπλοκάρετε ή να διαγράψετε cookies και να καθαρίσετε την τοπική αποθήκευση από τις ρυθμίσεις του browser σας ανά πάσα στιγμή. Το μπλοκάρισμα της αποθήκευσης προτιμήσεων θα επαναφέρει τη γλώσσα και το θέμα· το μπλοκάρισμα διαφημιστικών cookies σημαίνει ότι οι διαφημίσεις δεν θα είναι εξατομικευμένες.",ru:"Вы можете блокировать или удалять cookies и очищать локальное хранилище в настройках браузера в любое время. Блокировка хранилища настроек сбросит ваш язык и тему; блокировка рекламных cookies означает, что реклама не будет персонализированной."},
+  h2contact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
+  pContact:{en:"Questions? Email <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> or use the <a href=\"/contact\">contact page</a>.",el:"Ερωτήσεις; Στείλτε email στο <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> ή χρησιμοποιήστε τη <a href=\"/contact\">σελίδα επικοινωνίας</a>.",ru:"Вопросы? Напишите на <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> или воспользуйтесь <a href=\"/contact\">страницей контактов</a>."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relPrivacy:{en:"Privacy Policy",el:"Πολιτική Απορρήτου",ru:"Политика конфиденциальности"},
+  relTerms:{en:"Terms of Service",el:"Όροι Χρήσης",ru:"Условия обслуживания"},
+  relAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

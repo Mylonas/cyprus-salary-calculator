@@ -24,58 +24,106 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Self-employed tax</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Self-employed tax</span></nav>
 
-  <h1>Self-employed tax in Cyprus (2026)</h1>
-  <p class="lead">Freelancers and sole traders pay the same income tax bands as employees, but higher social contributions. Here's the picture.</p>
+  <h1 data-i="h1">Self-employed tax in Cyprus (2026)</h1>
+  <p class="lead" data-i="lead">Freelancers and sole traders pay the same income tax bands as employees, but higher social contributions. Here's the picture.</p>
 
-  <h2>Income tax: same bands</h2>
-  <p>Self-employed individuals are taxed on their profits using the same progressive bands as employees: €22,000 tax-free, then 20%, 25%, 30% and 35%. See the <a href="/cyprus-tax-2026">2026 tax bands</a> for the full table. You deduct allowable business expenses to arrive at taxable profit.</p>
+  <h2 data-i="h2a">Income tax: same bands</h2>
+  <p data-i="pa">Self-employed individuals are taxed on their profits using the same progressive bands as employees: €22,000 tax-free, then 20%, 25%, 30% and 35%. See the <a href="/cyprus-tax-2026">2026 tax bands</a> for the full table. You deduct allowable business expenses to arrive at taxable profit.</p>
 
-  <h2>Higher social contributions</h2>
+  <h2 data-i="h2b">Higher social contributions</h2>
   <table class="rates">
-    <tr><th>Contribution</th><th>Employee</th><th>Self-employed</th></tr>
-    <tr><td>Social Insurance</td><td>8.8%</td><td>16.6%</td></tr>
-    <tr><td>GESY</td><td>2.65%</td><td>4.00%</td></tr>
+    <tr><th data-i="thContribution">Contribution</th><th data-i="thEmployee">Employee</th><th data-i="thSelf">Self-employed</th></tr>
+    <tr><td data-i="rSI">Social Insurance</td><td>8.8%</td><td>16.6%</td></tr>
+    <tr><td data-i="rGESY">GESY</td><td>2.65%</td><td>4.00%</td></tr>
   </table>
-  <p>Because there is no employer to pay a matching share, self-employed Social Insurance is higher at 16.6%, charged on notional income bands set by the state according to your profession. GESY is 4.00% of income.</p>
+  <p data-i="pb">Because there is no employer to pay a matching share, self-employed Social Insurance is higher at 16.6%, charged on notional income bands set by the state according to your profession. GESY is 4.00% of income.</p>
 
   <div class="adslot" data-ad="guide">Advertisement</div>
 
-  <h2>What this means for take-home</h2>
-  <p>For the same headline income, a self-employed person usually keeps less than an employee once the higher 16.6% + 4% contributions are applied — though allowable expenses and, in some cases, the flat notional bands can work in your favour. Contributions remain deductible for income tax.</p>
+  <h2 data-i="h2c">What this means for take-home</h2>
+  <p data-i="pc">For the same headline income, a self-employed person usually keeps less than an employee once the higher 16.6% + 4% contributions are applied — though allowable expenses and, in some cases, the flat notional bands can work in your favour. Contributions remain deductible for income tax.</p>
 
-  <h2>Other obligations</h2>
+  <h2 data-i="h2d">Other obligations</h2>
   <ul>
-    <li><strong>VAT:</strong> registration is required once turnover passes the threshold (currently €15,600).</li>
-    <li><strong>Provisional tax:</strong> paid in two instalments during the year, based on estimated income.</li>
-    <li><strong>Audited or reviewed accounts</strong> may be required depending on turnover.</li>
+    <li data-i="li1"><strong>VAT:</strong> registration is required once turnover passes the threshold (currently €15,600).</li>
+    <li data-i="li2"><strong>Provisional tax:</strong> paid in two instalments during the year, based on estimated income.</li>
+    <li data-i="li3"><strong>Audited or reviewed accounts</strong> may be required depending on turnover.</li>
   </ul>
 
-  <div class="callout"><strong>Estimate only.</strong> Self-employed taxation depends on your profession's notional bands and allowable expenses. This calculator focuses on employees; for self-employed planning, consult an accountant.</div>
+  <div class="callout" data-i="callout"><strong>Estimate only.</strong> Self-employed taxation depends on your profession's notional bands and allowable expenses. This calculator focuses on employees; for self-employed planning, consult an accountant.</div>
 
 
-  <h2>How notional income works</h2>
-  <p>Unlike employees, self-employed Social Insurance is charged on <strong>notional (minimum insurable) income bands</strong> set by the state for each profession and level of experience — not simply on your actual profit. That means there's a floor on contributions even in a lean year, and the exact band depends on your occupation. GESY, by contrast, is charged as 4% of income.</p>
+  <h2 data-i="h2e">How notional income works</h2>
+  <p data-i="pe">Unlike employees, self-employed Social Insurance is charged on <strong>notional (minimum insurable) income bands</strong> set by the state for each profession and level of experience — not simply on your actual profit. That means there's a floor on contributions even in a lean year, and the exact band depends on your occupation. GESY, by contrast, is charged as 4% of income.</p>
 
-  <h2>Deductible expenses reduce your tax</h2>
-  <p>You're taxed on <strong>profit</strong>, not turnover, so legitimate business expenses lower your taxable income: things like professional fees, business travel, equipment, a proportion of home-office costs, insurance and accountancy. Keep records and receipts — proper bookkeeping is what turns the higher contribution rates into a fair overall bill.</p>
+  <h2 data-i="h2f">Deductible expenses reduce your tax</h2>
+  <p data-i="pf">You're taxed on <strong>profit</strong>, not turnover, so legitimate business expenses lower your taxable income: things like professional fees, business travel, equipment, a proportion of home-office costs, insurance and accountancy. Keep records and receipts — proper bookkeeping is what turns the higher contribution rates into a fair overall bill.</p>
 
-  <h2>Provisional tax and payment dates</h2>
-  <p>Self-employed people pay <strong>provisional tax</strong> in two instalments during the year, based on an estimate of that year's income, with a balancing payment after the year ends. Underestimating significantly can trigger a surcharge, so a realistic estimate matters. VAT registration becomes mandatory once turnover passes the threshold (currently €15,600).</p>
+  <h2 data-i="h2g">Provisional tax and payment dates</h2>
+  <p data-i="pg">Self-employed people pay <strong>provisional tax</strong> in two instalments during the year, based on an estimate of that year's income, with a balancing payment after the year ends. Underestimating significantly can trigger a surcharge, so a realistic estimate matters. VAT registration becomes mandatory once turnover passes the threshold (currently €15,600).</p>
 
-  <h2>Employee vs self-employed: the trade-off</h2>
-  <p>For the same headline income, a self-employed person usually keeps less after the higher 16.6% + 4% contributions — but allowable expenses, the flat notional bands, and greater control over how you work can offset that. Because the rules hinge on your profession's bands and your expenses, treat the <a href="/">calculator</a> as an employee-focused estimate and confirm self-employed planning with an accountant.</p>
+  <h2 data-i="h2h">Employee vs self-employed: the trade-off</h2>
+  <p data-i="ph">For the same headline income, a self-employed person usually keeps less after the higher 16.6% + 4% contributions — but allowable expenses, the flat notional bands, and greater control over how you work can offset that. Because the rules hinge on your profession's bands and your expenses, treat the <a href="/">calculator</a> as an employee-focused estimate and confirm self-employed planning with an accountant.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/cyprus-tax-2026">Tax bands 2026</a>
-    <a href="/social-insurance-gesy">Social Insurance &amp; GESY</a>
-    <a href="/13th-salary">13th &amp; 14th salary</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/cyprus-tax-2026" data-i="relTax">Tax bands 2026</a>
+    <a href="/social-insurance-gesy" data-i="relSI">Social Insurance &amp; GESY</a>
+    <a href="/13th-salary" data-i="rel13">13th &amp; 14th salary</a>
   </div>
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  h1:{en:"Self-employed tax in Cyprus (2026)",el:"Φόρος αυτοεργοδοτούμενων στην Κύπρο (2026)",ru:"Налог для самозанятых на Кипре (2026)"},
+  lead:{en:"Freelancers and sole traders pay the same income tax bands as employees, but higher social contributions. Here's the picture.",el:"Οι ελεύθεροι επαγγελματίες πληρώνουν τις ίδιες φορολογικές κλίμακες με τους εργαζομένους, αλλά υψηλότερες εισφορές. Δείτε την εικόνα.",ru:"Фрилансеры и индивидуальные предприниматели платят те же налоговые ступени, что и работники, но более высокие социальные взносы. Вот полная картина."},
+  h2a:{en:"Income tax: same bands",el:"Φόρος εισοδήματος: ίδιες κλίμακες",ru:"Подоходный налог: те же ступени"},
+  pa:{en:"Self-employed individuals are taxed on their profits using the same progressive bands as employees: €22,000 tax-free, then 20%, 25%, 30% and 35%. See the <a href=\"/cyprus-tax-2026\">2026 tax bands</a> for the full table. You deduct allowable business expenses to arrive at taxable profit.",el:"Οι αυτοεργοδοτούμενοι φορολογούνται στα κέρδη τους με τις ίδιες προοδευτικές κλίμακες με τους εργαζομένους: €22.000 αφορολόγητα, μετά 20%, 25%, 30% και 35%. Δείτε τις <a href=\"/cyprus-tax-2026\">κλίμακες 2026</a> για τον πλήρη πίνακα. Αφαιρείτε τα επιτρεπόμενα έξοδα για να καταλήξετε στο φορολογητέο κέρδος.",ru:"Самозанятые облагаются налогом на прибыль по тем же прогрессивным ступеням, что и работники: €22 000 не облагается, затем 20%, 25%, 30% и 35%. Полную таблицу смотрите в <a href=\"/cyprus-tax-2026\">ступенях 2026</a>. Из дохода вычитаются допустимые деловые расходы, чтобы получить налогооблагаемую прибыль."},
+  h2b:{en:"Higher social contributions",el:"Υψηλότερες εισφορές",ru:"Более высокие социальные взносы"},
+  thContribution:{en:"Contribution",el:"Εισφορά",ru:"Взнос"},
+  thEmployee:{en:"Employee",el:"Εργαζόμενος",ru:"Работник"},
+  thSelf:{en:"Self-employed",el:"Αυτοεργοδοτούμενος",ru:"Самозанятый"},
+  rSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις",ru:"Соц. страхование"},
+  rGESY:{en:"GESY",el:"ΓεΣΥ",ru:"ГеСИ"},
+  pb:{en:"Because there is no employer to pay a matching share, self-employed Social Insurance is higher at 16.6%, charged on notional income bands set by the state according to your profession. GESY is 4.00% of income.",el:"Επειδή δεν υπάρχει εργοδότης να πληρώσει αντίστοιχο μερίδιο, οι Κοιν. Ασφαλίσεις των αυτοεργοδοτούμενων είναι υψηλότερες, στο 16,6%, επί τεκμαρτών κλιμάκων εισοδήματος που ορίζει το κράτος ανά επάγγελμα. Το ΓεΣΥ είναι 4,00% του εισοδήματος.",ru:"Поскольку нет работодателя, который платил бы свою долю, соц. страхование самозанятых выше — 16,6%, начисляется на условные ступени дохода, установленные государством по профессии. ГеСИ составляет 4,00% дохода."},
+  h2c:{en:"What this means for take-home",el:"Τι σημαίνει για τον καθαρό μισθό",ru:"Что это значит для дохода на руки"},
+  pc:{en:"For the same headline income, a self-employed person usually keeps less than an employee once the higher 16.6% + 4% contributions are applied — though allowable expenses and, in some cases, the flat notional bands can work in your favour. Contributions remain deductible for income tax.",el:"Για το ίδιο ονομαστικό εισόδημα, ένας αυτοεργοδοτούμενος συνήθως κρατά λιγότερα από έναν εργαζόμενο μόλις εφαρμοστούν οι υψηλότερες εισφορές 16,6% + 4% — αν και τα επιτρεπόμενα έξοδα και, σε ορισμένες περιπτώσεις, οι σταθερές τεκμαρτές κλίμακες μπορεί να λειτουργήσουν υπέρ σας. Οι εισφορές παραμένουν εκπιπτόμενες από τον φόρο.",ru:"При одинаковом номинальном доходе самозанятый обычно оставляет меньше, чем работник, после применения более высоких взносов 16,6% + 4% — хотя допустимые расходы и, в некоторых случаях, фиксированные условные ступени могут сыграть в вашу пользу. Взносы по-прежнему вычитаются из подоходного налога."},
+  h2d:{en:"Other obligations",el:"Άλλες υποχρεώσεις",ru:"Другие обязанности"},
+  li1:{en:"<strong>VAT:</strong> registration is required once turnover passes the threshold (currently €15,600).",el:"<strong>ΦΠΑ:</strong> απαιτείται εγγραφή μόλις ο τζίρος ξεπεράσει το όριο (σήμερα €15.600).",ru:"<strong>НДС:</strong> регистрация обязательна, как только оборот превысит порог (сейчас €15 600)."},
+  li2:{en:"<strong>Provisional tax:</strong> paid in two instalments during the year, based on estimated income.",el:"<strong>Προσωρινός φόρος:</strong> καταβάλλεται σε δύο δόσεις μέσα στο έτος, με βάση εκτιμώμενο εισόδημα.",ru:"<strong>Предварительный налог:</strong> уплачивается двумя частями в течение года, исходя из оценочного дохода."},
+  li3:{en:"<strong>Audited or reviewed accounts</strong> may be required depending on turnover.",el:"<strong>Ελεγμένοι ή επισκοπημένοι λογαριασμοί</strong> μπορεί να απαιτούνται ανάλογα με τον τζίρο.",ru:"<strong>Аудированная или проверенная отчётность</strong> может потребоваться в зависимости от оборота."},
+  callout:{en:"<strong>Estimate only.</strong> Self-employed taxation depends on your profession's notional bands and allowable expenses. This calculator focuses on employees; for self-employed planning, consult an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Η φορολογία των αυτοεργοδοτούμενων εξαρτάται από τις τεκμαρτές κλίμακες του επαγγέλματος και τα επιτρεπόμενα έξοδα. Ο υπολογιστής επικεντρώνεται στους εργαζομένους· για αυτοεργοδοτούμενους συμβουλευτείτε λογιστή.",ru:"<strong>Только оценка.</strong> Налогообложение самозанятых зависит от условных ступеней вашей профессии и допустимых расходов. Этот калькулятор ориентирован на работников; для планирования самозанятости обратитесь к бухгалтеру."},
+  h2e:{en:"How notional income works",el:"Πώς λειτουργεί το τεκμαρτό εισόδημα",ru:"Как работает условный доход"},
+  pe:{en:"Unlike employees, self-employed Social Insurance is charged on <strong>notional (minimum insurable) income bands</strong> set by the state for each profession and level of experience — not simply on your actual profit. That means there's a floor on contributions even in a lean year, and the exact band depends on your occupation. GESY, by contrast, is charged as 4% of income.",el:"Σε αντίθεση με τους εργαζομένους, οι Κοιν. Ασφαλίσεις των αυτοεργοδοτούμενων επιβάλλονται σε <strong>τεκμαρτές (ελάχιστες ασφαλιστέες) κλίμακες εισοδήματος</strong> που ορίζει το κράτος για κάθε επάγγελμα και επίπεδο εμπειρίας — όχι απλώς στο πραγματικό κέρδος. Έτσι υπάρχει κατώτατο όριο εισφορών ακόμη και σε αδύναμη χρονιά, και η ακριβής κλίμακα εξαρτάται από το επάγγελμα. Το ΓεΣΥ, αντίθετα, είναι 4% του εισοδήματος.",ru:"В отличие от работников, соц. страхование самозанятых начисляется на <strong>условные (минимальные страхуемые) ступени дохода</strong>, установленные государством для каждой профессии и уровня опыта, — а не просто на фактическую прибыль. Это значит, что даже в неудачный год есть минимум взносов, а точная ступень зависит от рода занятий. ГеСИ, напротив, составляет 4% дохода."},
+  h2f:{en:"Deductible expenses reduce your tax",el:"Τα εκπιπτόμενα έξοδα μειώνουν τον φόρο",ru:"Вычитаемые расходы уменьшают ваш налог"},
+  pf:{en:"You're taxed on <strong>profit</strong>, not turnover, so legitimate business expenses lower your taxable income: things like professional fees, business travel, equipment, a proportion of home-office costs, insurance and accountancy. Keep records and receipts — proper bookkeeping is what turns the higher contribution rates into a fair overall bill.",el:"Φορολογείστε στο <strong>κέρδος</strong>, όχι στον τζίρο, οπότε τα νόμιμα επαγγελματικά έξοδα μειώνουν το φορολογητέο εισόδημα: επαγγελματικές αμοιβές, επαγγελματικά ταξίδια, εξοπλισμός, μέρος των εξόδων γραφείου στο σπίτι, ασφάλειες και λογιστικά. Κρατήστε αρχεία και αποδείξεις — η σωστή τήρηση βιβλίων μετατρέπει τις υψηλότερες εισφορές σε δίκαιο συνολικό λογαριασμό.",ru:"Налогом облагается <strong>прибыль</strong>, а не оборот, поэтому законные деловые расходы уменьшают налогооблагаемый доход: профессиональные сборы, деловые поездки, оборудование, часть расходов на домашний офис, страхование и бухгалтерия. Храните документы и чеки — правильный учёт превращает более высокие ставки взносов в справедливый итоговый счёт."},
+  h2g:{en:"Provisional tax and payment dates",el:"Προσωρινός φόρος και ημερομηνίες πληρωμής",ru:"Предварительный налог и сроки уплаты"},
+  pg:{en:"Self-employed people pay <strong>provisional tax</strong> in two instalments during the year, based on an estimate of that year's income, with a balancing payment after the year ends. Underestimating significantly can trigger a surcharge, so a realistic estimate matters. VAT registration becomes mandatory once turnover passes the threshold (currently €15,600).",el:"Οι αυτοεργοδοτούμενοι πληρώνουν <strong>προσωρινό φόρο</strong> σε δύο δόσεις μέσα στο έτος, με βάση εκτίμηση του εισοδήματος της χρονιάς, με εξισωτική πληρωμή μετά το τέλος του έτους. Η σημαντική υποεκτίμηση μπορεί να προκαλέσει επιβάρυνση, οπότε μια ρεαλιστική εκτίμηση έχει σημασία. Η εγγραφή στον ΦΠΑ γίνεται υποχρεωτική μόλις ο τζίρος ξεπεράσει το όριο (σήμερα €15.600).",ru:"Самозанятые платят <strong>предварительный налог</strong> двумя частями в течение года на основе оценки дохода за этот год, с окончательным расчётом после окончания года. Существенное занижение может повлечь надбавку, поэтому реалистичная оценка важна. Регистрация НДС становится обязательной, как только оборот превысит порог (сейчас €15 600)."},
+  h2h:{en:"Employee vs self-employed: the trade-off",el:"Εργαζόμενος vs αυτοεργοδοτούμενος: το δίλημμα",ru:"Работник или самозанятый: компромисс"},
+  ph:{en:"For the same headline income, a self-employed person usually keeps less after the higher 16.6% + 4% contributions — but allowable expenses, the flat notional bands, and greater control over how you work can offset that. Because the rules hinge on your profession's bands and your expenses, treat the <a href=\"/\">calculator</a> as an employee-focused estimate and confirm self-employed planning with an accountant.",el:"Για το ίδιο ονομαστικό εισόδημα, ένας αυτοεργοδοτούμενος συνήθως κρατά λιγότερα μετά τις υψηλότερες εισφορές 16,6% + 4% — αλλά τα επιτρεπόμενα έξοδα, οι σταθερές τεκμαρτές κλίμακες και ο μεγαλύτερος έλεγχος στον τρόπο εργασίας μπορούν να το αντισταθμίσουν. Επειδή οι κανόνες εξαρτώνται από τις κλίμακες του επαγγέλματος και τα έξοδά σας, θεωρήστε τον <a href=\"/\">υπολογιστή</a> ως εκτίμηση για εργαζομένους και επιβεβαιώστε τον σχεδιασμό ως αυτοεργοδοτούμενος με λογιστή.",ru:"При одинаковом номинальном доходе самозанятый обычно оставляет меньше после более высоких взносов 16,6% + 4% — но допустимые расходы, фиксированные условные ступени и больший контроль над своей работой могут это компенсировать. Поскольку правила зависят от ступеней вашей профессии и ваших расходов, считайте <a href=\"/\">калькулятор</a> оценкой для работников и подтвердите планирование как самозанятый у бухгалтера."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relTax:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  relSI:{en:"Social Insurance &amp; GESY",el:"Κοιν. Ασφαλίσεις &amp; ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  rel13:{en:"13th &amp; 14th salary",el:"13ος &amp; 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

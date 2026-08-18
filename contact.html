@@ -25,30 +25,60 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Contact</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Contact</span></nav>
 
-  <h1>Contact</h1>
-  <p class="lead">Questions, feedback, or spotted a number that looks off? I'd genuinely like to hear from you.</p>
+  <h1 data-i="h1">Contact</h1>
+  <p class="lead" data-i="lead">Questions, feedback, or spotted a number that looks off? I'd genuinely like to hear from you.</p>
 
-  <h2>Email</h2>
-  <p>Write to <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a>. I read every message.</p>
+  <h2 data-i="h2email">Email</h2>
+  <p data-i="pEmail">Write to <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a>. I read every message.</p>
 
-  <h2>Report a rate or a bug</h2>
-  <p>Tax and contribution rates change, and accuracy matters here. If you think a rate, band or cap is out of date — ideally with a link to the official source — please send it in and I'll check and correct it quickly. Corrections are welcome and credited to keeping the tool trustworthy.</p>
+  <h2 data-i="h2report">Report a rate or a bug</h2>
+  <p data-i="pReport">Tax and contribution rates change, and accuracy matters here. If you think a rate, band or cap is out of date — ideally with a link to the official source — please send it in and I'll check and correct it quickly. Corrections are welcome and credited to keeping the tool trustworthy.</p>
 
-  <h2>A note on your data</h2>
-  <p>You never need to send salary figures to get help — the calculator runs entirely in your browser and I can't see what you enter. Just describe what you did and what looked wrong. See <a href="/privacy">how your data is handled</a>.</p>
+  <h2 data-i="h2data">A note on your data</h2>
+  <p data-i="pData">You never need to send salary figures to get help — the calculator runs entirely in your browser and I can't see what you enter. Just describe what you did and what looked wrong. See <a href="/privacy">how your data is handled</a>.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/about">About</a>
-    <a href="/guides">Guides</a>
-    <a href="/privacy">Privacy</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/about" data-i="relAbout">About</a>
+    <a href="/guides" data-i="relGuides">Guides</a>
+    <a href="/privacy" data-i="relPrivacy">Privacy</a>
   </div>
 
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
+  h1:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
+  lead:{en:"Questions, feedback, or spotted a number that looks off? I'd genuinely like to hear from you.",el:"Ερωτήσεις, σχόλια ή εντοπίσατε έναν αριθμό που φαίνεται λάθος; Θα ήθελα ειλικρινά να σας ακούσω.",ru:"Вопросы, отзывы или заметили цифру, которая выглядит неверной? Мне искренне интересно вас услышать."},
+  h2email:{en:"Email",el:"Email",ru:"Электронная почта"},
+  pEmail:{en:"Write to <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a>. I read every message.",el:"Γράψτε στο <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a>. Διαβάζω κάθε μήνυμα.",ru:"Пишите на <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a>. Я читаю каждое сообщение."},
+  h2report:{en:"Report a rate or a bug",el:"Αναφορά συντελεστή ή σφάλματος",ru:"Сообщить о ставке или ошибке"},
+  pReport:{en:"Tax and contribution rates change, and accuracy matters here. If you think a rate, band or cap is out of date — ideally with a link to the official source — please send it in and I'll check and correct it quickly. Corrections are welcome and credited to keeping the tool trustworthy.",el:"Οι συντελεστές φόρου και εισφορών αλλάζουν, και η ακρίβεια έχει σημασία εδώ. Αν νομίζετε ότι ένας συντελεστής, κλίμακα ή όριο είναι ξεπερασμένο — ιδανικά με σύνδεσμο στην επίσημη πηγή — στείλτε το και θα το ελέγξω και διορθώσω γρήγορα. Οι διορθώσεις είναι ευπρόσδεκτες και συμβάλλουν στην αξιοπιστία του εργαλείου.",ru:"Ставки налогов и взносов меняются, и точность здесь важна. Если вы считаете, что ставка, ступень или потолок устарели — в идеале со ссылкой на официальный источник — пришлите это, и я быстро проверю и исправлю. Исправления приветствуются и помогают сохранять инструмент надёжным."},
+  h2data:{en:"A note on your data",el:"Μια σημείωση για τα δεδομένα σας",ru:"Замечание о ваших данных"},
+  pData:{en:"You never need to send salary figures to get help — the calculator runs entirely in your browser and I can't see what you enter. Just describe what you did and what looked wrong. See <a href=\"/privacy\">how your data is handled</a>.",el:"Δεν χρειάζεται ποτέ να στείλετε ποσά μισθού για βοήθεια — ο υπολογιστής εκτελείται εξ ολοκλήρου στον browser σας και δεν μπορώ να δω τι εισάγετε. Απλώς περιγράψτε τι κάνατε και τι φάνηκε λάθος. Δείτε <a href=\"/privacy\">πώς διαχειρίζονται τα δεδομένα σας</a>.",ru:"Вам никогда не нужно отправлять суммы зарплаты, чтобы получить помощь — калькулятор работает полностью в вашем браузере, и я не вижу, что вы вводите. Просто опишите, что вы делали и что выглядело неправильно. Смотрите, <a href=\"/privacy\">как обрабатываются ваши данные</a>."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  relGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  relPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

@@ -24,55 +24,102 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Social Insurance & GESY</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Social Insurance & GESY</span></nav>
 
-  <h1>Social Insurance &amp; GESY in Cyprus (2026)</h1>
-  <p class="lead">Two contributions come out of every Cyprus salary alongside income tax. Here are the 2026 rates and the caps that limit them.</p>
-  <a class="cta" href="/">See them on my salary →</a>
+  <h1 data-i="h1">Social Insurance &amp; GESY in Cyprus (2026)</h1>
+  <p class="lead" data-i="lead">Two contributions come out of every Cyprus salary alongside income tax. Here are the 2026 rates and the caps that limit them.</p>
+  <a class="cta" href="/" data-i="cta">See them on my salary →</a>
 
-  <h2>Employee contribution rates</h2>
+  <h2 data-i="h2rates">Employee contribution rates</h2>
   <table class="rates">
-    <tr><th>Contribution</th><th>Rate</th><th>Annual cap</th></tr>
-    <tr><td>Social Insurance</td><td>8.8%</td><td>€68,904</td></tr>
-    <tr><td>GESY (GHS / ΓεΣΥ)</td><td>2.65%</td><td>€180,000</td></tr>
+    <tr><th data-i="thContribution">Contribution</th><th data-i="thRate">Rate</th><th data-i="thCap">Annual cap</th></tr>
+    <tr><td data-i="rSI">Social Insurance</td><td>8.8%</td><td>€68,904</td></tr>
+    <tr><td data-i="rGESY">GESY (GHS / ΓεΣΥ)</td><td>2.65%</td><td>€180,000</td></tr>
   </table>
-  <p>Social Insurance is charged on your gross earnings up to the <strong>maximum insurable earnings</strong> ceiling of €68,904 for 2026 (up from €62,868 in 2025). Earnings above the ceiling are not subject to further Social Insurance. GESY is charged up to €180,000 of income.</p>
+  <p data-i="pRates">Social Insurance is charged on your gross earnings up to the <strong>maximum insurable earnings</strong> ceiling of €68,904 for 2026 (up from €62,868 in 2025). Earnings above the ceiling are not subject to further Social Insurance. GESY is charged up to €180,000 of income.</p>
 
-  <h2>They reduce your income tax</h2>
-  <p>Both contributions are <strong>tax-deductible</strong>. Income tax is calculated on your gross <em>minus</em> Social Insurance and GESY, so paying them lowers your taxable income. Together they come to 11.45% of gross (below the ceilings), which is comfortably within the deduction limits.</p>
+  <h2 data-i="h2reduce">They reduce your income tax</h2>
+  <p data-i="pReduce">Both contributions are <strong>tax-deductible</strong>. Income tax is calculated on your gross <em>minus</em> Social Insurance and GESY, so paying them lowers your taxable income. Together they come to 11.45% of gross (below the ceilings), which is comfortably within the deduction limits.</p>
 
   <div class="adslot" data-ad="guide">Advertisement</div>
 
-  <h2>What the employer also pays</h2>
-  <p>Employers pay their own share on top of your salary — Social Insurance of 8.8%, GESY of 2.90%, plus contributions to other state funds (Redundancy, Training, Social Cohesion) totalling roughly 4.7%. This is why the true cost of employing someone is noticeably higher than their gross salary. The <a href="/">calculator</a> can show the full employer cost.</p>
+  <h2 data-i="h2employer">What the employer also pays</h2>
+  <p data-i="pEmployer">Employers pay their own share on top of your salary — Social Insurance of 8.8%, GESY of 2.90%, plus contributions to other state funds (Redundancy, Training, Social Cohesion) totalling roughly 4.7%. This is why the true cost of employing someone is noticeably higher than their gross salary. The <a href="/">calculator</a> can show the full employer cost.</p>
 
-  <h2>Self-employed differences</h2>
-  <p>Self-employed people pay Social Insurance at 16.6% (on notional income bands set by the state) and GESY at 4.00%. See our <a href="/self-employed-tax">self-employed guide</a> for detail.</p>
+  <h2 data-i="h2self">Self-employed differences</h2>
+  <p data-i="pSelf">Self-employed people pay Social Insurance at 16.6% (on notional income bands set by the state) and GESY at 4.00%. See our <a href="/self-employed-tax">self-employed guide</a> for detail.</p>
 
-  <div class="callout"><strong>Estimate only.</strong> Rates and caps are updated periodically. Confirm with the Social Insurance Services and the Cyprus Tax Department.</div>
+  <div class="callout" data-i="callout"><strong>Estimate only.</strong> Rates and caps are updated periodically. Confirm with the Social Insurance Services and the Cyprus Tax Department.</div>
 
 
-  <h2>What these contributions pay for</h2>
-  <p><strong>Social Insurance</strong> funds state benefits such as pensions, unemployment, sickness and maternity. <strong>GESY</strong> (the General Healthcare System) funds Cyprus's national health service, giving contributors access to doctors, specialists, hospitals and prescriptions. Both are mandatory for employees.</p>
+  <h2 data-i="h2payfor">What these contributions pay for</h2>
+  <p data-i="pPayfor"><strong>Social Insurance</strong> funds state benefits such as pensions, unemployment, sickness and maternity. <strong>GESY</strong> (the General Healthcare System) funds Cyprus's national health service, giving contributors access to doctors, specialists, hospitals and prescriptions. Both are mandatory for employees.</p>
 
-  <h2>Employee rates, caps and the employer's share</h2>
-  <p>Employees pay <strong>8.8%</strong> Social Insurance and <strong>2.65%</strong> GESY of gross earnings. Social Insurance is charged only up to an annual insurable-earnings <strong>cap</strong>, so very high earners stop paying the 8.8% above that ceiling; GESY applies more broadly, also up to its own cap. Your employer pays its own matching Social Insurance and GESY on top of your salary — that employer cost doesn't come out of your pay, but it's part of what your employment costs the business.</p>
+  <h2 data-i="h2share">Employee rates, caps and the employer's share</h2>
+  <p data-i="pShare">Employees pay <strong>8.8%</strong> Social Insurance and <strong>2.65%</strong> GESY of gross earnings. Social Insurance is charged only up to an annual insurable-earnings <strong>cap</strong>, so very high earners stop paying the 8.8% above that ceiling; GESY applies more broadly, also up to its own cap. Your employer pays its own matching Social Insurance and GESY on top of your salary — that employer cost doesn't come out of your pay, but it's part of what your employment costs the business.</p>
 
-  <h2>Why they lower your income tax</h2>
-  <p>Here's a detail many people miss: Social Insurance and GESY are deducted <strong>before</strong> income tax is worked out. They reduce your taxable income, so they don't just cost you the contribution — they also slightly lower the income tax you pay. The <a href="/">salary calculator</a> applies them in the correct order automatically.</p>
+  <h2 data-i="h2lower">Why they lower your income tax</h2>
+  <p data-i="pLower">Here's a detail many people miss: Social Insurance and GESY are deducted <strong>before</strong> income tax is worked out. They reduce your taxable income, so they don't just cost you the contribution — they also slightly lower the income tax you pay. The <a href="/">salary calculator</a> applies them in the correct order automatically.</p>
 
-  <h2>Self-employed pay more</h2>
-  <p>If you work for yourself there's no employer to share the cost, so the rates are higher — 16.6% Social Insurance and 4% GESY, charged on notional income bands. See <a href="/self-employed-tax">self-employed tax in Cyprus</a> for the full picture. For the official figures, check the <a href="https://www.mlsi.gov.cy/mlsi/sid/sid.nsf" rel="nofollow noopener" target="_blank">Social Insurance Services</a>.</p>
+  <h2 data-i="h2selfmore">Self-employed pay more</h2>
+  <p data-i="pSelfmore">If you work for yourself there's no employer to share the cost, so the rates are higher — 16.6% Social Insurance and 4% GESY, charged on notional income bands. See <a href="/self-employed-tax">self-employed tax in Cyprus</a> for the full picture. For the official figures, check the <a href="https://www.mlsi.gov.cy/mlsi/sid/sid.nsf" rel="nofollow noopener" target="_blank">Social Insurance Services</a>.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/cyprus-tax-2026">Tax bands 2026</a>
-    <a href="/self-employed-tax">Self-employed tax</a>
-    <a href="/13th-salary">13th &amp; 14th salary</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/cyprus-tax-2026" data-i="relTax">Tax bands 2026</a>
+    <a href="/self-employed-tax" data-i="relSelf">Self-employed tax</a>
+    <a href="/13th-salary" data-i="rel13">13th &amp; 14th salary</a>
   </div>
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Social Insurance & GESY",el:"Κοιν. Ασφαλίσεις & ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  h1:{en:"Social Insurance &amp; GESY in Cyprus (2026)",el:"Κοιν. Ασφαλίσεις &amp; ΓεΣΥ στην Κύπρο (2026)",ru:"Соц. страхование и ГеСИ на Кипре (2026)"},
+  lead:{en:"Two contributions come out of every Cyprus salary alongside income tax. Here are the 2026 rates and the caps that limit them.",el:"Δύο εισφορές αφαιρούνται από κάθε κυπριακό μισθό μαζί με τον φόρο εισοδήματος. Ιδού οι συντελεστές του 2026 και τα όρια που τις περιορίζουν.",ru:"Из каждой кипрской зарплаты наряду с подоходным налогом удерживаются два взноса. Вот ставки 2026 года и потолки, которые их ограничивают."},
+  cta:{en:"See them on my salary →",el:"Δείτε τες στον μισθό μου →",ru:"Показать их на моей зарплате →"},
+  h2rates:{en:"Employee contribution rates",el:"Συντελεστές εισφορών εργαζομένου",ru:"Ставки взносов работника"},
+  thContribution:{en:"Contribution",el:"Εισφορά",ru:"Взнос"},
+  thRate:{en:"Rate",el:"Συντελεστής",ru:"Ставка"},
+  thCap:{en:"Annual cap",el:"Ετήσιο όριο",ru:"Годовой потолок"},
+  rSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις",ru:"Соц. страхование"},
+  rGESY:{en:"GESY (GHS / ΓεΣΥ)",el:"ΓεΣΥ (GHS)",ru:"ГеСИ (GHS / ΓεΣΥ)"},
+  pRates:{en:"Social Insurance is charged on your gross earnings up to the <strong>maximum insurable earnings</strong> ceiling of €68,904 for 2026 (up from €62,868 in 2025). Earnings above the ceiling are not subject to further Social Insurance. GESY is charged up to €180,000 of income.",el:"Οι Κοιν. Ασφαλίσεις επιβάλλονται στις μικτές αποδοχές έως το ανώτατο όριο <strong>ασφαλιστέων αποδοχών</strong> των €68.904 για το 2026 (από €62.868 το 2025). Αποδοχές πάνω από το όριο δεν υπόκεινται σε επιπλέον Κοιν. Ασφαλίσεις. Το ΓεΣΥ επιβάλλεται έως €180.000 εισοδήματος.",ru:"Соц. страхование начисляется на валовые заработки до <strong>максимального страхуемого заработка</strong> в €68 904 на 2026 год (вместо €62 868 в 2025). Заработок выше потолка соц. страхованием больше не облагается. ГеСИ начисляется до €180 000 дохода."},
+  h2reduce:{en:"They reduce your income tax",el:"Μειώνουν τον φόρο εισοδήματός σας",ru:"Они уменьшают ваш подоходный налог"},
+  pReduce:{en:"Both contributions are <strong>tax-deductible</strong>. Income tax is calculated on your gross <em>minus</em> Social Insurance and GESY, so paying them lowers your taxable income. Together they come to 11.45% of gross (below the ceilings), which is comfortably within the deduction limits.",el:"Και οι δύο εισφορές είναι <strong>εκπιπτόμενες φόρου</strong>. Ο φόρος εισοδήματος υπολογίζεται στον μικτό <em>μείον</em> Κοιν. Ασφαλίσεις και ΓεΣΥ, οπότε η καταβολή τους μειώνει το φορολογητέο εισόδημα. Μαζί ανέρχονται σε 11,45% του μικτού (κάτω από τα όρια), άνετα εντός των ορίων έκπτωσης.",ru:"Оба взноса <strong>вычитаются из налога</strong>. Подоходный налог рассчитывается на валовую сумму <em>за вычетом</em> соц. страхования и ГеСИ, поэтому их уплата снижает налогооблагаемый доход. Вместе они составляют 11,45% валовой суммы (ниже потолков), что уверенно укладывается в лимиты вычета."},
+  h2employer:{en:"What the employer also pays",el:"Τι πληρώνει επίσης ο εργοδότης",ru:"Что также платит работодатель"},
+  pEmployer:{en:"Employers pay their own share on top of your salary — Social Insurance of 8.8%, GESY of 2.90%, plus contributions to other state funds (Redundancy, Training, Social Cohesion) totalling roughly 4.7%. This is why the true cost of employing someone is noticeably higher than their gross salary. The <a href=\"/\">calculator</a> can show the full employer cost.",el:"Οι εργοδότες πληρώνουν το δικό τους μερίδιο επιπλέον του μισθού σας — Κοιν. Ασφαλίσεις 8,8%, ΓεΣΥ 2,90%, συν εισφορές σε άλλα κρατικά ταμεία (Πλεονασμού, Κατάρτισης, Κοιν. Συνοχής) που ανέρχονται περίπου σε 4,7%. Γι' αυτό το πραγματικό κόστος απασχόλησης είναι αισθητά υψηλότερο από τον μικτό μισθό. Ο <a href=\"/\">υπολογιστής</a> μπορεί να δείξει το πλήρες κόστος εργοδότη.",ru:"Работодатели платят свою долю сверх вашей зарплаты — соц. страхование 8,8%, ГеСИ 2,90%, плюс взносы в другие государственные фонды (по сокращениям, обучения, соц. сплочённости) на общую сумму примерно 4,7%. Поэтому реальная стоимость найма сотрудника заметно выше его валовой зарплаты. <a href=\"/\">Калькулятор</a> может показать полные расходы работодателя."},
+  h2self:{en:"Self-employed differences",el:"Διαφορές αυτοεργοδοτούμενων",ru:"Отличия для самозанятых"},
+  pSelf:{en:"Self-employed people pay Social Insurance at 16.6% (on notional income bands set by the state) and GESY at 4.00%. See our <a href=\"/self-employed-tax\">self-employed guide</a> for detail.",el:"Οι αυτοεργοδοτούμενοι πληρώνουν Κοιν. Ασφαλίσεις 16,6% (σε τεκμαρτές κλίμακες εισοδήματος που ορίζει το κράτος) και ΓεΣΥ 4,00%. Δείτε τον <a href=\"/self-employed-tax\">οδηγό αυτοεργοδοτούμενων</a> για λεπτομέρειες.",ru:"Самозанятые платят соц. страхование 16,6% (на условные ступени дохода, установленные государством) и ГеСИ 4,00%. Подробнее — в нашем <a href=\"/self-employed-tax\">гиде для самозанятых</a>."},
+  callout:{en:"<strong>Estimate only.</strong> Rates and caps are updated periodically. Confirm with the Social Insurance Services and the Cyprus Tax Department.",el:"<strong>Εκτίμηση μόνο.</strong> Οι συντελεστές και τα όρια ενημερώνονται περιοδικά. Επιβεβαιώστε με τις Υπηρεσίες Κοιν. Ασφαλίσεων και το Τμήμα Φορολογίας.",ru:"<strong>Только оценка.</strong> Ставки и потолки периодически обновляются. Уточняйте в Службе соц. страхования и Налоговом департаменте Кипра."},
+  h2payfor:{en:"What these contributions pay for",el:"Τι χρηματοδοτούν αυτές οι εισφορές",ru:"На что идут эти взносы"},
+  pPayfor:{en:"<strong>Social Insurance</strong> funds state benefits such as pensions, unemployment, sickness and maternity. <strong>GESY</strong> (the General Healthcare System) funds Cyprus's national health service, giving contributors access to doctors, specialists, hospitals and prescriptions. Both are mandatory for employees.",el:"Οι <strong>Κοιν. Ασφαλίσεις</strong> χρηματοδοτούν κρατικές παροχές όπως συντάξεις, ανεργία, ασθένεια και μητρότητα. Το <strong>ΓεΣΥ</strong> (Γενικό Σύστημα Υγείας) χρηματοδοτεί το εθνικό σύστημα υγείας της Κύπρου, δίνοντας πρόσβαση σε γιατρούς, ειδικούς, νοσοκομεία και συνταγές. Και τα δύο είναι υποχρεωτικά για τους εργαζομένους.",ru:"<strong>Соц. страхование</strong> финансирует государственные пособия — пенсии, по безработице, по болезни и по материнству. <strong>ГеСИ</strong> (Общая система здравоохранения) финансирует национальную службу здравоохранения Кипра, давая плательщикам доступ к врачам, специалистам, больницам и рецептам. Оба обязательны для работников."},
+  h2share:{en:"Employee rates, caps and the employer's share",el:"Συντελεστές εργαζομένου, όρια και μερίδιο εργοδότη",ru:"Ставки работника, потолки и доля работодателя"},
+  pShare:{en:"Employees pay <strong>8.8%</strong> Social Insurance and <strong>2.65%</strong> GESY of gross earnings. Social Insurance is charged only up to an annual insurable-earnings <strong>cap</strong>, so very high earners stop paying the 8.8% above that ceiling; GESY applies more broadly, also up to its own cap. Your employer pays its own matching Social Insurance and GESY on top of your salary — that employer cost doesn't come out of your pay, but it's part of what your employment costs the business.",el:"Οι εργαζόμενοι πληρώνουν <strong>8,8%</strong> Κοιν. Ασφαλίσεις και <strong>2,65%</strong> ΓεΣΥ επί των μικτών αποδοχών. Οι Κοιν. Ασφαλίσεις επιβάλλονται μόνο έως ένα ετήσιο <strong>όριο</strong> ασφαλιστέων αποδοχών, οπότε όσοι έχουν πολύ υψηλές αποδοχές σταματούν να πληρώνουν το 8,8% πάνω από αυτό· το ΓεΣΥ ισχύει ευρύτερα, επίσης έως το δικό του όριο. Ο εργοδότης σας πληρώνει τις δικές του αντίστοιχες Κοιν. Ασφαλίσεις και ΓεΣΥ επιπλέον του μισθού σας — αυτό το κόστος δεν αφαιρείται από την πληρωμή σας, αλλά είναι μέρος του τι κοστίζει η απασχόλησή σας στην επιχείρηση.",ru:"Работники платят <strong>8,8%</strong> соц. страхования и <strong>2,65%</strong> ГеСИ от валового заработка. Соц. страхование начисляется только до годового <strong>потолка</strong> страхуемого заработка, поэтому очень высокооплачиваемые перестают платить 8,8% выше этого предела; ГеСИ применяется шире, тоже до своего потолка. Ваш работодатель платит свои соответствующие соц. страхование и ГеСИ сверх вашей зарплаты — эти расходы не удерживаются из вашей выплаты, но входят в то, во сколько ваша работа обходится бизнесу."},
+  h2lower:{en:"Why they lower your income tax",el:"Γιατί μειώνουν τον φόρο εισοδήματος",ru:"Почему они снижают ваш подоходный налог"},
+  pLower:{en:"Here's a detail many people miss: Social Insurance and GESY are deducted <strong>before</strong> income tax is worked out. They reduce your taxable income, so they don't just cost you the contribution — they also slightly lower the income tax you pay. The <a href=\"/\">salary calculator</a> applies them in the correct order automatically.",el:"Ιδού μια λεπτομέρεια που πολλοί παραβλέπουν: οι Κοιν. Ασφαλίσεις και το ΓεΣΥ αφαιρούνται <strong>πριν</strong> υπολογιστεί ο φόρος εισοδήματος. Μειώνουν το φορολογητέο εισόδημά σας, οπότε δεν σας κοστίζουν μόνο την εισφορά — μειώνουν επίσης ελαφρώς τον φόρο που πληρώνετε. Ο <a href=\"/\">υπολογιστής μισθού</a> τα εφαρμόζει αυτόματα με τη σωστή σειρά.",ru:"Вот деталь, которую многие упускают: соц. страхование и ГеСИ вычитаются <strong>до</strong> расчёта подоходного налога. Они уменьшают ваш налогооблагаемый доход, поэтому не только стоят вам самого взноса, но и немного снижают уплачиваемый подоходный налог. <a href=\"/\">Калькулятор зарплаты</a> применяет их в правильном порядке автоматически."},
+  h2selfmore:{en:"Self-employed pay more",el:"Οι αυτοεργοδοτούμενοι πληρώνουν περισσότερα",ru:"Самозанятые платят больше"},
+  pSelfmore:{en:"If you work for yourself there's no employer to share the cost, so the rates are higher — 16.6% Social Insurance and 4% GESY, charged on notional income bands. See <a href=\"/self-employed-tax\">self-employed tax in Cyprus</a> for the full picture. For the official figures, check the <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Social Insurance Services</a>.",el:"Αν εργάζεστε για τον εαυτό σας δεν υπάρχει εργοδότης να μοιραστεί το κόστος, οπότε οι συντελεστές είναι υψηλότεροι — 16,6% Κοιν. Ασφαλίσεις και 4% ΓεΣΥ, επί τεκμαρτών κλιμάκων εισοδήματος. Δείτε τον <a href=\"/self-employed-tax\">φόρο αυτοεργοδοτούμενων στην Κύπρο</a> για την πλήρη εικόνα. Για τα επίσημα στοιχεία, ελέγξτε τις <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Υπηρεσίες Κοιν. Ασφαλίσεων</a>.",ru:"Если вы работаете на себя, нет работодателя, который разделил бы расходы, поэтому ставки выше — 16,6% соц. страхования и 4% ГеСИ, начисляемые на условные ступени дохода. Полную картину смотрите в <a href=\"/self-employed-tax\">налоге для самозанятых на Кипре</a>. Официальные цифры — в <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Службе соц. страхования</a>."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relTax:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  relSelf:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  rel13:{en:"13th &amp; 14th salary",el:"13ος &amp; 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>
