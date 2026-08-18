@@ -55,9 +55,14 @@
     border:1px solid var(--line);position:relative;overflow:hidden}
   .flag::after{content:"";position:absolute;inset:0;background:
     radial-gradient(circle at 50% 42%, #d57800 0 18%, transparent 19%);opacity:.85}
-  .lang{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:13px;font-weight:700}
-  .lang button{border:0;background:transparent;color:var(--soft);padding:6px 14px;cursor:pointer}
-  .lang button.on{background:var(--brand);color:#fff}
+  .lang{-webkit-appearance:none;appearance:none;border:1px solid var(--line);border-radius:20px;
+    background:var(--card);color:var(--ink);font-family:inherit;font-size:13px;font-weight:700;
+    padding:6px 30px 6px 14px;cursor:pointer;line-height:1.3;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center}
+  .lang:hover{border-color:var(--brand)}
+  .lang:focus{outline:none;border-color:var(--brand)}
+  .lang option{color:var(--ink);background:var(--card)}
   h1{font-size:clamp(24px,4.5vw,34px);letter-spacing:-.02em;margin:.6em 0 .1em;text-wrap:balance}
   .sub{color:var(--soft);margin:0 0 1.2em;font-size:15px}
   /* mode tabs */
@@ -162,14 +167,14 @@
       <nav class="nav">
         <a href="/payslip-generator" data-i="navPayslip">Payslip</a>
         <a href="/guides" data-i="navGuides">Guides</a>
-        <a href="/about">About</a>
+        <a href="/about" data-i="navAbout">About</a>
         <a href="/privacy" data-i="navPrivacy">Privacy</a>
       </nav>
-      <div class="lang">
-        <button id="l-en" class="on" onclick="setLang('en')">EN</button>
-        <button id="l-el" onclick="setLang('el')">ΕΛ</button>
-        <button id="l-ru" onclick="setLang('ru')">РУ</button>
-      </div>
+      <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
+        <option value="en">English</option>
+        <option value="el">Ελληνικά</option>
+        <option value="ru">Русский</option>
+      </select>
     </div>
   </header>
 
@@ -432,7 +437,7 @@ const T = {
   q5:{en:"What is the 50% expat tax relief?",el:"Τι είναι η έκπτωση 50% για ξένους;",ru:"Что такое налоговая льгота 50% для иностранцев?"},
   a5:{en:"Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick \"50% expat relief\" under Advanced options to estimate it.",el:"Άτομα που αναλαμβάνουν πρώτη εργασία στην Κύπρο με αμοιβή άνω €55.000 ετησίως μπορούν να εξαιρέσουν το 50% από τον φόρο για έως 17 έτη. Επιλέξτε «έκπτωση 50% ξένων» στις Προχωρημένες επιλογές.",ru:"Лица, впервые устроившиеся на работу на Кипре с оплатой свыше €55 000 в год, могут освободить 50% этого трудового дохода от подоходного налога на срок до 17 лет. Отметьте «Льгота 50% для иностранцев» в расширенных настройках, чтобы учесть её."},
   foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου",ru:"Ориентировочные оценки · ставки 2026 · не связано с Правительством Кипра"},
-  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"}, navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"}, navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"}, navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
   genPayslip:{en:"Generate a payslip from this →",el:"Δημιουργία μισθοδοσίας από αυτό →",ru:"Создать расчётный лист из этого →"},
   guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις",ru:"Гиды и разъяснения"},
   gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени Кипра 2026"},
@@ -605,9 +610,7 @@ function setRevPeriod(p){revPeriod=p;document.querySelectorAll('#revPeriod butto
 function setMonths(m){months=m;document.querySelectorAll('#months button').forEach(b=>b.classList.toggle('on',+b.dataset.m===m));calc();}
 function setLang(l){
   lang=l;
-  $('l-en').classList.toggle('on',l==='en');
-  $('l-el').classList.toggle('on',l==='el');
-  $('l-ru').classList.toggle('on',l==='ru');
+  const sel=document.querySelector('.lang'); if(sel&&sel.value!==l) sel.value=l;
   document.documentElement.lang=l;
   document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i; if(T[k]) el.innerHTML=T[k][l]||T[k].en;});
   try{localStorage.setItem('csLang',l);}catch(e){}

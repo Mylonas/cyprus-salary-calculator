@@ -30,9 +30,14 @@
 <style>
   .pg-wrap{max-width:1180px}
   .lead{max-width:none}
-  .lang{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:13px;font-weight:700}
-  .lang button{border:0;background:transparent;color:var(--soft);padding:6px 12px;cursor:pointer}
-  .lang button.on{background:var(--brand);color:#fff}
+  .lang{-webkit-appearance:none;appearance:none;border:1px solid var(--line);border-radius:20px;
+    background:var(--card);color:var(--ink);font-family:inherit;font-size:13px;font-weight:700;
+    padding:6px 30px 6px 14px;cursor:pointer;line-height:1.3;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center}
+  .lang:hover{border-color:var(--brand)}
+  .lang:focus{outline:none;border-color:var(--brand)}
+  .lang option{color:var(--ink);background:var(--card)}
   .privacy{display:flex;align-items:center;gap:10px;background:var(--brand-soft);border:1px solid var(--line);
     border-radius:11px;padding:11px 15px;font-size:13px;color:var(--soft);margin:0 0 20px}
   .privacy b{color:var(--ink)}
@@ -141,16 +146,16 @@
         <a href="/" class="home" data-i="navCalc">Calculator</a>
         <a href="/payslip-generator" data-i="navPayslip">Payslip</a>
         <a href="/guides" data-i="navGuides">Guides</a>
-        <a href="/about">About</a>
+        <a href="/about" data-i="navAbout">About</a>
       </nav>
-      <div class="lang">
-        <button id="l-en" class="on" onclick="setLang('en')">EN</button>
-        <button id="l-el" onclick="setLang('el')">ΕΛ</button>
-        <button id="l-ru" onclick="setLang('ru')">РУ</button>
-      </div>
+      <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
+        <option value="en">English</option>
+        <option value="el">Ελληνικά</option>
+        <option value="ru">Русский</option>
+      </select>
     </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Payslip Generator</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Payslip Generator</span></nav>
 
   <h1 data-i="h1">Free payslip generator</h1>
   <p class="lead" data-i="lead">Fill in the details, watch the payslip build itself, and download a print-ready <strong>PDF</strong> or editable <strong>Word</strong> document. No account, no payroll knowledge needed.</p>
@@ -331,7 +336,8 @@
 <script>
 /* ================= i18n ================= */
 const TR={
-  navCalc:{en:"Calculator",el:"Υπολογιστής",ru:"Калькулятор"},navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navCalc:{en:"Calculator",el:"Υπολογιστής",ru:"Калькулятор"},navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},crumbHere:{en:"Payslip Generator",el:"Δημιουργία Μισθοδοσίας",ru:"Генератор расчётного листа"},
   h1:{en:"Free payslip generator",el:"Δωρεάν δημιουργία μισθοδοσίας",ru:"Бесплатный генератор расчётного листа"},
   lead:{en:"Fill in the details, watch the payslip build itself, and download a print-ready <strong>PDF</strong> or editable <strong>Word</strong> document. No account, no payroll knowledge needed.",el:"Συμπληρώστε τα στοιχεία, δείτε τη μισθοδοσία να δημιουργείται και κατεβάστε έτοιμο για εκτύπωση <strong>PDF</strong> ή επεξεργάσιμο <strong>Word</strong>. Χωρίς λογαριασμό, χωρίς γνώσεις μισθοδοσίας.",ru:"Заполните данные, смотрите, как расчётный лист собирается сам, и скачайте готовый к печати <strong>PDF</strong> или редактируемый <strong>Word</strong>. Без регистрации и без знаний бухгалтерии."},
   privacy:{en:"🔒 <span><b>Private by design.</b> Everything runs in your browser — your payslip data never leaves your device.</span>",el:"🔒 <span><b>Ιδιωτικό εξ ορισμού.</b> Όλα εκτελούνται στον browser σας — τα δεδομένα σας δεν φεύγουν ποτέ από τη συσκευή σας.</span>",ru:"🔒 <span><b>Приватно по замыслу.</b> Всё работает в вашем браузере — данные расчётного листа никогда не покидают ваше устройство.</span>"},
@@ -620,9 +626,7 @@ function applyLang(){
 }
 function setLang(l){
   lang=l;
-  $('l-en').classList.toggle('on',l==='en');
-  $('l-el').classList.toggle('on',l==='el');
-  $('l-ru').classList.toggle('on',l==='ru');
+  const sel=document.querySelector('.lang'); if(sel&&sel.value!==l) sel.value=l;
   try{localStorage.setItem('csLang',l);}catch(e){}
   applyLang(); render();
 }
@@ -669,7 +673,8 @@ $('logoDrop').addEventListener('click',()=>$('logoInput').click());
 (function initLang(){
   const p=new URLSearchParams(location.search);
   let l=p.get('lang'); if(l!=='en'&&l!=='el'&&l!=='ru'){try{l=localStorage.getItem('csLang');}catch(e){}}
-  if(l==='el'||l==='ru'){lang=l;$('l-en').classList.remove('on');$('l-'+l).classList.add('on');}
+  if(l==='el'||l==='ru'){lang=l;}
+  const sel=document.querySelector('.lang'); if(sel) sel.value=lang;
   applyLang();
 })();
 
