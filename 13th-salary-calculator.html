@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>13th Salary Calculator Cyprus 2026 — Net Bonus Pay</title>
+<meta name="description" content="Free Cyprus 13th salary calculator for 2026. See your net take-home per payment across 12, 13 or 14 salaries and how much of your 13th cheque you actually keep after tax.">
+<link rel="canonical" href="https://cyprussalary.com/13th-salary-calculator">
+<meta property="og:image" content="https://cyprussalary.com/og-image.svg">
+<meta name="twitter:image" content="https://cyprussalary.com/og-image.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7a53'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E€%3C/text%3E%3C/svg%3E">
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/style.css">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Cyprus 13th Salary Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Calculate your net take-home across 12, 13 or 14 salaries in Cyprus for 2026.","url":"https://cyprussalary.com/13th-salary-calculator"},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cyprus Salary Calculator","item":"https://cyprussalary.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://cyprussalary.com/guides"},{"@type":"ListItem","position":3,"name":"13th salary calculator","item":"https://cyprussalary.com/13th-salary-calculator"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is the 13th salary taxed in Cyprus?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 13th and 14th salary are part of your annual taxable income and are taxed at your marginal rate, along with Social Insurance and GESY. There is no separate bonus-tax rate in Cyprus."}},
+{"@type":"Question","name":"Does splitting my pay over 13 months change my total tax?","acceptedAnswer":{"@type":"Answer","text":"No. Cyprus income tax is calculated on your total annual gross, so paying it over 12, 13 or 14 instalments changes only the size of each cheque, not the total tax, Social Insurance or GESY for the year."}}
+]}
+]}
+</script>
+<style>
+  .grid{display:grid;gap:20px}
+  @media(min-width:760px){.grid{grid-template-columns:1fr 1fr;align-items:start}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+  label{display:block;font-size:13px;font-weight:700;color:var(--soft);margin:14px 0 5px;letter-spacing:.01em}
+  label:first-child{margin-top:0}
+  .field{position:relative}
+  .field .cur{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--soft);font-family:var(--num)}
+  input[type=number]{width:100%;padding:12px 14px 12px 30px;font-size:18px;font-family:var(--num);
+    border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+  .seg{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+  .seg button{flex:1;min-width:64px;padding:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--soft);
+    border-radius:9px;font-weight:700;cursor:pointer;font-size:14px;font-family:inherit}
+  .seg button.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+  .hint{font-size:12px;color:var(--soft);margin-top:6px}
+  .headline{text-align:center;padding:6px 0 14px;border-bottom:1px dashed var(--line);margin-bottom:6px}
+  .headline .lab{font-size:13px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .headline .big{font-size:clamp(32px,7vw,46px);font-weight:800;font-family:var(--num);
+    letter-spacing:-.02em;color:var(--brand);margin:2px 0;font-variant-numeric:tabular-nums}
+  .headline .per{font-size:13px;color:var(--soft)}
+  .breakdown{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px}
+  .breakdown td{padding:10px 4px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+  .breakdown tr.tot td{border-bottom:0;font-weight:800;color:var(--ink);border-top:1px solid var(--line);padding-top:12px}
+  .breakdown td:last-child{text-align:right;font-family:var(--num)}
+  .breakdown td:first-child{color:var(--soft)}
+  .bonusbox{margin-top:14px;background:var(--brand-soft);border:1px solid var(--line);border-radius:11px;
+    padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .bonusbox .l{font-size:13px;font-weight:700;color:var(--brand)}
+  .bonusbox .v{font-size:20px;font-weight:800;font-family:var(--num);color:var(--brand);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
+        <option value="en">English</option>
+        <option value="el">Ελληνικά</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+  </div>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">13th salary calculator</span></nav>
+
+  <h1 data-i="h1">13th salary calculator (Cyprus, 2026)</h1>
+  <p class="lead" data-i="lead">Enter your monthly gross and see your net take-home per payment across 12, 13 or 14 salaries — and how much of your 13th cheque you actually keep after tax.</p>
+
+  <div class="grid">
+    <div class="card">
+      <label data-i="lGross">Monthly gross salary</label>
+      <div class="field"><span class="cur">€</span><input id="monthly" type="number" min="0" step="50" value="2000" inputmode="decimal" oninput="calc13()"></div>
+      <p class="hint" data-i="grossHint">Your regular gross for one month, before deductions.</p>
+
+      <label data-i="lCount">Salaries per year</label>
+      <div class="seg" id="countSeg">
+        <button data-c="12" onclick="setCount(12)">12</button>
+        <button data-c="13" class="on" onclick="setCount(13)">13</button>
+        <button data-c="14" onclick="setCount(14)">14</button>
+      </div>
+      <p class="hint" data-i="countHint">13 adds an extra month (usually December); 14 adds a second (often before summer).</p>
+    </div>
+
+    <div class="card">
+      <div class="headline">
+        <div class="lab" data-i="outLab">Net per payment</div>
+        <div class="big" id="outBig">€0</div>
+        <div class="per" id="outPer"></div>
+      </div>
+      <table class="breakdown">
+        <tr><td data-i="rowGross">Annual gross</td><td id="rGross">€0</td></tr>
+        <tr><td>− <span data-i="rowTax">Income tax</span></td><td id="rTax">€0</td></tr>
+        <tr><td>− <span data-i="rowSI">Social Insurance (8.8%)</span></td><td id="rSI">€0</td></tr>
+        <tr><td>− <span data-i="rowGesy">GESY (2.65%)</span></td><td id="rGesy">€0</td></tr>
+        <tr class="tot"><td data-i="rowNet">Annual net</td><td id="rNet">€0</td></tr>
+      </table>
+      <div class="bonusbox">
+        <span class="l" id="bonusLab" data-i="bonus13">Your 13th salary, net</span>
+        <span class="v" id="bonusVal">€0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="adslot" data-ad="guide">Advertisement</div>
+
+  <h2 data-i="h2how">How the 13th salary is taxed</h2>
+  <p data-i="pHow">The 13th (and 14th) salary is <strong>part of your annual gross</strong> and is taxed exactly like the rest of your pay — there is no separate bonus-tax rate in Cyprus. Income tax is progressive and worked out on your total yearly income, so the extra month is taxed at your marginal band, with Social Insurance (8.8%) and GESY (2.65%) applied too, subject to their annual caps. This calculator computes the annual totals and divides the net across your chosen number of payments, so the "13th salary, net" figure is one payment's worth of take-home.</p>
+
+  <h2 data-i="h2diff">12, 13 or 14 — what actually changes</h2>
+  <p data-i="pDiff">If your monthly gross is fixed, adding a 13th or 14th raises your annual total, so you owe more tax overall but keep more in absolute terms. Switch between 12, 13 and 14 above to see how each affects your annual net and the size of each cheque. For a full breakdown with pension, expat relief and employer cost, use the main <a href="/">salary calculator</a>.</p>
+
+  <div class="callout" data-i="callout"><strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). Whether a 13th/14th salary is owed depends on your contract.</div>
+
+  <div class="related">
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/13th-salary" data-i="rel13">13th salary guide</a>
+    <a href="/cyprus-tax-2026" data-i="relTax">Tax bands 2026</a>
+    <a href="/guides" data-i="relGuides">All guides</a>
+  </div>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <p class="disclaimer" data-i="disclaimer">Disclaimer: This 13th salary calculator provides general estimates for 2026 based on the figures you enter and the standard employee rates; it is not legal, tax or financial advice. It does not account for pension contributions, expat tax relief, other income or personal circumstances that may change your actual tax. Whether a 13th or 14th salary is owed depends on your employment contract or collective agreement. Always confirm your exact position with your employer, the Cyprus Tax Department or a licensed accountant. cyprussalary.com accepts no liability for decisions taken on the basis of this tool.</p>
+</div>
+<script>
+var count13=13;
+var BANDS=[[22000,0],[32000,.20],[42000,.25],[72000,.30],[Infinity,.35]];
+var SI_RATE=.088, SI_CAP=68904, GESY_RATE=.0265, GESY_CAP=180000;
+function incomeTax(t){var last=0,tax=0;for(var i=0;i<BANDS.length;i++){var ceil=BANDS[i][0],rate=BANDS[i][1];if(t>ceil){tax+=(ceil-last)*rate;last=ceil;}else{tax+=(t-last)*rate;break;}}return tax;}
+function eur(n){var l=(window.csLang==='el')?'el-CY':(window.csLang==='ru'?'ru-RU':'en-CY');return '€'+n.toLocaleString(l,{minimumFractionDigits:2,maximumFractionDigits:2});}
+function setCount(c){count13=c;document.querySelectorAll('#countSeg button').forEach(function(b){b.classList.toggle('on',+b.dataset.c===c);});calc13();applyLang13();}
+function applyLang13(){
+  var t=window.T,L=(window.csLang||'en');
+  var lab=count13===12?t.bonus12:(count13===13?t.bonus13:t.bonus14);
+  document.getElementById('bonusLab').innerHTML=lab[L];
+}
+function calc13(){
+  var m=parseFloat(document.getElementById('monthly').value)||0;
+  var gross=m*count13;
+  var si=Math.min(gross,SI_CAP)*SI_RATE;
+  var gesy=Math.min(gross,GESY_CAP)*GESY_RATE;
+  var taxable=Math.max(0,gross-si-gesy);
+  var tax=incomeTax(taxable);
+  var net=gross-si-gesy-tax;
+  var perPay=count13>0?net/count13:0;
+  document.getElementById('rGross').textContent=eur(gross);
+  document.getElementById('rTax').textContent=eur(tax);
+  document.getElementById('rSI').textContent=eur(si);
+  document.getElementById('rGesy').textContent=eur(gesy);
+  document.getElementById('rNet').textContent=eur(net);
+  document.getElementById('outBig').textContent=eur(perPay);
+  var t=window.T,L=(window.csLang||'en');
+  document.getElementById('outPer').textContent='× '+count13+' '+(t.payments?t.payments[L]:'payments');
+  // bonus = the extra cheque(s) beyond 12, as net per payment
+  var extra=count13-12;
+  document.getElementById('bonusVal').textContent=eur(perPay*(extra>0?extra:1));
+}
+</script>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"13th salary calculator",el:"Υπολογιστής 13ου μισθού",ru:"Калькулятор 13-й зарплаты"},
+  h1:{en:"13th salary calculator (Cyprus, 2026)",el:"Υπολογιστής 13ου μισθού (Κύπρος, 2026)",ru:"Калькулятор 13-й зарплаты (Кипр, 2026)"},
+  lead:{en:"Enter your monthly gross and see your net take-home per payment across 12, 13 or 14 salaries — and how much of your 13th cheque you actually keep after tax.",el:"Εισάγετε τον μηνιαίο μικτό σας και δείτε τον καθαρό ανά πληρωμή σε 12, 13 ή 14 μισθούς — και πόσα κρατάτε πραγματικά από τον 13ο μετά τον φόρο.",ru:"Введите месячный валовой оклад и узнайте чистую сумму на выплату при 12, 13 или 14 зарплатах — и сколько из вашей 13-й вы реально оставляете после налога."},
+  lGross:{en:"Monthly gross salary",el:"Μηνιαίος μικτός μισθός",ru:"Месячный валовой оклад"},
+  grossHint:{en:"Your regular gross for one month, before deductions.",el:"Ο κανονικός μικτός σας για έναν μήνα, πριν τις κρατήσεις.",ru:"Ваш обычный валовой доход за один месяц, до удержаний."},
+  lCount:{en:"Salaries per year",el:"Μισθοί ανά έτος",ru:"Зарплат в год"},
+  countHint:{en:"13 adds an extra month (usually December); 14 adds a second (often before summer).",el:"Ο 13ος προσθέτει έναν επιπλέον μήνα (συνήθως Δεκέμβριο)· ο 14ος έναν δεύτερο (συχνά πριν το καλοκαίρι).",ru:"13-я добавляет дополнительный месяц (обычно декабрь); 14-я — второй (часто перед летом)."},
+  outLab:{en:"Net per payment",el:"Καθαρό ανά πληρωμή",ru:"Чистыми за выплату"},
+  payments:{en:"payments",el:"πληρωμές",ru:"выплат"},
+  rowGross:{en:"Annual gross",el:"Ετήσιος μικτός",ru:"Годовой валовой"},
+  rowTax:{en:"Income tax",el:"Φόρος εισοδήματος",ru:"Подоходный налог"},
+  rowSI:{en:"Social Insurance (8.8%)",el:"Κοιν. Ασφαλίσεις (8,8%)",ru:"Соц. страхование (8,8%)"},
+  rowGesy:{en:"GESY (2.65%)",el:"ΓεΣΥ (2,65%)",ru:"ГеСИ (2,65%)"},
+  rowNet:{en:"Annual net",el:"Ετήσιος καθαρός",ru:"Годовой чистый"},
+  bonus12:{en:"Net per month (12 payments)",el:"Καθαρός ανά μήνα (12 πληρωμές)",ru:"Чистыми в месяц (12 выплат)"},
+  bonus13:{en:"Your 13th salary, net",el:"Ο 13ος μισθός σας, καθαρός",ru:"Ваша 13-я зарплата, чистыми"},
+  bonus14:{en:"Your 13th + 14th, net",el:"Ο 13ος + 14ος σας, καθαρός",ru:"Ваши 13-я + 14-я, чистыми"},
+  h2how:{en:"How the 13th salary is taxed",el:"Πώς φορολογείται ο 13ος μισθός",ru:"Как облагается 13-я зарплата"},
+  pHow:{en:"The 13th (and 14th) salary is <strong>part of your annual gross</strong> and is taxed exactly like the rest of your pay — there is no separate bonus-tax rate in Cyprus. Income tax is progressive and worked out on your total yearly income, so the extra month is taxed at your marginal band, with Social Insurance (8.8%) and GESY (2.65%) applied too, subject to their annual caps. This calculator computes the annual totals and divides the net across your chosen number of payments, so the \"13th salary, net\" figure is one payment's worth of take-home.",el:"Ο 13ος (και 14ος) μισθός είναι <strong>μέρος του ετήσιου μικτού σας</strong> και φορολογείται ακριβώς όπως ο υπόλοιπος μισθός — δεν υπάρχει ξεχωριστός φόρος μπόνους στην Κύπρο. Ο φόρος εισοδήματος είναι προοδευτικός και υπολογίζεται στο συνολικό ετήσιο εισόδημα, οπότε ο επιπλέον μήνας φορολογείται στην οριακή σας κλίμακα, με Κοιν. Ασφαλίσεις (8,8%) και ΓεΣΥ (2,65%), με τα ετήσια όριά τους. Ο υπολογιστής υπολογίζει τα ετήσια σύνολα και διαιρεί τον καθαρό στον αριθμό πληρωμών που επιλέξατε, οπότε το ποσό «13ος μισθός, καθαρός» είναι μία πληρωμή καθαρών.",ru:"13-я (и 14-я) зарплата — <strong>часть вашего годового валового дохода</strong> и облагается точно так же, как остальная оплата: отдельной ставки на бонус на Кипре нет. Подоходный налог прогрессивный и считается от общего годового дохода, поэтому дополнительный месяц облагается по вашей предельной ступени, вместе с соц. страхованием (8,8%) и ГеСИ (2,65%) с учётом их годовых потолков. Калькулятор считает годовые итоги и делит чистую сумму на выбранное число выплат, поэтому «13-я зарплата, чистыми» — это одна выплата на руки."},
+  h2diff:{en:"12, 13 or 14 — what actually changes",el:"12, 13 ή 14 — τι πραγματικά αλλάζει",ru:"12, 13 или 14 — что на самом деле меняется"},
+  pDiff:{en:"If your monthly gross is fixed, adding a 13th or 14th raises your annual total, so you owe more tax overall but keep more in absolute terms. Switch between 12, 13 and 14 above to see how each affects your annual net and the size of each cheque. For a full breakdown with pension, expat relief and employer cost, use the main <a href=\"/\">salary calculator</a>.",el:"Αν ο μηνιαίος μικτός σας είναι σταθερός, η προσθήκη 13ου ή 14ου αυξάνει το ετήσιο σύνολο, οπότε πληρώνετε περισσότερο φόρο συνολικά αλλά κρατάτε περισσότερα σε απόλυτους όρους. Αλλάξτε μεταξύ 12, 13 και 14 παραπάνω για να δείτε πώς επηρεάζει το καθένα τον ετήσιο καθαρό και το μέγεθος κάθε πληρωμής. Για πλήρη ανάλυση με σύνταξη, έκπτωση ξένων και κόστος εργοδότη, χρησιμοποιήστε τον κύριο <a href=\"/\">υπολογιστή μισθού</a>.",ru:"Если ваш месячный валовой оклад фиксирован, добавление 13-й или 14-й увеличивает годовой итог, поэтому вы платите больше налога в целом, но оставляете больше в абсолютном выражении. Переключайте 12, 13 и 14 выше, чтобы увидеть, как каждый вариант влияет на годовой чистый доход и размер выплат. Для полного расчёта с пенсией, льготой для иностранцев и расходами работодателя используйте основной <a href=\"/\">калькулятор зарплаты</a>."},
+  callout:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). Whether a 13th/14th salary is owed depends on your contract.",el:"<strong>Εκτίμηση μόνο.</strong> Χρησιμοποιεί συντελεστές 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). Το αν οφείλεται 13ος/14ος μισθός εξαρτάται από τη σύμβασή σας.",ru:"<strong>Только оценка.</strong> Использует ставки 2026: без налога до €22 000; ступени 20/25/30/35%; соц. страхование 8,8% (потолок €68 904); ГеСИ 2,65% (потолок €180 000). Положена ли 13-я/14-я зарплата, зависит от вашего договора."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  rel13:{en:"13th salary guide",el:"Οδηγός 13ου μισθού",ru:"Гид по 13-й зарплате"},
+  relTax:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  relGuides:{en:"All guides",el:"Όλοι οι οδηγοί",ru:"Все гиды"},
+  disclaimer:{en:"Disclaimer: This 13th salary calculator provides general estimates for 2026 based on the figures you enter and the standard employee rates; it is not legal, tax or financial advice. It does not account for pension contributions, expat tax relief, other income or personal circumstances that may change your actual tax. Whether a 13th or 14th salary is owed depends on your employment contract or collective agreement. Always confirm your exact position with your employer, the Cyprus Tax Department or a licensed accountant. cyprussalary.com accepts no liability for decisions taken on the basis of this tool.",el:"Αποποίηση ευθύνης: Ο υπολογιστής 13ου μισθού παρέχει γενικές εκτιμήσεις για το 2026 με βάση τα στοιχεία που εισάγετε και τους τυπικούς συντελεστές εργαζομένου· δεν αποτελεί νομική, φορολογική ή οικονομική συμβουλή. Δεν λαμβάνει υπόψη εισφορές σύνταξης, έκπτωση ξένων, άλλα εισοδήματα ή προσωπικές συνθήκες που μπορεί να αλλάξουν τον πραγματικό σας φόρο. Το αν οφείλεται 13ος ή 14ος μισθός εξαρτάται από τη σύμβαση εργασίας ή τη συλλογική σύμβαση. Επιβεβαιώνετε πάντα την ακριβή σας θέση με τον εργοδότη σας, το Τμήμα Φορολογίας ή αδειοδοτημένο λογιστή. Το cyprussalary.com δεν φέρει καμία ευθύνη για αποφάσεις που λαμβάνονται με βάση αυτό το εργαλείο.",ru:"Отказ от ответственности: Этот калькулятор 13-й зарплаты даёт общие оценки для 2026 года на основе введённых вами данных и стандартных ставок для работников; он не является юридической, налоговой или финансовой консультацией. Он не учитывает пенсионные взносы, льготу для иностранцев, другой доход или личные обстоятельства, которые могут изменить ваш фактический налог. Положена ли 13-я или 14-я зарплата, зависит от трудового договора или коллективного соглашения. Всегда уточняйте своё точное положение у работодателя, в Налоговом департаменте Кипра или у лицензированного бухгалтера. cyprussalary.com не несёт ответственности за решения, принятые на основе этого инструмента."},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script>window.afterLang=function(){applyLang13();calc13();};</script>
+<script src="/i18n.js"></script>
+</body>
+</html>
