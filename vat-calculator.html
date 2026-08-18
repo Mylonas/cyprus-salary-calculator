@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cyprus VAT Calculator 2026 — Add or Remove 19% VAT</title>
+<meta name="description" content="Free Cyprus VAT calculator for 2026. Add or remove VAT at the standard 19% rate or the reduced 9% and 5% rates — instant net, VAT and gross amounts.">
+<link rel="canonical" href="https://cyprussalary.com/vat-calculator">
+<meta property="og:image" content="https://cyprussalary.com/og-image.svg">
+<meta name="twitter:image" content="https://cyprussalary.com/og-image.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e7a53'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3E€%3C/text%3E%3C/svg%3E">
+<script src="/theme.js"></script>
+<link rel="stylesheet" href="/style.css">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Cyprus VAT Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"description":"Add or remove Cyprus VAT at 19%, 9% or 5% — instant net, VAT and gross amounts.","url":"https://cyprussalary.com/vat-calculator"},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Cyprus Salary Calculator","item":"https://cyprussalary.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://cyprussalary.com/guides"},{"@type":"ListItem","position":3,"name":"VAT calculator","item":"https://cyprussalary.com/vat-calculator"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is the VAT rate in Cyprus?","acceptedAnswer":{"@type":"Answer","text":"The standard VAT rate in Cyprus is 19%. Reduced rates of 9% and 5% apply to specific goods and services, and some supplies are zero-rated or exempt."}},
+{"@type":"Question","name":"How do I remove VAT from a gross price?","acceptedAnswer":{"@type":"Answer","text":"Divide the gross (VAT-inclusive) price by 1.19 for the standard 19% rate. The net price is gross ÷ 1.19, and the VAT is the difference. This calculator does it for any rate."}}
+]}
+]}
+</script>
+<style>
+  .grid{display:grid;gap:20px}
+  @media(min-width:760px){.grid{grid-template-columns:1fr 1fr;align-items:start}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+  label{display:block;font-size:13px;font-weight:700;color:var(--soft);margin:14px 0 5px;letter-spacing:.01em}
+  label:first-child{margin-top:0}
+  .field{position:relative}
+  .field .cur{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--soft);font-family:var(--num)}
+  input[type=number]{width:100%;padding:12px 14px 12px 30px;font-size:18px;font-family:var(--num);
+    border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+  input[type=number].nopre{padding-left:14px}
+  input[type=number]:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+  .seg{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+  .seg button{flex:1;min-width:64px;padding:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--soft);
+    border-radius:9px;font-weight:700;cursor:pointer;font-size:14px;font-family:inherit}
+  .seg button.on{border-color:var(--brand);background:var(--brand-soft);color:var(--brand)}
+  .hint{font-size:12px;color:var(--soft);margin-top:6px}
+  .headline{text-align:center;padding:6px 0 14px;border-bottom:1px dashed var(--line);margin-bottom:6px}
+  .headline .lab{font-size:13px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .headline .big{font-size:clamp(32px,7vw,46px);font-weight:800;font-family:var(--num);
+    letter-spacing:-.02em;color:var(--brand);margin:2px 0;font-variant-numeric:tabular-nums}
+  .breakdown{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px}
+  .breakdown td{padding:11px 4px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+  .breakdown tr:last-child td{border-bottom:0;font-weight:800;color:var(--ink)}
+  .breakdown td:last-child{text-align:right;font-family:var(--num)}
+  .breakdown td:first-child{color:var(--soft)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
+        <option value="en">English</option>
+        <option value="el">Ελληνικά</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+  </div>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">VAT calculator</span></nav>
+
+  <h1 data-i="h1">Cyprus VAT calculator (2026)</h1>
+  <p class="lead" data-i="lead">Add VAT to a net price, or strip VAT out of a gross price — at Cyprus's 19% standard rate or the 9% and 5% reduced rates.</p>
+
+  <div class="grid">
+    <div class="card">
+      <label data-i="lMode">What do you want to do?</label>
+      <div class="seg" id="modeSeg">
+        <button data-x="add" class="on" onclick="setVatMode('add')" data-i="mAdd">Add VAT</button>
+        <button data-x="remove" onclick="setVatMode('remove')" data-i="mRemove">Remove VAT</button>
+      </div>
+      <p class="hint" id="modeHint" data-i="hintAdd">You have a price before VAT and want the total.</p>
+
+      <label id="amtLbl" data-i="lNet">Amount before VAT (net)</label>
+      <div class="field"><span class="cur">€</span><input id="amount" type="number" min="0" step="1" value="100" inputmode="decimal" oninput="calcVat()"></div>
+
+      <label data-i="lRate">VAT rate</label>
+      <div class="seg" id="rateSeg">
+        <button data-r="19" class="on" onclick="setRate(19)">19%</button>
+        <button data-r="9" onclick="setRate(9)">9%</button>
+        <button data-r="5" onclick="setRate(5)">5%</button>
+        <button data-r="custom" onclick="setRate('custom')" data-i="rCustom">Other</button>
+      </div>
+      <div id="customWrap" class="hide" style="margin-top:10px">
+        <div class="field"><input id="customRate" class="nopre" type="number" min="0" max="100" step="0.5" value="0" inputmode="decimal" oninput="calcVat()"><span class="cur" style="left:auto;right:14px">%</span></div>
+      </div>
+      <p class="hint" data-i="rateHint">Standard rate is 19%. 9% and 5% are reduced rates for specific goods and services.</p>
+    </div>
+
+    <div class="card">
+      <div class="headline">
+        <div class="lab" id="outLab" data-i="outGross">Total (incl. VAT)</div>
+        <div class="big" id="outBig">€119.00</div>
+      </div>
+      <table class="breakdown">
+        <tr><td data-i="rowNet">Net (excl. VAT)</td><td id="rNet">€100.00</td></tr>
+        <tr><td><span data-i="rowVat">VAT</span> <span id="rRate" style="opacity:.7"></span></td><td id="rVat">€19.00</td></tr>
+        <tr><td data-i="rowGross">Gross (incl. VAT)</td><td id="rGross">€119.00</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="adslot" data-ad="guide">Advertisement</div>
+
+  <h2 data-i="h2rates">Cyprus VAT rates in 2026</h2>
+  <table class="rates">
+    <tr><th data-i="thRate">Rate</th><th data-i="thApplies">Applies to (examples)</th></tr>
+    <tr><td>19%</td><td data-i="a19">Standard rate — most goods and services</td></tr>
+    <tr><td>9%</td><td data-i="a9">Reduced — hotels, restaurants, catering, domestic passenger transport</td></tr>
+    <tr><td>5%</td><td data-i="a5">Reduced — foodstuffs, medicines, books, some first-home supplies</td></tr>
+    <tr><td>0%</td><td data-i="a0">Zero-rated — exports, some international services</td></tr>
+  </table>
+  <p data-i="pRates">These categories are examples only — the exact rate for a specific product or service is set by law and can change. Some supplies are exempt (for example certain financial, medical and rental services), which is not the same as zero-rated.</p>
+
+  <h2 data-i="h2how">How the maths works</h2>
+  <p data-i="pHow">To <strong>add</strong> VAT, multiply the net amount by (1 + rate). At 19% that's net × 1.19. To <strong>remove</strong> VAT from a gross amount, divide by the same factor: net = gross ÷ 1.19, and the VAT is the difference. This calculator does both directions for any rate you pick.</p>
+
+  <h2 data-i="h2reg">When do you have to register for VAT?</h2>
+  <p data-i="pReg">A business must register for Cyprus VAT once taxable turnover passes the registration threshold (currently €15,600 in a 12-month period), and in some cross-border cases from the first euro. If you're self-employed, see the <a href="/self-employed-tax">self-employed tax guide</a> for how VAT fits alongside income tax and contributions.</p>
+
+  <div class="related">
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/self-employed-tax" data-i="relSelf">Self-employed tax</a>
+    <a href="/cyprus-tax-2026" data-i="relTax">Tax bands 2026</a>
+    <a href="/guides" data-i="relGuides">All guides</a>
+  </div>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <p class="disclaimer" data-i="disclaimer">Disclaimer: This VAT calculator provides general estimates for 2026 based on the rates you select and is not legal, tax or accounting advice. VAT rates, thresholds and the classification of goods and services are set by law and change over time; the rate for any specific supply may differ from the examples shown. Always confirm the correct treatment with the Cyprus Tax Department or a licensed accountant before relying on a figure. cyprussalary.com accepts no liability for decisions taken on the basis of this tool.</p>
+</div>
+<script>
+var vatMode='add', vatRate=19;
+function fmt(n){return '€'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function setVatMode(m){vatMode=m;document.querySelectorAll('#modeSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.x===m);});calcVat();applyLangHints();}
+function setRate(r){
+  document.querySelectorAll('#rateSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.r===String(r));});
+  document.getElementById('customWrap').classList.toggle('hide', r!=='custom');
+  if(r!=='custom'){vatRate=r;} calcVat();
+}
+function applyLangHints(){
+  var t=window.T, L=(document.documentElement.lang||'en');
+  document.getElementById('modeHint').innerHTML=(vatMode==='add'?t.hintAdd:t.hintRemove)[L];
+  document.getElementById('amtLbl').innerHTML=(vatMode==='add'?t.lNet:t.lGross)[L];
+  document.getElementById('outLab').innerHTML=(vatMode==='add'?t.outGross:t.outNet)[L];
+}
+function calcVat(){
+  var amt=parseFloat(document.getElementById('amount').value)||0;
+  var isCustom=document.querySelector('#rateSeg button.on').dataset.r==='custom';
+  var rate=isCustom?(parseFloat(document.getElementById('customRate').value)||0):vatRate;
+  var f=1+rate/100, net, vat, gross;
+  if(vatMode==='add'){net=amt;gross=amt*f;vat=gross-net;}
+  else{gross=amt;net=f>0?amt/f:amt;vat=gross-net;}
+  document.getElementById('rNet').textContent=fmt(net);
+  document.getElementById('rVat').textContent=fmt(vat);
+  document.getElementById('rGross').textContent=fmt(gross);
+  document.getElementById('rRate').textContent='('+(+rate.toFixed(2))+'%)';
+  document.getElementById('outBig').textContent=fmt(vatMode==='add'?gross:net);
+}
+</script>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"VAT calculator",el:"Υπολογιστής ΦΠΑ",ru:"Калькулятор НДС"},
+  h1:{en:"Cyprus VAT calculator (2026)",el:"Υπολογιστής ΦΠΑ Κύπρου (2026)",ru:"Калькулятор НДС Кипра (2026)"},
+  lead:{en:"Add VAT to a net price, or strip VAT out of a gross price — at Cyprus's 19% standard rate or the 9% and 5% reduced rates.",el:"Προσθέστε ΦΠΑ σε καθαρή τιμή ή αφαιρέστε τον ΦΠΑ από μια τελική τιμή — με τον κανονικό συντελεστή 19% της Κύπρου ή τους μειωμένους 9% και 5%.",ru:"Добавьте НДС к цене без налога или выделите НДС из цены с налогом — по стандартной ставке Кипра 19% или сниженным 9% и 5%."},
+  lMode:{en:"What do you want to do?",el:"Τι θέλετε να κάνετε;",ru:"Что вы хотите сделать?"},
+  mAdd:{en:"Add VAT",el:"Προσθήκη ΦΠΑ",ru:"Добавить НДС"},
+  mRemove:{en:"Remove VAT",el:"Αφαίρεση ΦΠΑ",ru:"Убрать НДС"},
+  hintAdd:{en:"You have a price before VAT and want the total.",el:"Έχετε τιμή πριν τον ΦΠΑ και θέλετε το σύνολο.",ru:"У вас есть цена без НДС, и нужна итоговая сумма."},
+  hintRemove:{en:"You have a VAT-inclusive total and want the net price.",el:"Έχετε τελική τιμή με ΦΠΑ και θέλετε την καθαρή τιμή.",ru:"У вас есть итоговая цена с НДС, и нужна цена без налога."},
+  lNet:{en:"Amount before VAT (net)",el:"Ποσό πριν τον ΦΠΑ (καθαρό)",ru:"Сумма без НДС (нетто)"},
+  lGross:{en:"Amount including VAT (gross)",el:"Ποσό με ΦΠΑ (τελικό)",ru:"Сумма с НДС (брутто)"},
+  lRate:{en:"VAT rate",el:"Συντελεστής ΦΠΑ",ru:"Ставка НДС"},
+  rCustom:{en:"Other",el:"Άλλος",ru:"Другая"},
+  rateHint:{en:"Standard rate is 19%. 9% and 5% are reduced rates for specific goods and services.",el:"Ο κανονικός συντελεστής είναι 19%. Οι 9% και 5% είναι μειωμένοι συντελεστές για συγκεκριμένα αγαθά και υπηρεσίες.",ru:"Стандартная ставка — 19%. 9% и 5% — сниженные ставки для отдельных товаров и услуг."},
+  outGross:{en:"Total (incl. VAT)",el:"Σύνολο (με ΦΠΑ)",ru:"Итого (с НДС)"},
+  outNet:{en:"Net (excl. VAT)",el:"Καθαρό (χωρίς ΦΠΑ)",ru:"Нетто (без НДС)"},
+  rowNet:{en:"Net (excl. VAT)",el:"Καθαρό (χωρίς ΦΠΑ)",ru:"Нетто (без НДС)"},
+  rowVat:{en:"VAT",el:"ΦΠΑ",ru:"НДС"},
+  rowGross:{en:"Gross (incl. VAT)",el:"Τελικό (με ΦΠΑ)",ru:"Брутто (с НДС)"},
+  h2rates:{en:"Cyprus VAT rates in 2026",el:"Συντελεστές ΦΠΑ Κύπρου το 2026",ru:"Ставки НДС Кипра в 2026"},
+  thRate:{en:"Rate",el:"Συντελεστής",ru:"Ставка"},
+  thApplies:{en:"Applies to (examples)",el:"Εφαρμόζεται σε (παραδείγματα)",ru:"Применяется к (примеры)"},
+  a19:{en:"Standard rate — most goods and services",el:"Κανονικός συντελεστής — τα περισσότερα αγαθά και υπηρεσίες",ru:"Стандартная ставка — большинство товаров и услуг"},
+  a9:{en:"Reduced — hotels, restaurants, catering, domestic passenger transport",el:"Μειωμένος — ξενοδοχεία, εστιατόρια, τροφοδοσία, εσωτερικές μεταφορές επιβατών",ru:"Сниженная — гостиницы, рестораны, кейтеринг, внутренние пассажирские перевозки"},
+  a5:{en:"Reduced — foodstuffs, medicines, books, some first-home supplies",el:"Μειωμένος — τρόφιμα, φάρμακα, βιβλία, ορισμένες παροχές πρώτης κατοικίας",ru:"Сниженная — продукты, лекарства, книги, некоторые поставки для первого жилья"},
+  a0:{en:"Zero-rated — exports, some international services",el:"Μηδενικός — εξαγωγές, ορισμένες διεθνείς υπηρεσίες",ru:"Нулевая — экспорт, некоторые международные услуги"},
+  pRates:{en:"These categories are examples only — the exact rate for a specific product or service is set by law and can change. Some supplies are exempt (for example certain financial, medical and rental services), which is not the same as zero-rated.",el:"Οι κατηγορίες αυτές είναι μόνο παραδείγματα — ο ακριβής συντελεστής για ένα συγκεκριμένο προϊόν ή υπηρεσία ορίζεται από τον νόμο και μπορεί να αλλάξει. Ορισμένες παροχές απαλλάσσονται (π.χ. ορισμένες χρηματοοικονομικές, ιατρικές και ενοικιαστικές υπηρεσίες), κάτι που δεν είναι το ίδιο με τον μηδενικό συντελεστή.",ru:"Эти категории — только примеры: точная ставка для конкретного товара или услуги устанавливается законом и может меняться. Некоторые поставки освобождены от НДС (например, отдельные финансовые, медицинские и арендные услуги), что не то же самое, что нулевая ставка."},
+  h2how:{en:"How the maths works",el:"Πώς γίνεται ο υπολογισμός",ru:"Как считается"},
+  pHow:{en:"To <strong>add</strong> VAT, multiply the net amount by (1 + rate). At 19% that's net × 1.19. To <strong>remove</strong> VAT from a gross amount, divide by the same factor: net = gross ÷ 1.19, and the VAT is the difference. This calculator does both directions for any rate you pick.",el:"Για να <strong>προσθέσετε</strong> ΦΠΑ, πολλαπλασιάστε το καθαρό ποσό με (1 + συντελεστής). Στο 19% είναι καθαρό × 1,19. Για να <strong>αφαιρέσετε</strong> τον ΦΠΑ από τελικό ποσό, διαιρέστε με τον ίδιο συντελεστή: καθαρό = τελικό ÷ 1,19, και ο ΦΠΑ είναι η διαφορά. Ο υπολογιστής κάνει και τις δύο κατευθύνσεις για όποιον συντελεστή επιλέξετε.",ru:"Чтобы <strong>добавить</strong> НДС, умножьте сумму без налога на (1 + ставка). При 19% это нетто × 1,19. Чтобы <strong>убрать</strong> НДС из суммы с налогом, разделите на тот же коэффициент: нетто = брутто ÷ 1,19, а НДС — это разница. Калькулятор считает в обе стороны для любой выбранной ставки."},
+  h2reg:{en:"When do you have to register for VAT?",el:"Πότε πρέπει να εγγραφείτε στον ΦΠΑ;",ru:"Когда нужно регистрироваться по НДС?"},
+  pReg:{en:"A business must register for Cyprus VAT once taxable turnover passes the registration threshold (currently €15,600 in a 12-month period), and in some cross-border cases from the first euro. If you're self-employed, see the <a href=\"/self-employed-tax\">self-employed tax guide</a> for how VAT fits alongside income tax and contributions.",el:"Μια επιχείρηση πρέπει να εγγραφεί στον ΦΠΑ Κύπρου μόλις ο φορολογητέος τζίρος ξεπεράσει το όριο εγγραφής (σήμερα €15.600 σε περίοδο 12 μηνών), και σε ορισμένες διασυνοριακές περιπτώσεις από το πρώτο ευρώ. Αν είστε αυτοεργοδοτούμενος, δείτε τον <a href=\"/self-employed-tax\">οδηγό φόρου αυτοεργοδοτούμενων</a> για το πώς εντάσσεται ο ΦΠΑ μαζί με τον φόρο εισοδήματος και τις εισφορές.",ru:"Бизнес обязан зарегистрироваться по НДС на Кипре, как только облагаемый оборот превысит порог регистрации (сейчас €15 600 за 12 месяцев), а в некоторых трансграничных случаях — с первого евро. Если вы самозанятый, см. <a href=\"/self-employed-tax\">гид по налогу для самозанятых</a> о том, как НДС сочетается с подоходным налогом и взносами."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relSelf:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  relTax:{en:"Tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени 2026"},
+  relGuides:{en:"All guides",el:"Όλοι οι οδηγοί",ru:"Все гиды"},
+  disclaimer:{en:"Disclaimer: This VAT calculator provides general estimates for 2026 based on the rates you select and is not legal, tax or accounting advice. VAT rates, thresholds and the classification of goods and services are set by law and change over time; the rate for any specific supply may differ from the examples shown. Always confirm the correct treatment with the Cyprus Tax Department or a licensed accountant before relying on a figure. cyprussalary.com accepts no liability for decisions taken on the basis of this tool.",el:"Αποποίηση ευθύνης: Ο υπολογιστής ΦΠΑ παρέχει γενικές εκτιμήσεις για το 2026 με βάση τους συντελεστές που επιλέγετε και δεν αποτελεί νομική, φορολογική ή λογιστική συμβουλή. Οι συντελεστές ΦΠΑ, τα όρια και η κατάταξη αγαθών και υπηρεσιών ορίζονται από τον νόμο και αλλάζουν με τον χρόνο· ο συντελεστής για μια συγκεκριμένη παροχή μπορεί να διαφέρει από τα παραδείγματα. Επιβεβαιώνετε πάντα τη σωστή αντιμετώπιση με το Τμήμα Φορολογίας ή αδειοδοτημένο λογιστή πριν βασιστείτε σε έναν αριθμό. Το cyprussalary.com δεν φέρει καμία ευθύνη για αποφάσεις που λαμβάνονται με βάση αυτό το εργαλείο.",ru:"Отказ от ответственности: Этот калькулятор НДС даёт общие оценки для 2026 года на основе выбранных вами ставок и не является юридической, налоговой или бухгалтерской консультацией. Ставки НДС, пороги и классификация товаров и услуг устанавливаются законом и со временем меняются; ставка для конкретной поставки может отличаться от приведённых примеров. Всегда уточняйте правильный порядок в Налоговом департаменте Кипра или у лицензированного бухгалтера, прежде чем полагаться на цифру. cyprussalary.com не несёт ответственности за решения, принятые на основе этого инструмента."},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script>window.afterLang=function(){applyLangHints();calcVat();};</script>
+<script src="/i18n.js"></script>
+</body>
+</html>
