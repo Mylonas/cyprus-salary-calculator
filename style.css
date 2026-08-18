@@ -29,11 +29,15 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line
 .nav a:hover{color:var(--brand)}
 .nav a.home{color:var(--brand)}
 
-/* language switcher — matches the calculator home */
-.lang{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:13px;font-weight:700}
-.lang button{border:0;background:transparent;color:var(--soft);padding:6px 14px;cursor:pointer;font-family:inherit}
-.lang button:hover{color:var(--brand)}
-.lang button.on{background:var(--brand);color:#fff}
+/* language switcher — dropdown, matches the calculator home */
+.lang{-webkit-appearance:none;appearance:none;border:1px solid var(--line);border-radius:20px;
+  background:var(--card);color:var(--ink);font-family:inherit;font-size:13px;font-weight:700;
+  padding:6px 30px 6px 14px;cursor:pointer;line-height:1.3;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center}
+.lang:hover{border-color:var(--brand)}
+.lang:focus{outline:none;border-color:var(--brand)}
+.lang option{color:var(--ink);background:var(--card)}
 
 /* headings & text */
 h1{font-size:clamp(26px,4.6vw,36px);letter-spacing:-.02em;line-height:1.12;text-wrap:balance;margin:.3em 0 .25em}

@@ -26,11 +26,11 @@
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
       <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
-      <div class="lang">
-        <button data-lang="en" class="on">EN</button>
-        <button data-lang="el">ΕΛ</button>
-        <button data-lang="ru">РУ</button>
-      </div>
+      <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
+        <option value="en">English</option>
+        <option value="el">Ελληνικά</option>
+        <option value="ru">Русский</option>
+      </select>
     </div>
   </div>
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">13th & 14th salary</span></nav>
