@@ -29,6 +29,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line
 .nav a:hover{color:var(--brand)}
 .nav a.home{color:var(--brand)}
 
+/* language switcher — matches the calculator home */
+.lang{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;font-size:13px;font-weight:700}
+.lang button{border:0;background:transparent;color:var(--soft);padding:6px 14px;cursor:pointer;font-family:inherit}
+.lang button:hover{color:var(--brand)}
+.lang button.on{background:var(--brand);color:#fff}
+
 /* headings & text */
 h1{font-size:clamp(26px,4.6vw,36px);letter-spacing:-.02em;line-height:1.12;text-wrap:balance;margin:.3em 0 .25em}
 h2{font-size:21px;letter-spacing:-.01em;margin:1.8em 0 .35em;text-wrap:balance}

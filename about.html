@@ -25,35 +25,68 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">About Cyprus Salary Calculator</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">About Cyprus Salary Calculator</span></nav>
 
-  <h1>About Cyprus Salary Calculator</h1>
-  <p class="lead">Cyprus Salary Calculator is a free, independent tool that works out your net take-home pay in Cyprus under the 2026 tax rules — instantly, in your browser, with no signup.</p>
+  <h1 data-i="h1">About Cyprus Salary Calculator</h1>
+  <p class="lead" data-i="lead">Cyprus Salary Calculator is a free, independent tool that works out your net take-home pay in Cyprus under the 2026 tax rules — instantly, in your browser, with no signup.</p>
 
-  <h2>What it does</h2>
-  <p>Enter a gross salary and the calculator shows your net pay per year, month, week, day and hour after income tax, Social Insurance and GESY. It also does the reverse (net-to-gross), compares two job offers side by side, handles 12, 13 and 14 salaries, pension contributions and the 50% expat relief, and includes a separate <a href="/payslip-generator">payslip generator</a>. There are plain-English <a href="/guides">guides</a> explaining each deduction.</p>
+  <h2 data-i="h2does">What it does</h2>
+  <p data-i="pDoes">Enter a gross salary and the calculator shows your net pay per year, month, week, day and hour after income tax, Social Insurance and GESY. It also does the reverse (net-to-gross), compares two job offers side by side, handles 12, 13 and 14 salaries, pension contributions and the 50% expat relief, and includes a separate <a href="/payslip-generator">payslip generator</a>. There are plain-English <a href="/guides">guides</a> explaining each deduction.</p>
 
-  <h2>Where the numbers come from</h2>
-  <p>The calculations use the <strong>2026 post-reform</strong> figures: a €22,000 tax-free threshold, then bands of 20%, 25%, 30% and 35%, employee Social Insurance of 8.8% and GESY of 2.65%, with the relevant annual caps. These rates are based on the Cyprus income tax law and the published contribution rates of the <a href="https://www.mof.gov.cy/mof/tax/taxdep.nsf" rel="nofollow noopener" target="_blank">Cyprus Tax Department</a> and the <a href="https://www.mlsi.gov.cy/mlsi/sid/sid.nsf" rel="nofollow noopener" target="_blank">Social Insurance Services</a>. When rules change, the guides and calculator are updated and dated.</p>
+  <h2 data-i="h2numbers">Where the numbers come from</h2>
+  <p data-i="pNumbers">The calculations use the <strong>2026 post-reform</strong> figures: a €22,000 tax-free threshold, then bands of 20%, 25%, 30% and 35%, employee Social Insurance of 8.8% and GESY of 2.65%, with the relevant annual caps. These rates are based on the Cyprus income tax law and the published contribution rates of the <a href="https://www.mof.gov.cy/mof/tax/taxdep.nsf" rel="nofollow noopener" target="_blank">Cyprus Tax Department</a> and the <a href="https://www.mlsi.gov.cy/mlsi/sid/sid.nsf" rel="nofollow noopener" target="_blank">Social Insurance Services</a>. When rules change, the guides and calculator are updated and dated.</p>
 
-  <h2>How it protects your privacy</h2>
-  <p>Everything you type is processed <strong>on your own device</strong>. Your salary figures are never uploaded or stored on a server — refreshing the page clears them. See the <a href="/privacy">privacy policy</a> for the full detail.</p>
+  <h2 data-i="h2privacy">How it protects your privacy</h2>
+  <p data-i="pPrivacy">Everything you type is processed <strong>on your own device</strong>. Your salary figures are never uploaded or stored on a server — refreshing the page clears them. See the <a href="/privacy">privacy policy</a> for the full detail.</p>
 
-  <h2>Who makes it</h2>
-  <p>The site is built and maintained by an independent developer based in Cyprus. It is <strong>not affiliated with the Government of Cyprus</strong>, the Tax Department or any employer. It exists to make an opaque payslip easy to understand.</p>
+  <h2 data-i="h2who">Who makes it</h2>
+  <p data-i="pWho">The site is built and maintained by an independent developer based in Cyprus. It is <strong>not affiliated with the Government of Cyprus</strong>, the Tax Department or any employer. It exists to make an opaque payslip easy to understand.</p>
 
-  <div class="callout"><strong>Important:</strong> this tool gives estimates for general guidance using published 2026 rates. It is not tax, legal or financial advice. For decisions, verify with the Cyprus Tax Department, the Social Insurance Services, or a qualified accountant.</div>
+  <div class="callout" data-i="callout"><strong>Important:</strong> this tool gives estimates for general guidance using published 2026 rates. It is not tax, legal or financial advice. For decisions, verify with the Cyprus Tax Department, the Social Insurance Services, or a qualified accountant.</div>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/guides">Guides</a>
-    <a href="/contact">Contact</a>
-    <a href="/privacy">Privacy</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/guides" data-i="relGuides">Guides</a>
+    <a href="/contact" data-i="relContact">Contact</a>
+    <a href="/privacy" data-i="relPrivacy">Privacy</a>
   </div>
 
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"About Cyprus Salary Calculator",el:"Σχετικά με τον Υπολογιστή Μισθού Κύπρου",ru:"О калькуляторе зарплаты на Кипре"},
+  h1:{en:"About Cyprus Salary Calculator",el:"Σχετικά με τον Υπολογιστή Μισθού Κύπρου",ru:"О калькуляторе зарплаты на Кипре"},
+  lead:{en:"Cyprus Salary Calculator is a free, independent tool that works out your net take-home pay in Cyprus under the 2026 tax rules — instantly, in your browser, with no signup.",el:"Ο Υπολογιστής Μισθού Κύπρου είναι ένα δωρεάν, ανεξάρτητο εργαλείο που υπολογίζει τον καθαρό σας μισθό στην Κύπρο με τους κανόνες του 2026 — άμεσα, στον browser σας, χωρίς εγγραφή.",ru:"Калькулятор зарплаты на Кипре — это бесплатный независимый инструмент, который рассчитывает вашу чистую зарплату на Кипре по налоговым правилам 2026 года — мгновенно, в вашем браузере, без регистрации."},
+  h2does:{en:"What it does",el:"Τι κάνει",ru:"Что он делает"},
+  pDoes:{en:"Enter a gross salary and the calculator shows your net pay per year, month, week, day and hour after income tax, Social Insurance and GESY. It also does the reverse (net-to-gross), compares two job offers side by side, handles 12, 13 and 14 salaries, pension contributions and the 50% expat relief, and includes a separate <a href=\"/payslip-generator\">payslip generator</a>. There are plain-English <a href=\"/guides\">guides</a> explaining each deduction.",el:"Βάλτε έναν μικτό μισθό και ο υπολογιστής δείχνει τον καθαρό σας ανά έτος, μήνα, εβδομάδα, ημέρα και ώρα μετά τον φόρο, τις Κοιν. Ασφαλίσεις και το ΓεΣΥ. Κάνει επίσης το αντίστροφο (καθαρό σε μικτό), συγκρίνει δύο προσφορές εργασίας, χειρίζεται 12, 13 και 14 μισθούς, εισφορές σύνταξης και την έκπτωση 50% για ξένους, και περιλαμβάνει ξεχωριστή <a href=\"/payslip-generator\">δημιουργία μισθοδοσίας</a>. Υπάρχουν απλοί <a href=\"/guides\">οδηγοί</a> που εξηγούν κάθε κράτηση.",ru:"Введите валовую зарплату, и калькулятор покажет вашу чистую оплату за год, месяц, неделю, день и час после подоходного налога, соц. страхования и ГеСИ. Он также делает обратный расчёт (чистое в валовое), сравнивает два предложения о работе, учитывает 12, 13 и 14 зарплат, пенсионные взносы и льготу 50% для иностранцев, а также включает отдельный <a href=\"/payslip-generator\">генератор расчётного листа</a>. Есть понятные <a href=\"/guides\">гиды</a>, объясняющие каждое удержание."},
+  h2numbers:{en:"Where the numbers come from",el:"Από πού προέρχονται οι αριθμοί",ru:"Откуда берутся цифры"},
+  pNumbers:{en:"The calculations use the <strong>2026 post-reform</strong> figures: a €22,000 tax-free threshold, then bands of 20%, 25%, 30% and 35%, employee Social Insurance of 8.8% and GESY of 2.65%, with the relevant annual caps. These rates are based on the Cyprus income tax law and the published contribution rates of the <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Cyprus Tax Department</a> and the <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Social Insurance Services</a>. When rules change, the guides and calculator are updated and dated.",el:"Οι υπολογισμοί χρησιμοποιούν τα στοιχεία <strong>μετά τη μεταρρύθμιση του 2026</strong>: αφορολόγητο €22.000, μετά κλίμακες 20%, 25%, 30% και 35%, Κοιν. Ασφαλίσεις εργαζομένου 8,8% και ΓεΣΥ 2,65%, με τα σχετικά ετήσια όρια. Οι συντελεστές βασίζονται στη φορολογική νομοθεσία της Κύπρου και στους δημοσιευμένους συντελεστές του <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Τμήματος Φορολογίας</a> και των <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Υπηρεσιών Κοιν. Ασφαλίσεων</a>. Όταν αλλάζουν οι κανόνες, οι οδηγοί και ο υπολογιστής ενημερώνονται και χρονολογούνται.",ru:"Расчёты используют данные <strong>после реформы 2026</strong>: необлагаемый порог €22 000, затем ступени 20%, 25%, 30% и 35%, соц. страхование работника 8,8% и ГеСИ 2,65%, с соответствующими годовыми потолками. Эти ставки основаны на кипрском законе о подоходном налоге и опубликованных ставках взносов <a href=\"https://www.mof.gov.cy/mof/tax/taxdep.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Налогового департамента Кипра</a> и <a href=\"https://www.mlsi.gov.cy/mlsi/sid/sid.nsf\" rel=\"nofollow noopener\" target=\"_blank\">Службы соц. страхования</a>. При изменении правил гиды и калькулятор обновляются и датируются."},
+  h2privacy:{en:"How it protects your privacy",el:"Πώς προστατεύει την ιδιωτικότητά σας",ru:"Как он защищает вашу конфиденциальность"},
+  pPrivacy:{en:"Everything you type is processed <strong>on your own device</strong>. Your salary figures are never uploaded or stored on a server — refreshing the page clears them. See the <a href=\"/privacy\">privacy policy</a> for the full detail.",el:"Ό,τι πληκτρολογείτε επεξεργάζεται <strong>στη δική σας συσκευή</strong>. Τα ποσά του μισθού σας δεν ανεβαίνουν ούτε αποθηκεύονται σε διακομιστή — η ανανέωση της σελίδας τα διαγράφει. Δείτε την <a href=\"/privacy\">πολιτική απορρήτου</a> για όλες τις λεπτομέρειες.",ru:"Всё, что вы вводите, обрабатывается <strong>на вашем собственном устройстве</strong>. Ваши суммы зарплаты никогда не загружаются и не хранятся на сервере — обновление страницы их стирает. Полные детали — в <a href=\"/privacy\">политике конфиденциальности</a>."},
+  h2who:{en:"Who makes it",el:"Ποιος το φτιάχνει",ru:"Кто его создаёт"},
+  pWho:{en:"The site is built and maintained by an independent developer based in Cyprus. It is <strong>not affiliated with the Government of Cyprus</strong>, the Tax Department or any employer. It exists to make an opaque payslip easy to understand.",el:"Ο ιστότοπος δημιουργείται και συντηρείται από έναν ανεξάρτητο προγραμματιστή με έδρα την Κύπρο. <strong>Δεν έχει σχέση με την Κυβέρνηση της Κύπρου</strong>, το Τμήμα Φορολογίας ή οποιονδήποτε εργοδότη. Υπάρχει για να κάνει μια αδιαφανή μισθοδοσία εύκολα κατανοητή.",ru:"Сайт создаётся и поддерживается независимым разработчиком, базирующимся на Кипре. Он <strong>не связан с Правительством Кипра</strong>, Налоговым департаментом или каким-либо работодателем. Он существует, чтобы сделать непрозрачный расчётный лист понятным."},
+  callout:{en:"<strong>Important:</strong> this tool gives estimates for general guidance using published 2026 rates. It is not tax, legal or financial advice. For decisions, verify with the Cyprus Tax Department, the Social Insurance Services, or a qualified accountant.",el:"<strong>Σημαντικό:</strong> το εργαλείο δίνει εκτιμήσεις για γενική καθοδήγηση με βάση τους δημοσιευμένους συντελεστές του 2026. Δεν αποτελεί φορολογική, νομική ή οικονομική συμβουλή. Για αποφάσεις, επιβεβαιώστε με το Τμήμα Φορολογίας, τις Υπηρεσίες Κοιν. Ασφαλίσεων ή έναν εξειδικευμένο λογιστή.",ru:"<strong>Важно:</strong> этот инструмент даёт оценки для общего ориентира на основе опубликованных ставок 2026 года. Это не налоговая, юридическая или финансовая консультация. Для решений уточняйте в Налоговом департаменте Кипра, Службе соц. страхования или у квалифицированного бухгалтера."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  relContact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
+  relPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>
