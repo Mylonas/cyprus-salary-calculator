@@ -223,13 +223,22 @@
           <summary data-i="advanced">Advanced options</summary>
           <div class="body">
             <label data-i="pension">Pension / provident fund contribution</label>
-            <div class="field"><input id="pension" class="nopre" type="number" min="0" max="30" step="0.5" value="0" inputmode="decimal"><span class="cur" style="left:auto;right:14px">%</span></div>
+            <div class="two" style="grid-template-columns:1fr auto;align-items:stretch">
+              <div class="field"><input id="pension" class="nopre" type="number" min="0" step="0.5" value="0" inputmode="decimal"><span class="cur" id="penUnit" style="left:auto;right:14px">%</span></div>
+              <div class="seg" id="penSeg" style="margin-top:0">
+                <button data-u="pct" class="on" onclick="setPenUnit('pct')">%</button>
+                <button data-u="eur" onclick="setPenUnit('eur')">€</button>
+              </div>
+            </div>
             <p class="hint" data-i="pensionHint">Your own contribution. Reduces taxable income (tax-deductible) and take-home.</p>
 
-            <div class="row">
-              <input id="expat" type="checkbox">
-              <label for="expat" style="margin:0" data-i="expat">50% expat relief (first job in Cyprus, over €55,000)</label>
+            <label data-i="expatLbl">Expat tax relief (first job in Cyprus)</label>
+            <div class="seg" id="expatSeg">
+              <button data-x="none" class="on" onclick="setExpat('none')" data-i="expatNone">None</button>
+              <button data-x="20" onclick="setExpat('20')">20%</button>
+              <button data-x="50" onclick="setExpat('50')">50%</button>
             </div>
+            <p class="hint" data-i="expatHint">20%: the lower of 20% of pay or €8,550 a year, for 7 years. 50%: half your pay, but only if you earn over €55,000 a year, for 17 years. You can claim one, not both.</p>
             <div class="two" style="margin-top:12px">
               <div>
                 <label data-i="hoursWk">Hours / week</label>
@@ -399,7 +408,9 @@ const T = {
   pension:{en:"Pension / provident fund contribution",el:"Εισφορά σύνταξης / ταμείου προνοίας",ru:"Взнос в пенсионный фонд / фонд обеспечения"},
   pensionHint:{en:"Your own contribution. Reduces taxable income (tax-deductible) and take-home.",el:"Δική σας εισφορά. Μειώνει το φορολογητέο εισόδημα (εκπίπτει) και τον καθαρό μισθό.",ru:"Ваш собственный взнос. Уменьшает налогооблагаемый доход (вычитается) и чистую зарплату."},
   pensionRow:{en:"Pension / provident",el:"Σύνταξη / πρόνοια",ru:"Пенсия / фонд"},
-  expat:{en:"50% expat relief (first job in Cyprus, over €55,000)",el:"Έκπτωση 50% ξένων (πρώτη εργασία στην Κύπρο, άνω €55.000)",ru:"Льгота 50% для иностранцев (первая работа на Кипре, свыше €55 000)"},
+  expatLbl:{en:"Expat tax relief (first job in Cyprus)",el:"Έκπτωση φόρου ξένων (πρώτη εργασία στην Κύπρο)",ru:"Налоговая льгота для иностранцев (первая работа на Кипре)"},
+  expatNone:{en:"None",el:"Καμία",ru:"Нет"},
+  expatHint:{en:"20%: the lower of 20% of pay or €8,550 a year, for 7 years. 50%: half your pay, but only if you earn over €55,000 a year, for 17 years. You can claim one, not both.",el:"20%: το χαμηλότερο μεταξύ 20% των αποδοχών ή €8.550 ετησίως, για 7 έτη. 50%: το μισό των αποδοχών, αλλά μόνο αν κερδίζετε άνω των €55.000 ετησίως, για 17 έτη. Μπορείτε να επιλέξετε ένα, όχι και τα δύο.",ru:"20%: меньшее из 20% дохода или €8 550 в год, на 7 лет. 50%: половина дохода, но только при доходе свыше €55 000 в год, на 17 лет. Можно выбрать одно, не оба."},
   hoursWk:{en:"Hours / week",el:"Ώρες / εβδομάδα",ru:"Часов / неделю"}, daysWk:{en:"Days / week",el:"Ημέρες / εβδομάδα",ru:"Дней / неделю"},
   over60:{en:"Show employer cost too",el:"Εμφάνιση κόστους εργοδότη",ru:"Показать и расходы работодателя"},
   disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are treated as tax-deductible. Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). ΚΑ, ΓεΣΥ και σύνταξη θεωρούνται εκπιπτόμενα. Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή.",ru:"<strong>Только оценка.</strong> Ставки 2026: не облагается до €22 000; ступени 20/25/30/35%; Соц. страхование 8,8% (потолок €68 904); ГеСИ 2,65% (потолок €180 000). Соц. страхование, ГеСИ и пенсия считаются вычитаемыми. Не является налоговой консультацией — уточняйте в Налоговом департаменте Кипра или у бухгалтера."},
@@ -448,11 +459,13 @@ const T = {
 };
 
 let lang='en', mode='take', period='year', revPeriod='month', months=12;
+let expatMode='none', pensionUnit='pct';
 
 const BANDS=[[22000,0],[32000,.20],[42000,.25],[72000,.30],[Infinity,.35]];
 const SI_RATE=.088, SI_CAP=68904, GESY_RATE=.0265, GESY_CAP=180000;
 const EMP_SI=.088, EMP_GESY=.029, EMP_OTHER=.047;
-const EXPAT_THRESHOLD=55000;
+const EXPAT_50_THRESHOLD=55000;   // 50% relief: salary must exceed this
+const EXPAT_20_CAP=8550;          // 20% relief: exemption capped at this per year
 
 const $=id=>document.getElementById(id);
 const eur=n=>'€'+Math.round(n).toLocaleString(lang==='el'?'el-CY':'en-CY');
@@ -471,33 +484,45 @@ function marginalBand(taxable){
   return .35;
 }
 
+// Resolve the annual pension contribution from the user's input (% of gross or a € amount).
+function pensionAmount(gross, pen){
+  if(!pen) return 0;
+  return pen.mode==='eur' ? Math.min(pen.val, gross) : gross*(pen.val/100);
+}
+// Expat income-tax exemption: '20' = lower of 20% of pay or €8,550; '50' = half of pay if over €55,000.
+function expatExemption(gross, expat){
+  if(expat==='50') return gross>EXPAT_50_THRESHOLD ? gross*0.5 : 0;
+  if(expat==='20') return Math.min(gross*0.20, EXPAT_20_CAP);
+  return 0;
+}
+
 // Core engine: annual gross -> full breakdown
-function compute(gross, pensionPct, expat){
+function compute(gross, pen, expat){
   const si = Math.min(gross,SI_CAP)*SI_RATE;
   const gesy = Math.min(gross,GESY_CAP)*GESY_RATE;
-  const pension = gross*(pensionPct/100);
-  let taxable = Math.max(0, gross - si - gesy - pension);
-  if(expat && gross>=EXPAT_THRESHOLD) taxable = taxable*0.5; // 50% of income exempt
+  const pension = pensionAmount(gross, pen);
+  const exempt = expatExemption(gross, expat);
+  let taxable = Math.max(0, gross - si - gesy - pension - exempt);
   const tax = incomeTax(taxable);
   const net = gross - si - gesy - pension - tax;
-  return {gross,si,gesy,pension,tax,net,taxable,contrib:si+gesy};
+  return {gross,si,gesy,pension,exempt,tax,net,taxable,contrib:si+gesy};
 }
 
 // Reverse: find gross that yields target annual net (monotonic -> binary search)
-function grossForNet(targetNet, pensionPct, expat){
+function grossForNet(targetNet, pen, expat){
   let lo=0, hi=Math.max(20000,targetNet*3);
-  while(compute(hi,pensionPct,expat).net < targetNet && hi<5e7) hi*=2;
+  while(compute(hi,pen,expat).net < targetNet && hi<5e7) hi*=2;
   for(let i=0;i<60;i++){
     const mid=(lo+hi)/2;
-    if(compute(mid,pensionPct,expat).net < targetNet) lo=mid; else hi=mid;
+    if(compute(mid,pen,expat).net < targetNet) lo=mid; else hi=mid;
   }
   return (lo+hi)/2;
 }
 
 function readAdvanced(){
   return {
-    pensionPct: Math.max(0, parseFloat($('pension').value)||0),
-    expat: $('expat').checked,
+    pen: {mode:pensionUnit, val:Math.max(0, parseFloat($('pension').value)||0)},
+    expat: expatMode,
     hours: Math.max(1, parseFloat($('hours').value)||40),
     days: Math.max(1, parseFloat($('days').value)||5)
   };
@@ -509,12 +534,12 @@ function renderSingle(){
   if(mode==='reverse'){
     const amt=parseFloat($('revAmount').value)||0;
     const targetNet = revPeriod==='year'? amt : amt*12;
-    gross = grossForNet(targetNet, adv.pensionPct, adv.expat);
+    gross = grossForNet(targetNet, adv.pen, adv.expat);
   } else {
     const amt=parseFloat($('amount').value)||0;
     gross = period==='year'? amt : amt*months;
   }
-  const r=compute(gross, adv.pensionPct, adv.expat);
+  const r=compute(gross, adv.pen, adv.expat);
 
   // headline
   if(mode==='reverse'){
@@ -571,8 +596,8 @@ function renderSingle(){
 }
 
 function renderCompare(){
-  const A=compute((parseFloat($('aAmt').value)||0)+(parseFloat($('aBonus').value)||0), Math.max(0,parseFloat($('aPen').value)||0), false);
-  const B=compute((parseFloat($('bAmt').value)||0)+(parseFloat($('bBonus').value)||0), Math.max(0,parseFloat($('bPen').value)||0), false);
+  const A=compute((parseFloat($('aAmt').value)||0)+(parseFloat($('aBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('aPen').value)||0)}, 'none');
+  const B=compute((parseFloat($('bAmt').value)||0)+(parseFloat($('bBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('bPen').value)||0)}, 'none');
   const set=(id,a,b)=>{const tr=$(id);tr.children[1].textContent=a;tr.children[2].textContent=b;};
   set('cGross',eur(A.gross),eur(B.gross));
   set('cTax','−'+eur(A.tax),'−'+eur(B.tax));
@@ -608,6 +633,8 @@ function setMode(m){
 function setPeriod(p){period=p;document.querySelectorAll('#period button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));calc();}
 function setRevPeriod(p){revPeriod=p;document.querySelectorAll('#revPeriod button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));calc();}
 function setMonths(m){months=m;document.querySelectorAll('#months button').forEach(b=>b.classList.toggle('on',+b.dataset.m===m));calc();}
+function setExpat(x){expatMode=x;document.querySelectorAll('#expatSeg button').forEach(b=>b.classList.toggle('on',b.dataset.x===x));calc();}
+function setPenUnit(u){pensionUnit=u;document.querySelectorAll('#penSeg button').forEach(b=>b.classList.toggle('on',b.dataset.u===u));$('penUnit').textContent=u==='eur'?'€':'%';calc();}
 function setLang(l){
   lang=l;
   const sel=document.querySelector('.lang'); if(sel&&sel.value!==l) sel.value=l;
@@ -628,7 +655,8 @@ function share(){
     p.set('amt',$('amount').value); p.set('per',period); p.set('m',months);
   }
   const adv=readAdvanced();
-  p.set('pen',$('pension').value); if($('expat').checked)p.set('expat','1');
+  p.set('pen',$('pension').value); p.set('pu',pensionUnit);
+  if(expatMode!=='none') p.set('expat',expatMode);
   p.set('h',adv.hours); p.set('d',adv.days);
   const url=location.origin+location.pathname+'?'+p.toString();
   const done=()=>{const b=mode==='compare'?$('shareBtnC'):$('shareBtn');b.textContent=T.shared[lang];b.classList.add('copied');setTimeout(()=>{b.textContent=T.share[lang];b.classList.remove('copied');},1800);};
@@ -641,7 +669,8 @@ function loadFromURL(){
   if(![...p.keys()].length) return;
   if(['en','el','ru'].includes(p.get('lang'))) setLang(p.get('lang'));
   if(p.get('pen')!=null)$('pension').value=p.get('pen');
-  if(p.get('expat'))$('expat').checked=true;
+  if(p.get('pu')==='eur'||p.get('pu')==='pct') setPenUnit(p.get('pu'));
+  const ex=p.get('expat'); if(ex) setExpat(ex==='1'?'50':ex); // '1' = legacy 50% links
   if(p.get('h'))$('hours').value=p.get('h');
   if(p.get('d'))$('days').value=p.get('d');
   if(p.get('pen')&&parseFloat(p.get('pen'))>0 || p.get('expat')) $('advBox').open=true;
