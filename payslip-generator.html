@@ -146,6 +146,7 @@
       <div class="lang">
         <button id="l-en" class="on" onclick="setLang('en')">EN</button>
         <button id="l-el" onclick="setLang('el')">ΕΛ</button>
+        <button id="l-ru" onclick="setLang('ru')">РУ</button>
       </div>
     </div>
   </div>
@@ -330,59 +331,59 @@
 <script>
 /* ================= i18n ================= */
 const TR={
-  navCalc:{en:"Calculator",el:"Υπολογιστής"},navPayslip:{en:"Payslip",el:"Μισθοδοσία"},navGuides:{en:"Guides",el:"Οδηγοί"},
-  h1:{en:"Free payslip generator",el:"Δωρεάν δημιουργία μισθοδοσίας"},
-  lead:{en:"Fill in the details, watch the payslip build itself, and download a print-ready <strong>PDF</strong> or editable <strong>Word</strong> document. No account, no payroll knowledge needed.",el:"Συμπληρώστε τα στοιχεία, δείτε τη μισθοδοσία να δημιουργείται και κατεβάστε έτοιμο για εκτύπωση <strong>PDF</strong> ή επεξεργάσιμο <strong>Word</strong>. Χωρίς λογαριασμό, χωρίς γνώσεις μισθοδοσίας."},
-  privacy:{en:"🔒 <span><b>Private by design.</b> Everything runs in your browser — your payslip data never leaves your device.</span>",el:"🔒 <span><b>Ιδιωτικό εξ ορισμού.</b> Όλα εκτελούνται στον browser σας — τα δεδομένα σας δεν φεύγουν ποτέ από τη συσκευή σας.</span>"},
-  secTemplate:{en:"Template &amp; currency",el:"Πρότυπο &amp; νόμισμα"},
-  lblTemplate:{en:"Template",el:"Πρότυπο"},tProfessional:{en:"Professional",el:"Επαγγελματικό"},tMinimal:{en:"Minimal",el:"Λιτό"},tClassic:{en:"Classic (serif)",el:"Κλασικό (serif)"},
-  lblCurrency:{en:"Currency",el:"Νόμισμα"},
-  curEUR:{en:"€ Euro",el:"€ Ευρώ"},curGBP:{en:"£ Pound",el:"£ Λίρα"},curUSD:{en:"$ Dollar",el:"$ Δολάριο"},curINR:{en:"₹ Rupee",el:"₹ Ρουπία"},curCHF:{en:"CHF Franc",el:"CHF Φράγκο"},curNGN:{en:"₦ Naira",el:"₦ Νάιρα"},curZAR:{en:"R Rand",el:"R Ραντ"},curAUD:{en:"A$ AUD",el:"A$ AUD"},curCAD:{en:"C$ CAD",el:"C$ CAD"},
-  ytdLabel:{en:"Show Year-to-Date (YTD) column",el:"Εμφάνιση στήλης από αρχή έτους (YTD)"},
-  secEmployer:{en:"Employer",el:"Εργοδότης"},lblCoName:{en:"Company name",el:"Επωνυμία εταιρείας"},lblAddr:{en:"Address",el:"Διεύθυνση"},
-  lblReg:{en:"Reg / Employer no.",el:"Αρ. εγγραφής / εργοδότη"},lblContact:{en:"Contact (email/phone)",el:"Επικοινωνία (email/τηλ.)"},
-  lblLogo:{en:"Company logo",el:"Λογότυπο εταιρείας"},logoUpload:{en:"Click to upload a logo (PNG/JPG)",el:"Κάντε κλικ για μεταφόρτωση λογότυπου (PNG/JPG)"},logoRemove:{en:"Remove logo",el:"Αφαίρεση λογότυπου"},
-  secEmployee:{en:"Employee",el:"Εργαζόμενος"},lblFullName:{en:"Full name",el:"Ονοματεπώνυμο"},lblEmpNo:{en:"Employee no.",el:"Αρ. εργαζομένου"},lblPosition:{en:"Position",el:"Θέση"},lblDept:{en:"Department",el:"Τμήμα"},lblTaxNo:{en:"Tax / Social Ins. no.",el:"ΑΦΜ / Αρ. Κοιν. Ασφ."},lblMethod:{en:"Payment method",el:"Τρόπος πληρωμής"},lblBank:{en:"Bank / IBAN (last 4)",el:"Τράπεζα / IBAN (τελευτ. 4)"},
-  secPeriod:{en:"Pay period",el:"Περίοδος πληρωμής"},lblStart:{en:"Period start",el:"Έναρξη περιόδου"},lblEnd:{en:"Period end",el:"Λήξη περιόδου"},lblPayDate:{en:"Pay date",el:"Ημ. πληρωμής"},lblFreq:{en:"Frequency",el:"Συχνότητα"},
-  fMonthly:{en:"Monthly",el:"Μηνιαία"},fWeekly:{en:"Weekly",el:"Εβδομαδιαία"},fBiweekly:{en:"Bi-weekly",el:"Ανά δύο εβδομάδες"},fFortnightly:{en:"Fortnightly",el:"Δεκαπενθήμερη"},fAnnual:{en:"Annual",el:"Ετήσια"},fOneoff:{en:"One-off",el:"Εφάπαξ"},
-  secEarnings:{en:"Earnings",el:"Αποδοχές"},earnSub:{en:"Add any earning lines. Gross pay is the total.",el:"Προσθέστε γραμμές αποδοχών. Το σύνολο είναι οι μικτές αποδοχές."},
-  secDeductions:{en:"Deductions",el:"Κρατήσεις"},dedSub:{en:"Taxes, contributions and anything withheld.",el:"Φόροι, εισφορές και ό,τι παρακρατείται."},
-  addEarn:{en:"+ Add earning line",el:"+ Προσθήκη γραμμής αποδοχών"},addDed:{en:"+ Add deduction line",el:"+ Προσθήκη γραμμής κράτησης"},addEmp:{en:"+ Add contribution line",el:"+ Προσθήκη γραμμής εισφοράς"},
-  hintUseCalc:{en:"💡 <a href=\"/\">Use the salary calculator</a> then click “Generate payslip” to fill Cyprus tax, Social Insurance &amp; GESY automatically.",el:"💡 <a href=\"/\">Χρησιμοποιήστε τον υπολογιστή μισθού</a> και πατήστε «Δημιουργία μισθοδοσίας» για αυτόματη συμπλήρωση φόρου, Κοιν. Ασφαλίσεων &amp; ΓεΣΥ."},
-  secEmpContrib:{en:"Employer contributions <span style=\"font-weight:400;text-transform:none;letter-spacing:0\">(optional)</span>",el:"Εισφορές εργοδότη <span style=\"font-weight:400;text-transform:none;letter-spacing:0\">(προαιρετικό)</span>"},
-  empCkLabel:{en:"Show employer contributions on the payslip",el:"Εμφάνιση εισφορών εργοδότη στη μισθοδοσία"},
-  secNotes:{en:"Notes",el:"Σημειώσεις"},notesPh:{en:"Optional note shown at the bottom of the payslip",el:"Προαιρετική σημείωση στο κάτω μέρος της μισθοδοσίας"},
-  saveCompany:{en:"💾 Save company to device",el:"💾 Αποθήκευση εταιρείας"},saveEmployee:{en:"💾 Save employee",el:"💾 Αποθήκευση εργαζομένου"},clearSavedBtn:{en:"Clear saved",el:"Εκκαθάριση αποθηκευμένων"},
-  btnPDF:{en:"⬇ Download PDF",el:"⬇ Λήψη PDF"},btnWord:{en:"⬇ Word (.docx)",el:"⬇ Word (.docx)"},btnPrint:{en:"🖨 Print",el:"🖨 Εκτύπωση"},
-  previewHint:{en:"A4-ready · updates live · totals always reconcile",el:"Έτοιμο για A4 · ζωντανή προεπισκόπηση · τα σύνολα συμφωνούν πάντα"},
-  seoH2:{en:"How to create a payslip",el:"Πώς να δημιουργήσετε μισθοδοσία"},
-  seoStep1:{en:"Enter your <strong>company</strong> and <strong>employee</strong> details and (optionally) upload a logo.",el:"Εισάγετε στοιχεία <strong>εταιρείας</strong> και <strong>εργαζομένου</strong> και (προαιρετικά) ανεβάστε λογότυπο."},
-  seoStep2:{en:"Set the <strong>pay period</strong>, then add <strong>earnings</strong> and <strong>deductions</strong> — the payslip totals update instantly.",el:"Ορίστε την <strong>περίοδο πληρωμής</strong> και προσθέστε <strong>αποδοχές</strong> και <strong>κρατήσεις</strong> — τα σύνολα ενημερώνονται άμεσα."},
-  seoStep3:{en:"Pick a template and download a <strong>PDF</strong> or editable <strong>Word</strong> file, or print it.",el:"Επιλέξτε πρότυπο και κατεβάστε <strong>PDF</strong> ή επεξεργάσιμο <strong>Word</strong>, ή εκτυπώστε."},
-  seoPara:{en:"Coming from the <a href=\"/\">Cyprus salary calculator</a>? Calculate your net pay first, then hit “Generate payslip” to carry the gross, income tax, Social Insurance and GESY straight into a ready-made Cyprus payslip.",el:"Ήρθατε από τον <a href=\"/\">υπολογιστή μισθού Κύπρου</a>; Υπολογίστε πρώτα τον καθαρό μισθό και μετά πατήστε «Δημιουργία μισθοδοσίας» για να μεταφερθούν μικτός, φόρος, Κοιν. Ασφαλίσεις και ΓεΣΥ σε έτοιμη μισθοδοσία."},
-  faqQ1:{en:"Is it free and private?",el:"Είναι δωρεάν και ιδιωτικό;"},faqA1:{en:"Yes. There is no account and no cost. The generator runs entirely in your browser, so your payslip details never leave your device.",el:"Ναι. Χωρίς λογαριασμό και χωρίς κόστος. Όλα εκτελούνται στον browser σας, οπότε τα στοιχεία σας δεν φεύγουν από τη συσκευή."},
-  faqQ2:{en:"Can I download PDF and Word?",el:"Μπορώ να κατεβάσω PDF και Word;"},faqA2:{en:"Yes — a print-ready A4 PDF and an editable Word (.docx) document, plus direct printing.",el:"Ναι — έτοιμο A4 PDF και επεξεργάσιμο Word (.docx), καθώς και άμεση εκτύπωση."},
-  faqQ3:{en:"Which countries does it support?",el:"Ποιες χώρες υποστηρίζει;"},faqA3:{en:"Any country: earnings and deductions are fully custom. Cyprus figures can be auto-filled from the salary calculator; for other countries just type the amounts.",el:"Οποιαδήποτε χώρα: αποδοχές και κρατήσεις είναι πλήρως προσαρμόσιμες. Τα κυπριακά ποσά συμπληρώνονται αυτόματα από τον υπολογιστή· για άλλες χώρες πληκτρολογήστε τα ποσά."},
-  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · Payslip generator · Documents you create are estimates for record-keeping, not certified payroll · <a href=\"/privacy.html\">Privacy</a>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · Δημιουργία μισθοδοσίας · Τα έγγραφα είναι εκτιμήσεις για αρχείο, όχι πιστοποιημένη μισθοδοσία · <a href=\"/privacy.html\">Απόρρητο</a>"},
+  navCalc:{en:"Calculator",el:"Υπολογιστής",ru:"Калькулятор"},navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  h1:{en:"Free payslip generator",el:"Δωρεάν δημιουργία μισθοδοσίας",ru:"Бесплатный генератор расчётного листа"},
+  lead:{en:"Fill in the details, watch the payslip build itself, and download a print-ready <strong>PDF</strong> or editable <strong>Word</strong> document. No account, no payroll knowledge needed.",el:"Συμπληρώστε τα στοιχεία, δείτε τη μισθοδοσία να δημιουργείται και κατεβάστε έτοιμο για εκτύπωση <strong>PDF</strong> ή επεξεργάσιμο <strong>Word</strong>. Χωρίς λογαριασμό, χωρίς γνώσεις μισθοδοσίας.",ru:"Заполните данные, смотрите, как расчётный лист собирается сам, и скачайте готовый к печати <strong>PDF</strong> или редактируемый <strong>Word</strong>. Без регистрации и без знаний бухгалтерии."},
+  privacy:{en:"🔒 <span><b>Private by design.</b> Everything runs in your browser — your payslip data never leaves your device.</span>",el:"🔒 <span><b>Ιδιωτικό εξ ορισμού.</b> Όλα εκτελούνται στον browser σας — τα δεδομένα σας δεν φεύγουν ποτέ από τη συσκευή σας.</span>",ru:"🔒 <span><b>Приватно по замыслу.</b> Всё работает в вашем браузере — данные расчётного листа никогда не покидают ваше устройство.</span>"},
+  secTemplate:{en:"Template &amp; currency",el:"Πρότυπο &amp; νόμισμα",ru:"Шаблон и валюта"},
+  lblTemplate:{en:"Template",el:"Πρότυπο",ru:"Шаблон"},tProfessional:{en:"Professional",el:"Επαγγελματικό",ru:"Профессиональный"},tMinimal:{en:"Minimal",el:"Λιτό",ru:"Минимальный"},tClassic:{en:"Classic (serif)",el:"Κλασικό (serif)",ru:"Классический (serif)"},
+  lblCurrency:{en:"Currency",el:"Νόμισμα",ru:"Валюта"},
+  curEUR:{en:"€ Euro",el:"€ Ευρώ",ru:"€ Евро"},curGBP:{en:"£ Pound",el:"£ Λίρα",ru:"£ Фунт"},curUSD:{en:"$ Dollar",el:"$ Δολάριο",ru:"$ Доллар"},curINR:{en:"₹ Rupee",el:"₹ Ρουπία",ru:"₹ Рупия"},curCHF:{en:"CHF Franc",el:"CHF Φράγκο",ru:"CHF Франк"},curNGN:{en:"₦ Naira",el:"₦ Νάιρα",ru:"₦ Найра"},curZAR:{en:"R Rand",el:"R Ραντ",ru:"R Рэнд"},curAUD:{en:"A$ AUD",el:"A$ AUD",ru:"A$ AUD"},curCAD:{en:"C$ CAD",el:"C$ CAD",ru:"C$ CAD"},
+  ytdLabel:{en:"Show Year-to-Date (YTD) column",el:"Εμφάνιση στήλης από αρχή έτους (YTD)",ru:"Показать столбец с начала года (YTD)"},
+  secEmployer:{en:"Employer",el:"Εργοδότης",ru:"Работодатель"},lblCoName:{en:"Company name",el:"Επωνυμία εταιρείας",ru:"Название компании"},lblAddr:{en:"Address",el:"Διεύθυνση",ru:"Адрес"},
+  lblReg:{en:"Reg / Employer no.",el:"Αρ. εγγραφής / εργοδότη",ru:"Рег. / № работодателя"},lblContact:{en:"Contact (email/phone)",el:"Επικοινωνία (email/τηλ.)",ru:"Контакт (email/тел.)"},
+  lblLogo:{en:"Company logo",el:"Λογότυπο εταιρείας",ru:"Логотип компании"},logoUpload:{en:"Click to upload a logo (PNG/JPG)",el:"Κάντε κλικ για μεταφόρτωση λογότυπου (PNG/JPG)",ru:"Нажмите, чтобы загрузить логотип (PNG/JPG)"},logoRemove:{en:"Remove logo",el:"Αφαίρεση λογότυπου",ru:"Удалить логотип"},
+  secEmployee:{en:"Employee",el:"Εργαζόμενος",ru:"Работник"},lblFullName:{en:"Full name",el:"Ονοματεπώνυμο",ru:"Полное имя"},lblEmpNo:{en:"Employee no.",el:"Αρ. εργαζομένου",ru:"№ работника"},lblPosition:{en:"Position",el:"Θέση",ru:"Должность"},lblDept:{en:"Department",el:"Τμήμα",ru:"Отдел"},lblTaxNo:{en:"Tax / Social Ins. no.",el:"ΑΦΜ / Αρ. Κοιν. Ασφ.",ru:"ИНН / № соц. страх."},lblMethod:{en:"Payment method",el:"Τρόπος πληρωμής",ru:"Способ оплаты"},lblBank:{en:"Bank / IBAN (last 4)",el:"Τράπεζα / IBAN (τελευτ. 4)",ru:"Банк / IBAN (последние 4)"},
+  secPeriod:{en:"Pay period",el:"Περίοδος πληρωμής",ru:"Период оплаты"},lblStart:{en:"Period start",el:"Έναρξη περιόδου",ru:"Начало периода"},lblEnd:{en:"Period end",el:"Λήξη περιόδου",ru:"Конец периода"},lblPayDate:{en:"Pay date",el:"Ημ. πληρωμής",ru:"Дата выплаты"},lblFreq:{en:"Frequency",el:"Συχνότητα",ru:"Периодичность"},
+  fMonthly:{en:"Monthly",el:"Μηνιαία",ru:"Ежемесячно"},fWeekly:{en:"Weekly",el:"Εβδομαδιαία",ru:"Еженедельно"},fBiweekly:{en:"Bi-weekly",el:"Ανά δύο εβδομάδες",ru:"Раз в две недели"},fFortnightly:{en:"Fortnightly",el:"Δεκαπενθήμερη",ru:"Каждые две недели"},fAnnual:{en:"Annual",el:"Ετήσια",ru:"Ежегодно"},fOneoff:{en:"One-off",el:"Εφάπαξ",ru:"Разово"},
+  secEarnings:{en:"Earnings",el:"Αποδοχές",ru:"Начисления"},earnSub:{en:"Add any earning lines. Gross pay is the total.",el:"Προσθέστε γραμμές αποδοχών. Το σύνολο είναι οι μικτές αποδοχές.",ru:"Добавьте строки начислений. Итог — валовые начисления."},
+  secDeductions:{en:"Deductions",el:"Κρατήσεις",ru:"Удержания"},dedSub:{en:"Taxes, contributions and anything withheld.",el:"Φόροι, εισφορές και ό,τι παρακρατείται.",ru:"Налоги, взносы и всё удержанное."},
+  addEarn:{en:"+ Add earning line",el:"+ Προσθήκη γραμμής αποδοχών",ru:"+ Добавить строку начисления"},addDed:{en:"+ Add deduction line",el:"+ Προσθήκη γραμμής κράτησης",ru:"+ Добавить строку удержания"},addEmp:{en:"+ Add contribution line",el:"+ Προσθήκη γραμμής εισφοράς",ru:"+ Добавить строку взноса"},
+  hintUseCalc:{en:"💡 <a href=\"/\">Use the salary calculator</a> then click “Generate payslip” to fill Cyprus tax, Social Insurance &amp; GESY automatically.",el:"💡 <a href=\"/\">Χρησιμοποιήστε τον υπολογιστή μισθού</a> και πατήστε «Δημιουργία μισθοδοσίας» για αυτόματη συμπλήρωση φόρου, Κοιν. Ασφαλίσεων &amp; ΓεΣΥ.",ru:"💡 <a href=\"/\">Используйте калькулятор зарплаты</a>, затем нажмите «Создать расчётный лист», чтобы автоматически подставить кипрский налог, соц. страхование и ГеСИ."},
+  secEmpContrib:{en:"Employer contributions <span style=\"font-weight:400;text-transform:none;letter-spacing:0\">(optional)</span>",el:"Εισφορές εργοδότη <span style=\"font-weight:400;text-transform:none;letter-spacing:0\">(προαιρετικό)</span>",ru:"Взносы работодателя <span style=\"font-weight:400;text-transform:none;letter-spacing:0\">(необязательно)</span>"},
+  empCkLabel:{en:"Show employer contributions on the payslip",el:"Εμφάνιση εισφορών εργοδότη στη μισθοδοσία",ru:"Показать взносы работодателя в расчётном листе"},
+  secNotes:{en:"Notes",el:"Σημειώσεις",ru:"Примечания"},notesPh:{en:"Optional note shown at the bottom of the payslip",el:"Προαιρετική σημείωση στο κάτω μέρος της μισθοδοσίας",ru:"Необязательное примечание внизу расчётного листа"},
+  saveCompany:{en:"💾 Save company to device",el:"💾 Αποθήκευση εταιρείας",ru:"💾 Сохранить компанию на устройство"},saveEmployee:{en:"💾 Save employee",el:"💾 Αποθήκευση εργαζομένου",ru:"💾 Сохранить работника"},clearSavedBtn:{en:"Clear saved",el:"Εκκαθάριση αποθηκευμένων",ru:"Очистить сохранённое"},
+  btnPDF:{en:"⬇ Download PDF",el:"⬇ Λήψη PDF",ru:"⬇ Скачать PDF"},btnWord:{en:"⬇ Word (.docx)",el:"⬇ Word (.docx)",ru:"⬇ Word (.docx)"},btnPrint:{en:"🖨 Print",el:"🖨 Εκτύπωση",ru:"🖨 Печать"},
+  previewHint:{en:"A4-ready · updates live · totals always reconcile",el:"Έτοιμο για A4 · ζωντανή προεπισκόπηση · τα σύνολα συμφωνούν πάντα",ru:"Готово к A4 · обновляется вживую · итоги всегда сходятся"},
+  seoH2:{en:"How to create a payslip",el:"Πώς να δημιουργήσετε μισθοδοσία",ru:"Как создать расчётный лист"},
+  seoStep1:{en:"Enter your <strong>company</strong> and <strong>employee</strong> details and (optionally) upload a logo.",el:"Εισάγετε στοιχεία <strong>εταιρείας</strong> και <strong>εργαζομένου</strong> και (προαιρετικά) ανεβάστε λογότυπο.",ru:"Введите данные <strong>компании</strong> и <strong>работника</strong> и (по желанию) загрузите логотип."},
+  seoStep2:{en:"Set the <strong>pay period</strong>, then add <strong>earnings</strong> and <strong>deductions</strong> — the payslip totals update instantly.",el:"Ορίστε την <strong>περίοδο πληρωμής</strong> και προσθέστε <strong>αποδοχές</strong> και <strong>κρατήσεις</strong> — τα σύνολα ενημερώνονται άμεσα.",ru:"Задайте <strong>период оплаты</strong>, затем добавьте <strong>начисления</strong> и <strong>удержания</strong> — итоги обновляются мгновенно."},
+  seoStep3:{en:"Pick a template and download a <strong>PDF</strong> or editable <strong>Word</strong> file, or print it.",el:"Επιλέξτε πρότυπο και κατεβάστε <strong>PDF</strong> ή επεξεργάσιμο <strong>Word</strong>, ή εκτυπώστε.",ru:"Выберите шаблон и скачайте <strong>PDF</strong> или редактируемый <strong>Word</strong>, либо распечатайте."},
+  seoPara:{en:"Coming from the <a href=\"/\">Cyprus salary calculator</a>? Calculate your net pay first, then hit “Generate payslip” to carry the gross, income tax, Social Insurance and GESY straight into a ready-made Cyprus payslip.",el:"Ήρθατε από τον <a href=\"/\">υπολογιστή μισθού Κύπρου</a>; Υπολογίστε πρώτα τον καθαρό μισθό και μετά πατήστε «Δημιουργία μισθοδοσίας» για να μεταφερθούν μικτός, φόρος, Κοιν. Ασφαλίσεις και ΓεΣΥ σε έτοιμη μισθοδοσία.",ru:"Пришли из <a href=\"/\">калькулятора зарплаты Кипра</a>? Сначала рассчитайте чистую зарплату, затем нажмите «Создать расчётный лист», чтобы перенести валовую, подоходный налог, соц. страхование и ГеСИ прямо в готовый кипрский расчётный лист."},
+  faqQ1:{en:"Is it free and private?",el:"Είναι δωρεάν και ιδιωτικό;",ru:"Это бесплатно и приватно?"},faqA1:{en:"Yes. There is no account and no cost. The generator runs entirely in your browser, so your payslip details never leave your device.",el:"Ναι. Χωρίς λογαριασμό και χωρίς κόστος. Όλα εκτελούνται στον browser σας, οπότε τα στοιχεία σας δεν φεύγουν από τη συσκευή.",ru:"Да. Без регистрации и без оплаты. Генератор работает полностью в вашем браузере, поэтому данные расчётного листа никогда не покидают устройство."},
+  faqQ2:{en:"Can I download PDF and Word?",el:"Μπορώ να κατεβάσω PDF και Word;",ru:"Можно скачать PDF и Word?"},faqA2:{en:"Yes — a print-ready A4 PDF and an editable Word (.docx) document, plus direct printing.",el:"Ναι — έτοιμο A4 PDF και επεξεργάσιμο Word (.docx), καθώς και άμεση εκτύπωση.",ru:"Да — готовый к печати A4 PDF и редактируемый Word (.docx), а также прямая печать."},
+  faqQ3:{en:"Which countries does it support?",el:"Ποιες χώρες υποστηρίζει;",ru:"Какие страны поддерживаются?"},faqA3:{en:"Any country: earnings and deductions are fully custom. Cyprus figures can be auto-filled from the salary calculator; for other countries just type the amounts.",el:"Οποιαδήποτε χώρα: αποδοχές και κρατήσεις είναι πλήρως προσαρμόσιμες. Τα κυπριακά ποσά συμπληρώνονται αυτόματα από τον υπολογιστή· για άλλες χώρες πληκτρολογήστε τα ποσά.",ru:"Любая страна: начисления и удержания полностью настраиваемы. Кипрские суммы можно подставить автоматически из калькулятора зарплаты; для других стран просто введите суммы."},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · Payslip generator · Documents you create are estimates for record-keeping, not certified payroll · <a href=\"/privacy.html\">Privacy</a>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · Δημιουργία μισθοδοσίας · Τα έγγραφα είναι εκτιμήσεις για αρχείο, όχι πιστοποιημένη μισθοδοσία · <a href=\"/privacy.html\">Απόρρητο</a>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · Генератор расчётного листа · Создаваемые документы — оценки для учёта, а не заверенная платёжная ведомость · <a href=\"/privacy.html\">Конфиденциальность</a>"},
   /* presets (also used as line descriptions) */
-  pBasic:{en:"Basic salary",el:"Βασικός μισθός"},pOvertime:{en:"Overtime",el:"Υπερωρίες"},pBonus:{en:"Bonus",el:"Μπόνους"},pCommission:{en:"Commission",el:"Προμήθεια"},pAllowance:{en:"Allowance",el:"Επίδομα"},p13th:{en:"13th salary",el:"13ος μισθός"},
-  pIncomeTax:{en:"Income tax (PAYE)",el:"Φόρος εισοδήματος (PAYE)"},pSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις"},pGESY:{en:"GESY",el:"ΓεΣΥ"},pPension:{en:"Pension / Provident",el:"Σύνταξη / Πρόνοια"},pHealth:{en:"Health insurance",el:"Ασφάλεια υγείας"},
-  pEmpSI:{en:"Employer Social Insurance",el:"Κοιν. Ασφαλίσεις εργοδότη"},pEmpGESY:{en:"Employer GESY",el:"ΓεΣΥ εργοδότη"},pCohesion:{en:"Social Cohesion Fund",el:"Ταμείο Κοιν. Συνοχής"},pRedundancy:{en:"Redundancy Fund",el:"Ταμείο Πλεονασμού"},
+  pBasic:{en:"Basic salary",el:"Βασικός μισθός",ru:"Базовый оклад"},pOvertime:{en:"Overtime",el:"Υπερωρίες",ru:"Сверхурочные"},pBonus:{en:"Bonus",el:"Μπόνους",ru:"Бонус"},pCommission:{en:"Commission",el:"Προμήθεια",ru:"Комиссия"},pAllowance:{en:"Allowance",el:"Επίδομα",ru:"Надбавка"},p13th:{en:"13th salary",el:"13ος μισθός",ru:"13-я зарплата"},
+  pIncomeTax:{en:"Income tax (PAYE)",el:"Φόρος εισοδήματος (PAYE)",ru:"Подоходный налог (PAYE)"},pSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις",ru:"Соц. страхование"},pGESY:{en:"GESY",el:"ΓεΣΥ",ru:"ГеСИ"},pPension:{en:"Pension / Provident",el:"Σύνταξη / Πρόνοια",ru:"Пенсия / фонд"},pHealth:{en:"Health insurance",el:"Ασφάλεια υγείας",ru:"Медицинская страховка"},
+  pEmpSI:{en:"Employer Social Insurance",el:"Κοιν. Ασφαλίσεις εργοδότη",ru:"Соц. страхование работодателя"},pEmpGESY:{en:"Employer GESY",el:"ΓεΣΥ εργοδότη",ru:"ГеСИ работодателя"},pCohesion:{en:"Social Cohesion Fund",el:"Ταμείο Κοιν. Συνοχής",ru:"Фонд соц. сплочённости"},pRedundancy:{en:"Redundancy Fund",el:"Ταμείο Πλεονασμού",ru:"Фонд по сокращениям"},
   /* payslip document */
-  dPayslip:{en:"Payslip",el:"Μισθοδοσία"},dEmployee:{en:"Employee",el:"Εργαζόμενος"},dPayment:{en:"Payment",el:"Πληρωμή"},
-  kvName:{en:"Name",el:"Όνομα"},kvEmpNo:{en:"Employee no.",el:"Αρ. εργαζομένου"},kvPosition:{en:"Position",el:"Θέση"},kvDept:{en:"Department",el:"Τμήμα"},kvTax:{en:"Tax / SI no.",el:"ΑΦΜ / Αρ. Κ.Α."},
-  kvPayDate:{en:"Pay date",el:"Ημ. πληρωμής"},kvPeriod:{en:"Period",el:"Περίοδος"},kvFrequency:{en:"Frequency",el:"Συχνότητα"},kvMethod:{en:"Method",el:"Τρόπος"},kvAccount:{en:"Account",el:"Λογαριασμός"},
-  dEarnings:{en:"Earnings",el:"Αποδοχές"},dDeductions:{en:"Deductions",el:"Κρατήσεις"},dDesc:{en:"Description",el:"Περιγραφή"},dAmount:{en:"Amount",el:"Ποσό"},dYTD:{en:"YTD",el:"Σύν. έτους"},
-  dGross:{en:"Gross pay",el:"Μικτές αποδοχές"},dTotalDed:{en:"Total deductions",el:"Σύνολο κρατήσεων"},dNet:{en:"Net pay",el:"Καθαρές αποδοχές"},dNoLines:{en:"No lines",el:"Καμία γραμμή"},
-  dReg:{en:"Reg",el:"Αρ. εγγρ."},
-  dEmpTitle:{en:"Employer contributions (not deducted from pay)",el:"Εισφορές εργοδότη (δεν παρακρατούνται)"},dEmpTotal:{en:"Total employer cost of contributions",el:"Συνολικό κόστος εισφορών εργοδότη"},dEmpTotalShort:{en:"Total",el:"Σύνολο"},
-  dFooter:{en:"Generated with cyprussalary.com · This document is an estimate for record-keeping.",el:"Δημιουργήθηκε με cyprussalary.com · Το έγγραφο είναι εκτίμηση για αρχείο."},
-  dFooterDocx:{en:"Generated with cyprussalary.com — estimate for record-keeping.",el:"Δημιουργήθηκε με cyprussalary.com — εκτίμηση για αρχείο."},
+  dPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},dEmployee:{en:"Employee",el:"Εργαζόμενος",ru:"Работник"},dPayment:{en:"Payment",el:"Πληρωμή",ru:"Выплата"},
+  kvName:{en:"Name",el:"Όνομα",ru:"Имя"},kvEmpNo:{en:"Employee no.",el:"Αρ. εργαζομένου",ru:"№ работника"},kvPosition:{en:"Position",el:"Θέση",ru:"Должность"},kvDept:{en:"Department",el:"Τμήμα",ru:"Отдел"},kvTax:{en:"Tax / SI no.",el:"ΑΦΜ / Αρ. Κ.Α.",ru:"ИНН / № с.с."},
+  kvPayDate:{en:"Pay date",el:"Ημ. πληρωμής",ru:"Дата выплаты"},kvPeriod:{en:"Period",el:"Περίοδος",ru:"Период"},kvFrequency:{en:"Frequency",el:"Συχνότητα",ru:"Периодичность"},kvMethod:{en:"Method",el:"Τρόπος",ru:"Способ"},kvAccount:{en:"Account",el:"Λογαριασμός",ru:"Счёт"},
+  dEarnings:{en:"Earnings",el:"Αποδοχές",ru:"Начисления"},dDeductions:{en:"Deductions",el:"Κρατήσεις",ru:"Удержания"},dDesc:{en:"Description",el:"Περιγραφή",ru:"Описание"},dAmount:{en:"Amount",el:"Ποσό",ru:"Сумма"},dYTD:{en:"YTD",el:"Σύν. έτους",ru:"С начала года"},
+  dGross:{en:"Gross pay",el:"Μικτές αποδοχές",ru:"Валовые начисления"},dTotalDed:{en:"Total deductions",el:"Σύνολο κρατήσεων",ru:"Итого удержаний"},dNet:{en:"Net pay",el:"Καθαρές αποδοχές",ru:"К выплате"},dNoLines:{en:"No lines",el:"Καμία γραμμή",ru:"Нет строк"},
+  dReg:{en:"Reg",el:"Αρ. εγγρ.",ru:"Рег. №"},
+  dEmpTitle:{en:"Employer contributions (not deducted from pay)",el:"Εισφορές εργοδότη (δεν παρακρατούνται)",ru:"Взносы работодателя (не удерживаются из зарплаты)"},dEmpTotal:{en:"Total employer cost of contributions",el:"Συνολικό κόστος εισφορών εργοδότη",ru:"Общая стоимость взносов работодателя"},dEmpTotalShort:{en:"Total",el:"Σύνολο",ru:"Итого"},
+  dFooter:{en:"Generated with cyprussalary.com · This document is an estimate for record-keeping.",el:"Δημιουργήθηκε με cyprussalary.com · Το έγγραφο είναι εκτίμηση για αρχείο.",ru:"Создано на cyprussalary.com · Этот документ — оценка для учёта."},
+  dFooterDocx:{en:"Generated with cyprussalary.com — estimate for record-keeping.",el:"Δημιουργήθηκε με cyprussalary.com — εκτίμηση για αρχείο.",ru:"Создано на cyprussalary.com — оценка для учёта."},
   /* flashes & alerts */
-  flashCompany:{en:"Company saved to this device ✓",el:"Η εταιρεία αποθηκεύτηκε στη συσκευή ✓"},flashEmployee:{en:"Employee saved ✓",el:"Ο εργαζόμενος αποθηκεύτηκε ✓"},flashCleared:{en:"Saved details cleared",el:"Τα αποθηκευμένα διαγράφηκαν"},flashPrefilled:{en:"Filled from your salary calculation ✓",el:"Συμπληρώθηκε από τον υπολογισμό μισθού ✓"},
-  errPDF:{en:"Could not build the PDF. You can use Print → Save as PDF instead.",el:"Δεν ήταν δυνατή η δημιουργία PDF. Χρησιμοποιήστε Εκτύπωση → Αποθήκευση ως PDF."},
-  errDOCX:{en:"Could not build the Word file. Please try the PDF or Print option.",el:"Δεν ήταν δυνατή η δημιουργία Word. Δοκιμάστε PDF ή Εκτύπωση."},
-  building:{en:"Building…",el:"Δημιουργία…"}
+  flashCompany:{en:"Company saved to this device ✓",el:"Η εταιρεία αποθηκεύτηκε στη συσκευή ✓",ru:"Компания сохранена на устройстве ✓"},flashEmployee:{en:"Employee saved ✓",el:"Ο εργαζόμενος αποθηκεύτηκε ✓",ru:"Работник сохранён ✓"},flashCleared:{en:"Saved details cleared",el:"Τα αποθηκευμένα διαγράφηκαν",ru:"Сохранённые данные очищены"},flashPrefilled:{en:"Filled from your salary calculation ✓",el:"Συμπληρώθηκε από τον υπολογισμό μισθού ✓",ru:"Заполнено из вашего расчёта зарплаты ✓"},
+  errPDF:{en:"Could not build the PDF. You can use Print → Save as PDF instead.",el:"Δεν ήταν δυνατή η δημιουργία PDF. Χρησιμοποιήστε Εκτύπωση → Αποθήκευση ως PDF.",ru:"Не удалось создать PDF. Можно использовать Печать → Сохранить как PDF."},
+  errDOCX:{en:"Could not build the Word file. Please try the PDF or Print option.",el:"Δεν ήταν δυνατή η δημιουργία Word. Δοκιμάστε PDF ή Εκτύπωση.",ru:"Не удалось создать файл Word. Попробуйте PDF или Печать."},
+  building:{en:"Building…",el:"Δημιουργία…",ru:"Создание…"}
 };
 let lang='en';
 const t=k=>((TR[k]&&(TR[k][lang]||TR[k].en))||k);
@@ -621,7 +622,8 @@ function setLang(l){
   lang=l;
   $('l-en').classList.toggle('on',l==='en');
   $('l-el').classList.toggle('on',l==='el');
-  try{localStorage.setItem('psLang',l);}catch(e){}
+  $('l-ru').classList.toggle('on',l==='ru');
+  try{localStorage.setItem('csLang',l);}catch(e){}
   applyLang(); render();
 }
 
@@ -666,8 +668,8 @@ $('logoDrop').addEventListener('click',()=>$('logoInput').click());
 /* ---------- init: language first ---------- */
 (function initLang(){
   const p=new URLSearchParams(location.search);
-  let l=p.get('lang'); if(l!=='en'&&l!=='el'){try{l=localStorage.getItem('psLang');}catch(e){}}
-  if(l==='el'){lang='el';$('l-en').classList.remove('on');$('l-el').classList.add('on');}
+  let l=p.get('lang'); if(l!=='en'&&l!=='el'&&l!=='ru'){try{l=localStorage.getItem('csLang');}catch(e){}}
+  if(l==='el'||l==='ru'){lang=l;$('l-en').classList.remove('on');$('l-'+l).classList.add('on');}
   applyLang();
 })();
 

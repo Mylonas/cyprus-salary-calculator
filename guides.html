@@ -24,29 +24,59 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Guides</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Guides</span></nav>
 
-  <h1>Cyprus salary &amp; tax guides</h1>
-  <p class="lead">Short, plain-English explainers for the 2026 rules behind your pay slip.</p>
-  <a class="cta" href="/">Open the calculator →</a>
+  <h1 data-i="h1">Cyprus salary &amp; tax guides</h1>
+  <p class="lead" data-i="lead">Short, plain-English explainers for the 2026 rules behind your pay slip.</p>
+  <a class="cta" href="/" data-i="cta">Open the calculator →</a>
 
-  <p>A Cyprus payslip has three main deductions between your gross and your net pay: <strong>income tax</strong>, <strong>Social Insurance</strong> and <strong>GESY</strong>. These guides explain each one for 2026 — how the tax bands work after the reform, what the contributions fund and where they cap, how the 13th and 14th salary are taxed, and how the picture changes if you're self-employed. Read them alongside the <a href="/">calculator</a> to see exactly how your own number is built up.</p>
+  <p data-i="intro">A Cyprus payslip has three main deductions between your gross and your net pay: <strong>income tax</strong>, <strong>Social Insurance</strong> and <strong>GESY</strong>. These guides explain each one for 2026 — how the tax bands work after the reform, what the contributions fund and where they cap, how the 13th and 14th salary are taxed, and how the picture changes if you're self-employed. Read them alongside the <a href="/">calculator</a> to see exactly how your own number is built up.</p>
 
-  <h2><a href="/cyprus-tax-2026">Cyprus income tax bands 2026</a></h2>
-  <p>The post-reform bands — €22,000 tax-free, then 20/25/30/35% — with a worked example.</p>
+  <h2><a href="/cyprus-tax-2026" data-i="lTax">Cyprus income tax bands 2026</a></h2>
+  <p data-i="dTax">The post-reform bands — €22,000 tax-free, then 20/25/30/35% — with a worked example.</p>
 
-  <h2><a href="/13th-salary">The 13th &amp; 14th salary</a></h2>
-  <p>What the extra pay months are, whether you're owed them, and how they're taxed.</p>
+  <h2><a href="/13th-salary" data-i="l13">The 13th &amp; 14th salary</a></h2>
+  <p data-i="d13">What the extra pay months are, whether you're owed them, and how they're taxed.</p>
 
-  <h2><a href="/social-insurance-gesy">Social Insurance &amp; GESY</a></h2>
-  <p>The 8.8% and 2.65% employee contributions, their caps, and the employer's share.</p>
+  <h2><a href="/social-insurance-gesy" data-i="lSI">Social Insurance &amp; GESY</a></h2>
+  <p data-i="dSI">The 8.8% and 2.65% employee contributions, their caps, and the employer's share.</p>
 
-  <h2><a href="/self-employed-tax">Self-employed tax</a></h2>
-  <p>Same tax bands, higher contributions (16.6% + 4%), plus VAT and provisional tax.</p>
+  <h2><a href="/self-employed-tax" data-i="lSelf">Self-employed tax</a></h2>
+  <p data-i="dSelf">Same tax bands, higher contributions (16.6% + 4%), plus VAT and provisional tax.</p>
 
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  h1:{en:"Cyprus salary &amp; tax guides",el:"Οδηγοί μισθού &amp; φορολογίας Κύπρου",ru:"Гиды по зарплате и налогам Кипра"},
+  lead:{en:"Short, plain-English explainers for the 2026 rules behind your pay slip.",el:"Σύντομες, απλές εξηγήσεις για τους κανόνες του 2026 πίσω από τη μισθοδοσία σας.",ru:"Короткие и понятные разъяснения правил 2026 года, стоящих за вашим расчётным листом."},
+  cta:{en:"Open the calculator →",el:"Άνοιγμα υπολογιστή →",ru:"Открыть калькулятор →"},
+  intro:{en:"A Cyprus payslip has three main deductions between your gross and your net pay: <strong>income tax</strong>, <strong>Social Insurance</strong> and <strong>GESY</strong>. These guides explain each one for 2026 — how the tax bands work after the reform, what the contributions fund and where they cap, how the 13th and 14th salary are taxed, and how the picture changes if you're self-employed. Read them alongside the <a href=\"/\">calculator</a> to see exactly how your own number is built up.",el:"Μια κυπριακή μισθοδοσία έχει τρεις βασικές κρατήσεις ανάμεσα στον μικτό και τον καθαρό σας μισθό: <strong>φόρο εισοδήματος</strong>, <strong>Κοιν. Ασφαλίσεις</strong> και <strong>ΓεΣΥ</strong>. Αυτοί οι οδηγοί εξηγούν καθεμία για το 2026 — πώς λειτουργούν οι κλίμακες μετά τη μεταρρύθμιση, τι χρηματοδοτούν οι εισφορές και πού έχουν όριο, πώς φορολογούνται ο 13ος και 14ος μισθός, και πώς αλλάζει η εικόνα αν είστε αυτοεργοδοτούμενος. Διαβάστε τους μαζί με τον <a href=\"/\">υπολογιστή</a> για να δείτε ακριβώς πώς προκύπτει ο δικός σας αριθμός.",ru:"В кипрском расчётном листе между валовой и чистой зарплатой есть три основных удержания: <strong>подоходный налог</strong>, <strong>соц. страхование</strong> и <strong>ГеСИ</strong>. Эти гиды объясняют каждое для 2026 года — как работают ступени после реформы, что финансируют взносы и где их потолок, как облагаются 13-я и 14-я зарплаты и как меняется картина у самозанятых. Читайте их вместе с <a href=\"/\">калькулятором</a>, чтобы увидеть, как складывается именно ваша сумма."},
+  lTax:{en:"Cyprus income tax bands 2026",el:"Φορολογικές κλίμακες Κύπρου 2026",ru:"Ступени подоходного налога Кипра 2026"},
+  dTax:{en:"The post-reform bands — €22,000 tax-free, then 20/25/30/35% — with a worked example.",el:"Οι κλίμακες μετά τη μεταρρύθμιση — €22.000 αφορολόγητα, μετά 20/25/30/35% — με παράδειγμα.",ru:"Ступени после реформы — €22 000 без налога, затем 20/25/30/35% — с разобранным примером."},
+  l13:{en:"The 13th &amp; 14th salary",el:"Ο 13ος &amp; 14ος μισθός",ru:"13-я и 14-я зарплата"},
+  d13:{en:"What the extra pay months are, whether you're owed them, and how they're taxed.",el:"Τι είναι οι επιπλέον μισθοί, αν τους δικαιούστε και πώς φορολογούνται.",ru:"Что такое дополнительные выплаты, положены ли они вам и как облагаются налогом."},
+  lSI:{en:"Social Insurance &amp; GESY",el:"Κοιν. Ασφαλίσεις &amp; ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
+  dSI:{en:"The 8.8% and 2.65% employee contributions, their caps, and the employer's share.",el:"Οι εισφορές εργαζομένου 8,8% και 2,65%, τα όριά τους και το μερίδιο του εργοδότη.",ru:"Взносы работника 8,8% и 2,65%, их потолки и доля работодателя."},
+  lSelf:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
+  dSelf:{en:"Same tax bands, higher contributions (16.6% + 4%), plus VAT and provisional tax.",el:"Ίδιες κλίμακες, υψηλότερες εισφορές (16,6% + 4%), συν ΦΠΑ και προσωρινός φόρος.",ru:"Те же ступени, более высокие взносы (16,6% + 4%), плюс НДС и предварительный налог."},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>

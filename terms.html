@@ -25,45 +25,85 @@
 <div class="wrap">
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
-    <nav class="nav"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a></nav>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <div class="lang">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="el">ΕΛ</button>
+        <button data-lang="ru">РУ</button>
+      </div>
+    </div>
   </div>
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <span aria-current="page">Terms of Service</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/" data-i="crumbHome">Home</a> &rsaquo; <span aria-current="page" data-i="crumbHere">Terms of Service</span></nav>
 
-  <h1>Terms of Service</h1>
-  <p class="lead">Last updated: 11 August 2026. By using Cyprus Salary Calculator you agree to these terms.</p>
+  <h1 data-i="h1">Terms of Service</h1>
+  <p class="lead" data-i="lead">Last updated: 11 August 2026. By using Cyprus Salary Calculator you agree to these terms.</p>
 
-  <h2>1. What this site is</h2>
-  <p>Cyprus Salary Calculator provides free tools and guides that estimate net pay and contributions in Cyprus. The calculator and payslip generator run in your browser; your figures are not uploaded to us.</p>
+  <h2 data-i="h2what">1. What this site is</h2>
+  <p data-i="pWhat">Cyprus Salary Calculator provides free tools and guides that estimate net pay and contributions in Cyprus. The calculator and payslip generator run in your browser; your figures are not uploaded to us.</p>
 
-  <h2>2. Not financial or tax advice</h2>
-  <p>All results are <strong>estimates for general guidance</strong> based on published 2026 rates. They are not tax, legal, accounting or financial advice, and must not be relied on for filing, employment, lending or other decisions. Always confirm with the Cyprus Tax Department, the Social Insurance Services, or a qualified professional.</p>
+  <h2 data-i="h2advice">2. Not financial or tax advice</h2>
+  <p data-i="pAdvice">All results are <strong>estimates for general guidance</strong> based on published 2026 rates. They are not tax, legal, accounting or financial advice, and must not be relied on for filing, employment, lending or other decisions. Always confirm with the Cyprus Tax Department, the Social Insurance Services, or a qualified professional.</p>
 
-  <h2>3. Accuracy and no warranty</h2>
-  <p>We work to keep rates current, but tax law changes and errors are possible. The site is provided "as is", without warranties of any kind. We do not guarantee the calculator is error-free or that a result matches your actual payslip, which depends on your specific circumstances and your employer's payroll.</p>
+  <h2 data-i="h2accuracy">3. Accuracy and no warranty</h2>
+  <p data-i="pAccuracy">We work to keep rates current, but tax law changes and errors are possible. The site is provided "as is", without warranties of any kind. We do not guarantee the calculator is error-free or that a result matches your actual payslip, which depends on your specific circumstances and your employer's payroll.</p>
 
-  <h2>4. Limitation of liability</h2>
-  <p>To the maximum extent permitted by law, we are not liable for any loss or damage arising from use of, or reliance on, this site or its estimates. You use the results at your own risk.</p>
+  <h2 data-i="h2liability">4. Limitation of liability</h2>
+  <p data-i="pLiability">To the maximum extent permitted by law, we are not liable for any loss or damage arising from use of, or reliance on, this site or its estimates. You use the results at your own risk.</p>
 
-  <h2>5. Documents you create</h2>
-  <p>Any payslip or document you generate is your responsibility. It is a formatting aid for record-keeping, not a certified or official payroll document, and you are responsible for the accuracy and lawful use of what you produce.</p>
+  <h2 data-i="h2docs">5. Documents you create</h2>
+  <p data-i="pDocs">Any payslip or document you generate is your responsibility. It is a formatting aid for record-keeping, not a certified or official payroll document, and you are responsible for the accuracy and lawful use of what you produce.</p>
 
-  <h2>6. Advertising and third-party links</h2>
-  <p>The site may display advertising (for example, via Google AdSense) and link to third-party sites. We are not responsible for third-party content or policies. See the <a href="/cookie-policy">Cookie Policy</a>.</p>
+  <h2 data-i="h2ads">6. Advertising and third-party links</h2>
+  <p data-i="pAds">The site may display advertising (for example, via Google AdSense) and link to third-party sites. We are not responsible for third-party content or policies. See the <a href="/cookie-policy">Cookie Policy</a>.</p>
 
-  <h2>7. Changes</h2>
-  <p>We may update these terms; the date above shows the latest version.</p>
+  <h2 data-i="h2changes">7. Changes</h2>
+  <p data-i="pChanges">We may update these terms; the date above shows the latest version.</p>
 
-  <h2>8. Contact</h2>
-  <p>Questions? Email <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a> or use the <a href="/contact">contact page</a>.</p>
+  <h2 data-i="h2contact">8. Contact</h2>
+  <p data-i="pContact">Questions? Email <a href="mailto:hello@cyprussalary.com">hello@cyprussalary.com</a> or use the <a href="/contact">contact page</a>.</p>
 
   <div class="related">
-    <a href="/">Salary calculator</a>
-    <a href="/privacy">Privacy</a>
-    <a href="/cookie-policy">Cookie Policy</a>
-    <a href="/about">About</a>
+    <a href="/" data-i="relCalc">Salary calculator</a>
+    <a href="/privacy" data-i="relPrivacy">Privacy</a>
+    <a href="/cookie-policy" data-i="relCookies">Cookie Policy</a>
+    <a href="/about" data-i="relAbout">About</a>
   </div>
 
-  <footer><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
+  <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
+<script>
+window.T = {
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
+  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
+  crumbHere:{en:"Terms of Service",el:"Όροι Χρήσης",ru:"Условия обслуживания"},
+  h1:{en:"Terms of Service",el:"Όροι Χρήσης",ru:"Условия обслуживания"},
+  lead:{en:"Last updated: 11 August 2026. By using Cyprus Salary Calculator you agree to these terms.",el:"Τελευταία ενημέρωση: 11 Αυγούστου 2026. Χρησιμοποιώντας τον Υπολογιστή Μισθού Κύπρου συμφωνείτε με αυτούς τους όρους.",ru:"Последнее обновление: 11 августа 2026. Используя Калькулятор зарплаты на Кипре, вы соглашаетесь с этими условиями."},
+  h2what:{en:"1. What this site is",el:"1. Τι είναι αυτός ο ιστότοπος",ru:"1. Что представляет собой этот сайт"},
+  pWhat:{en:"Cyprus Salary Calculator provides free tools and guides that estimate net pay and contributions in Cyprus. The calculator and payslip generator run in your browser; your figures are not uploaded to us.",el:"Ο Υπολογιστής Μισθού Κύπρου παρέχει δωρεάν εργαλεία και οδηγούς που εκτιμούν τον καθαρό μισθό και τις εισφορές στην Κύπρο. Ο υπολογιστής και η δημιουργία μισθοδοσίας εκτελούνται στον browser σας· τα ποσά σας δεν ανεβαίνουν σε εμάς.",ru:"Калькулятор зарплаты на Кипре предоставляет бесплатные инструменты и гиды, которые оценивают чистую оплату и взносы на Кипре. Калькулятор и генератор расчётного листа работают в вашем браузере; ваши цифры нам не передаются."},
+  h2advice:{en:"2. Not financial or tax advice",el:"2. Όχι οικονομική ή φορολογική συμβουλή",ru:"2. Не финансовая или налоговая консультация"},
+  pAdvice:{en:"All results are <strong>estimates for general guidance</strong> based on published 2026 rates. They are not tax, legal, accounting or financial advice, and must not be relied on for filing, employment, lending or other decisions. Always confirm with the Cyprus Tax Department, the Social Insurance Services, or a qualified professional.",el:"Όλα τα αποτελέσματα είναι <strong>εκτιμήσεις για γενική καθοδήγηση</strong> με βάση τους δημοσιευμένους συντελεστές του 2026. Δεν αποτελούν φορολογική, νομική, λογιστική ή οικονομική συμβουλή, και δεν πρέπει να βασίζεστε σε αυτά για δηλώσεις, απασχόληση, δανεισμό ή άλλες αποφάσεις. Επιβεβαιώνετε πάντα με το Τμήμα Φορολογίας, τις Υπηρεσίες Κοιν. Ασφαλίσεων ή έναν εξειδικευμένο επαγγελματία.",ru:"Все результаты — <strong>оценки для общего ориентира</strong> на основе опубликованных ставок 2026 года. Это не налоговая, юридическая, бухгалтерская или финансовая консультация, и на них нельзя полагаться при подаче деклараций, трудоустройстве, кредитовании или иных решениях. Всегда уточняйте в Налоговом департаменте Кипра, Службе соц. страхования или у квалифицированного специалиста."},
+  h2accuracy:{en:"3. Accuracy and no warranty",el:"3. Ακρίβεια και μη εγγύηση",ru:"3. Точность и отсутствие гарантий"},
+  pAccuracy:{en:"We work to keep rates current, but tax law changes and errors are possible. The site is provided \"as is\", without warranties of any kind. We do not guarantee the calculator is error-free or that a result matches your actual payslip, which depends on your specific circumstances and your employer's payroll.",el:"Εργαζόμαστε για να διατηρούμε τους συντελεστές ενημερωμένους, αλλά η φορολογική νομοθεσία αλλάζει και σφάλματα είναι πιθανά. Ο ιστότοπος παρέχεται «ως έχει», χωρίς εγγυήσεις οποιουδήποτε είδους. Δεν εγγυόμαστε ότι ο υπολογιστής είναι χωρίς σφάλματα ή ότι ένα αποτέλεσμα ταιριάζει με την πραγματική σας μισθοδοσία, που εξαρτάται από τις συγκεκριμένες περιστάσεις σας και τη μισθοδοσία του εργοδότη σας.",ru:"Мы стараемся поддерживать ставки актуальными, но налоговое законодательство меняется, и ошибки возможны. Сайт предоставляется «как есть», без каких-либо гарантий. Мы не гарантируем, что калькулятор свободен от ошибок или что результат совпадёт с вашим фактическим расчётным листом, который зависит от ваших конкретных обстоятельств и расчёта зарплаты вашим работодателем."},
+  h2liability:{en:"4. Limitation of liability",el:"4. Περιορισμός ευθύνης",ru:"4. Ограничение ответственности"},
+  pLiability:{en:"To the maximum extent permitted by law, we are not liable for any loss or damage arising from use of, or reliance on, this site or its estimates. You use the results at your own risk.",el:"Στον μέγιστο βαθμό που επιτρέπει ο νόμος, δεν φέρουμε ευθύνη για οποιαδήποτε απώλεια ή ζημία που προκύπτει από τη χρήση ή την εξάρτηση από αυτόν τον ιστότοπο ή τις εκτιμήσεις του. Χρησιμοποιείτε τα αποτελέσματα με δική σας ευθύνη.",ru:"В максимальной степени, разрешённой законом, мы не несём ответственности за любые убытки или ущерб, возникшие из использования этого сайта или его оценок или доверия к ним. Вы используете результаты на свой страх и риск."},
+  h2docs:{en:"5. Documents you create",el:"5. Έγγραφα που δημιουργείτε",ru:"5. Создаваемые вами документы"},
+  pDocs:{en:"Any payslip or document you generate is your responsibility. It is a formatting aid for record-keeping, not a certified or official payroll document, and you are responsible for the accuracy and lawful use of what you produce.",el:"Οποιαδήποτε μισθοδοσία ή έγγραφο δημιουργείτε είναι δική σας ευθύνη. Είναι βοήθημα μορφοποίησης για αρχείο, όχι πιστοποιημένο ή επίσημο έγγραφο μισθοδοσίας, και είστε υπεύθυνοι για την ακρίβεια και τη νόμιμη χρήση όσων παράγετε.",ru:"Любой расчётный лист или документ, который вы создаёте, — ваша ответственность. Это средство форматирования для учёта, а не заверенный или официальный платёжный документ, и вы отвечаете за точность и законное использование того, что создаёте."},
+  h2ads:{en:"6. Advertising and third-party links",el:"6. Διαφήμιση και σύνδεσμοι τρίτων",ru:"6. Реклама и ссылки третьих сторон"},
+  pAds:{en:"The site may display advertising (for example, via Google AdSense) and link to third-party sites. We are not responsible for third-party content or policies. See the <a href=\"/cookie-policy\">Cookie Policy</a>.",el:"Ο ιστότοπος μπορεί να προβάλλει διαφημίσεις (για παράδειγμα, μέσω Google AdSense) και να συνδέεται με ιστότοπους τρίτων. Δεν φέρουμε ευθύνη για περιεχόμενο ή πολιτικές τρίτων. Δείτε την <a href=\"/cookie-policy\">Πολιτική Cookies</a>.",ru:"Сайт может показывать рекламу (например, через Google AdSense) и ссылаться на сторонние сайты. Мы не несём ответственности за контент или политику третьих сторон. Смотрите <a href=\"/cookie-policy\">Политику Cookies</a>."},
+  h2changes:{en:"7. Changes",el:"7. Αλλαγές",ru:"7. Изменения"},
+  pChanges:{en:"We may update these terms; the date above shows the latest version.",el:"Ενδέχεται να ενημερώσουμε αυτούς τους όρους· η παραπάνω ημερομηνία δείχνει την πιο πρόσφατη έκδοση.",ru:"Мы можем обновлять эти условия; дата выше показывает последнюю версию."},
+  h2contact:{en:"8. Contact",el:"8. Επικοινωνία",ru:"8. Контакты"},
+  pContact:{en:"Questions? Email <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> or use the <a href=\"/contact\">contact page</a>.",el:"Ερωτήσεις; Στείλτε email στο <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> ή χρησιμοποιήστε τη <a href=\"/contact\">σελίδα επικοινωνίας</a>.",ru:"Вопросы? Напишите на <a href=\"mailto:hello@cyprussalary.com\">hello@cyprussalary.com</a> или воспользуйтесь <a href=\"/contact\">страницей контактов</a>."},
+  relCalc:{en:"Salary calculator",el:"Υπολογιστής μισθού",ru:"Калькулятор зарплаты"},
+  relPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
+  relCookies:{en:"Cookie Policy",el:"Πολιτική Cookies",ru:"Политика Cookies"},
+  relAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
+};
+</script>
+<script src="/i18n.js"></script>
 </body>
 </html>
