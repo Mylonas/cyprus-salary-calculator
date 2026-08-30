@@ -1,9 +1,10 @@
-/* Theme: light by default (ignores OS dark preference). Manual toggle, persisted. */
+/* Theme: follows OS preference by default. Manual toggle overrides and is persisted. */
 (function(){
   var root=document.documentElement;
   var saved=localStorage.getItem('theme');
-  root.dataset.theme=(saved==='dark'||saved==='light')?saved:'light';
-  function icon(){return root.dataset.theme==='dark'?'☀':'☾';}
+  var osDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme=(saved==='dark'||saved==='light')?saved:(osDark?'dark':'light');
+  function icon(){return root.dataset.theme==='dark'?'☀':'🌙';}
   function build(){
     var b=document.querySelector('[data-theme-toggle]');
     if(!b){
