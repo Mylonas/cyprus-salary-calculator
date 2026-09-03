@@ -168,6 +168,7 @@
         <a href="/payslip-generator" data-i="navPayslip">Payslip</a>
         <a href="/guides" data-i="navGuides">Guides</a>
         <a href="/about" data-i="navAbout">About</a>
+        <a href="/contact" data-i="navContact">Contact</a>
         <a href="/privacy" data-i="navPrivacy">Privacy</a>
       </nav>
       <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
@@ -180,6 +181,11 @@
 
   <h1 data-i="h1">Cyprus net salary calculator — 2026</h1>
   <p class="sub" data-i="sub">Enter your salary, see exactly what lands in your bank — per year, month, week, day and hour. 2026 post-reform rates.</p>
+
+  <section class="seo" style="margin-top:0;margin-bottom:24px">
+    <p data-i="introP1">This calculator works out your <strong>net take-home pay</strong> in Cyprus after all three mandatory deductions: income tax (progressive bands from 0% to 35%), Social Insurance (8.8% of gross, capped at €68,904 of insurable earnings) and the General Healthcare System contribution known as GESY (2.65%, capped at €180,000). It uses the <strong>2026 post-reform rates</strong>, which raised the tax-free threshold from €19,500 to €22,000.</p>
+    <p data-i="introP2">The calculator is designed for anyone working in Cyprus — whether you are a Cypriot employee, an expat considering a job offer, or an employer estimating total cost. It handles 12, 13 or 14 salary payments, pension/provident fund deductions, the 20% and 50% expat tax reliefs, and lets you compare two offers side by side. Enter a gross salary above and the breakdown updates instantly.</p>
+  </section>
 
   <div class="modes" id="modes">
     <button data-mode="take" class="on" onclick="setMode('take')" data-i="modeTake">Take-home</button>
@@ -366,6 +372,8 @@
       <a href="/13th-salary" data-i="gl2">13th &amp; 14th salary</a>
       <a href="/self-employed-tax" data-i="gl3">Self-employed tax</a>
       <a href="/social-insurance-gesy" data-i="gl4">Social Insurance &amp; GESY</a>
+      <a href="/minimum-wage-cyprus" data-i="gl5">Minimum wage</a>
+      <a href="/employer-costs-cyprus" data-i="gl6">Employer costs</a>
     </div>
   </section>
 
@@ -448,14 +456,18 @@ const T = {
   q5:{en:"What is the 50% expat tax relief?",el:"Τι είναι η έκπτωση 50% για ξένους;",ru:"Что такое налоговая льгота 50% для иностранцев?"},
   a5:{en:"Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick \"50% expat relief\" under Advanced options to estimate it.",el:"Άτομα που αναλαμβάνουν πρώτη εργασία στην Κύπρο με αμοιβή άνω €55.000 ετησίως μπορούν να εξαιρέσουν το 50% από τον φόρο για έως 17 έτη. Επιλέξτε «έκπτωση 50% ξένων» στις Προχωρημένες επιλογές.",ru:"Лица, впервые устроившиеся на работу на Кипре с оплатой свыше €55 000 в год, могут освободить 50% этого трудового дохода от подоходного налога на срок до 17 лет. Отметьте «Льгота 50% для иностранцев» в расширенных настройках, чтобы учесть её."},
   foot:{en:"Estimates for guidance only · 2026 rates · not affiliated with the Government of Cyprus",el:"Ενδεικτικές εκτιμήσεις · συντελεστές 2026 · χωρίς σχέση με την Κυβέρνηση της Κύπρου",ru:"Ориентировочные оценки · ставки 2026 · не связано с Правительством Кипра"},
-  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"}, navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"}, navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"}, navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"}, navPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"}, navAbout:{en:"About",el:"Σχετικά",ru:"О нас"}, navContact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
   genPayslip:{en:"Generate a payslip from this →",el:"Δημιουργία μισθοδοσίας από αυτό →",ru:"Создать расчётный лист из этого →"},
   guidesTitle:{en:"Guides & explainers",el:"Οδηγοί & επεξηγήσεις",ru:"Гиды и разъяснения"},
   gl1:{en:"Cyprus tax bands 2026",el:"Φορολογικές κλίμακες 2026",ru:"Налоговые ступени Кипра 2026"},
   gl2:{en:"13th & 14th salary",el:"13ος & 14ος μισθός",ru:"13-я и 14-я зарплата"},
   gl3:{en:"Self-employed tax",el:"Φόρος αυτοεργοδοτούμενων",ru:"Налог для самозанятых"},
   gl4:{en:"Social Insurance & GESY",el:"Κοιν. Ασφαλίσεις & ΓεΣΥ",ru:"Соц. страхование и ГеСИ"},
-  pmLbl:{en:"per month",el:"τον μήνα",ru:"в месяц"}, ppLbl:{en:"per payment",el:"ανά πληρωμή",ru:"за выплату"}, pyLbl:{en:"per year",el:"τον χρόνο",ru:"в год"}
+  gl5:{en:"Minimum wage",el:"Κατώτατος μισθός",ru:"Минимальная зарплата"},
+  gl6:{en:"Employer costs",el:"Κόστος εργοδότη",ru:"Расходы работодателя"},
+  pmLbl:{en:"per month",el:"τον μήνα",ru:"в месяц"}, ppLbl:{en:"per payment",el:"ανά πληρωμή",ru:"за выплату"}, pyLbl:{en:"per year",el:"τον χρόνο",ru:"в год"},
+  introP1:{en:"This calculator works out your <strong>net take-home pay</strong> in Cyprus after all three mandatory deductions: income tax (progressive bands from 0% to 35%), Social Insurance (8.8% of gross, capped at €68,904 of insurable earnings) and the General Healthcare System contribution known as GESY (2.65%, capped at €180,000). It uses the <strong>2026 post-reform rates</strong>, which raised the tax-free threshold from €19,500 to €22,000.",el:"Αυτός ο υπολογιστής βρίσκει τον <strong>καθαρό μισθό σας</strong> στην Κύπρο μετά τις τρεις υποχρεωτικές κρατήσεις: φόρο εισοδήματος (προοδευτικές κλίμακες 0%–35%), Κοιν. Ασφαλίσεις (8,8% επί του μικτού, όριο €68.904) και εισφορά ΓεΣΥ (2,65%, όριο €180.000). Χρησιμοποιεί τους <strong>συντελεστές 2026</strong> μετά τη μεταρρύθμιση, που ανέβασε το αφορολόγητο από €19.500 σε €22.000.",ru:"Этот калькулятор вычисляет вашу <strong>чистую зарплату</strong> на Кипре после всех трёх обязательных удержаний: подоходного налога (прогрессивные ступени от 0% до 35%), соц. страхования (8,8% от валовой, потолок €68 904) и взноса в систему здравоохранения ГеСИ (2,65%, потолок €180 000). Используются <strong>ставки 2026 года</strong> после реформы, поднявшей необлагаемый порог с €19 500 до €22 000."},
+  introP2:{en:"The calculator is designed for anyone working in Cyprus — whether you are a Cypriot employee, an expat considering a job offer, or an employer estimating total cost. It handles 12, 13 or 14 salary payments, pension/provident fund deductions, the 20% and 50% expat tax reliefs, and lets you compare two offers side by side. Enter a gross salary above and the breakdown updates instantly.",el:"Ο υπολογιστής απευθύνεται σε όποιον εργάζεται στην Κύπρο — είτε Κύπριος εργαζόμενος, είτε ξένος που εξετάζει προσφορά, είτε εργοδότης που εκτιμά συνολικό κόστος. Χειρίζεται 12, 13 ή 14 μισθούς, εισφορές σύνταξης/ταμείου πρόνοιας, εκπτώσεις 20% και 50% για ξένους, και σας επιτρέπει να συγκρίνετε δύο προσφορές. Βάλτε μικτό μισθό παραπάνω και η ανάλυση ενημερώνεται αμέσως.",ru:"Калькулятор предназначен для всех, кто работает на Кипре — будь то кипрский работник, иностранец, рассматривающий предложение о работе, или работодатель, оценивающий общие расходы. Он обрабатывает 12, 13 или 14 зарплат, пенсионные взносы, льготы 20% и 50% для иностранцев и позволяет сравнить два предложения. Введите валовую зарплату выше — расчёт обновится мгновенно."}
 };
 
 let lang='en', mode='take', period='year', revPeriod='month', months=12;

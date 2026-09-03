@@ -27,7 +27,7 @@
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/contact" data-i="navContact">Contact</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
       <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
         <option value="en">English</option>
         <option value="el">Ελληνικά</option>
@@ -61,12 +61,19 @@
   <h2><a href="/13th-salary-calculator" data-i="lC13">13th salary calculator</a></h2>
   <p data-i="dC13">Net take-home per payment across 12, 13 or 14 salaries, and your net 13th cheque.</p>
 
+  <h2><a href="/minimum-wage-cyprus" data-i="lMinWage">Minimum wage in Cyprus</a></h2>
+  <p data-i="dMinWage">The €1,000/month national minimum wage — who it applies to, exemptions, history and EU comparison.</p>
+
+  <h2><a href="/employer-costs-cyprus" data-i="lEmpCost">Employer costs in Cyprus</a></h2>
+  <p data-i="dEmpCost">The full ~14.9% on top of gross: Social Insurance, redundancy fund, HRDA, social cohesion and GESY.</p>
+
   <footer data-i="footer"><a href="/">Cyprus Salary Calculator</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/cookie-policy">Cookies</a> · <a href="/terms">Terms</a> · <span style="opacity:.7">Estimates only, not tax advice</span></footer>
 </div>
 <script>
 window.T = {
   navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
   navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navContact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},
   navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
   crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
   crumbHere:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
@@ -86,6 +93,10 @@ window.T = {
   dVat:{en:"Add or remove VAT at the 19% standard rate or the 9% and 5% reduced rates.",el:"Προσθέστε ή αφαιρέστε ΦΠΑ με τον κανονικό συντελεστή 19% ή τους μειωμένους 9% και 5%.",ru:"Добавьте или уберите НДС по стандартной ставке 19% или сниженным 9% и 5%."},
   lC13:{en:"13th salary calculator",el:"Υπολογιστής 13ου μισθού",ru:"Калькулятор 13-й зарплаты"},
   dC13:{en:"Net take-home per payment across 12, 13 or 14 salaries, and your net 13th cheque.",el:"Καθαρός ανά πληρωμή σε 12, 13 ή 14 μισθούς, και ο καθαρός 13ος σας.",ru:"Чистыми за выплату при 12, 13 или 14 зарплатах и ваша чистая 13-я."},
+  lMinWage:{en:"Minimum wage in Cyprus",el:"Κατώτατος μισθός στην Κύπρο",ru:"Минимальная зарплата на Кипре"},
+  dMinWage:{en:"The €1,000/month national minimum wage — who it applies to, exemptions, history and EU comparison.",el:"Ο εθνικός κατώτατος μισθός €1.000/μήνα — ποιους αφορά, εξαιρέσεις, ιστορικό και σύγκριση με ΕΕ.",ru:"Национальная минимальная зарплата €1 000/мес. — на кого распространяется, исключения, история и сравнение с ЕС."},
+  lEmpCost:{en:"Employer costs in Cyprus",el:"Κόστος εργοδότη στην Κύπρο",ru:"Расходы работодателя на Кипре"},
+  dEmpCost:{en:"The full ~14.9% on top of gross: Social Insurance, redundancy fund, HRDA, social cohesion and GESY.",el:"Το συνολικό ~14,9% πέρα από τον μικτό: Κοιν. Ασφαλίσεις, Ταμείο Πλεονασμού, ΑνΑΔ, Κοιν. Συνοχή και ΓεΣΥ.",ru:"Полные ~14,9% сверх валовой: соц. страхование, фонд по сокращениям, АНАД, фонд соц. сплочённости и ГеСИ."},
   footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · <a href=\"/about\">About</a> · <a href=\"/contact\">Contact</a> · <a href=\"/privacy\">Privacy</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Terms</a> · <span style=\"opacity:.7\">Estimates only, not tax advice</span>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · <a href=\"/about\">Σχετικά</a> · <a href=\"/contact\">Επικοινωνία</a> · <a href=\"/privacy\">Απόρρητο</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Όροι</a> · <span style=\"opacity:.7\">Μόνο εκτιμήσεις, όχι φορολογική συμβουλή</span>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · <a href=\"/about\">О нас</a> · <a href=\"/contact\">Контакты</a> · <a href=\"/privacy\">Конфиденциальность</a> · <a href=\"/cookie-policy\">Cookies</a> · <a href=\"/terms\">Условия</a> · <span style=\"opacity:.7\">Только оценки, не налоговая консультация</span>"}
 };
 </script>

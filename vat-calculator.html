@@ -58,7 +58,7 @@
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/contact" data-i="navContact">Contact</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
       <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
         <option value="en">English</option>
         <option value="el">Ελληνικά</option>
@@ -127,6 +127,13 @@
   <h2 data-i="h2reg">When do you have to register for VAT?</h2>
   <p data-i="pReg">A business must register for Cyprus VAT once taxable turnover passes the registration threshold (currently €15,600 in a 12-month period), and in some cross-border cases from the first euro. If you're self-employed, see the <a href="/self-employed-tax">self-employed tax guide</a> for how VAT fits alongside income tax and contributions.</p>
 
+  <h2 data-i="h2faq">Frequently asked questions</h2>
+  <details><summary data-i="fq1">What is the standard VAT rate in Cyprus?</summary><p data-i="fa1">The standard VAT rate is 19%. It applies to the majority of goods and services supplied in Cyprus that are not specifically assigned a reduced rate, zero rate or exemption.</p></details>
+  <details><summary data-i="fq2">What goods and services qualify for the reduced 5% rate?</summary><p data-i="fa2">The 5% reduced rate applies to foodstuffs (excluding alcoholic drinks and restaurant meals), pharmaceutical products, books (printed and electronic), newspapers, and certain supplies linked to a first home (renovation, construction) subject to conditions set by the government.</p></details>
+  <details><summary data-i="fq3">What is the difference between zero-rated and exempt?</summary><p data-i="fa3">Zero-rated supplies are still VAT-taxable — the rate is just 0%, so no VAT is charged but the supplier can reclaim input VAT. Exempt supplies are outside the VAT system entirely: no VAT is charged, and the supplier cannot reclaim input VAT on related costs. Examples of exempt supplies include certain financial services, insurance, medical services and residential property rentals.</p></details>
+  <details><summary data-i="fq4">Do I need to charge VAT if I sell online from Cyprus?</summary><p data-i="fa4">If you are VAT-registered in Cyprus and sell goods or services online, you generally charge Cyprus VAT on domestic sales. For cross-border B2C sales within the EU, the One Stop Shop (OSS) scheme may apply once you exceed the EU-wide threshold of €10,000, requiring you to charge the destination country's VAT rate.</p></details>
+  <details><summary data-i="fq5">When do I need to register for VAT in Cyprus?</summary><p data-i="fa5">You must register once your taxable turnover exceeds €15,600 in any rolling 12-month period. You can also register voluntarily below that threshold. Some cross-border transactions (such as intra-EU acquisitions) may require registration from the first euro.</p></details>
+
   <div class="related">
     <a href="/" data-i="relCalc">Salary calculator</a>
     <a href="/self-employed-tax" data-i="relSelf">Self-employed tax</a>
@@ -168,7 +175,7 @@ function calcVat(){
 <script>
 window.T = {
   navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
-  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navContact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
   navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
   crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
   crumbHere:{en:"VAT calculator",el:"Υπολογιστής ΦΠΑ",ru:"Калькулятор НДС"},

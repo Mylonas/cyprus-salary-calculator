@@ -62,7 +62,7 @@
   <div class="topbar">
     <a class="brand" href="/"><span class="flag"></span> Cyprus Salary Calculator</a>
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
+      <nav class="nav"><a href="/guides" data-i="navGuides">Guides</a><a href="/about" data-i="navAbout">About</a><a href="/contact" data-i="navContact">Contact</a><a href="/privacy" data-i="navPrivacy">Privacy</a></nav>
       <select class="lang" aria-label="Language / Γλώσσα / Язык" onchange="setLang(this.value)">
         <option value="en">English</option>
         <option value="el">Ελληνικά</option>
@@ -118,6 +118,18 @@
   <h2 data-i="h2diff">12, 13 or 14 — what actually changes</h2>
   <p data-i="pDiff">If your monthly gross is fixed, adding a 13th or 14th raises your annual total, so you owe more tax overall but keep more in absolute terms. Switch between 12, 13 and 14 above to see how each affects your annual net and the size of each cheque. For a full breakdown with pension, expat relief and employer cost, use the main <a href="/">salary calculator</a>.</p>
 
+  <h2 data-i="h2what">What is the 13th salary?</h2>
+  <p data-i="pWhat">The 13th salary is an extra month's pay that many employees in Cyprus receive, usually in December. It is not a statutory right for every worker — whether you are entitled to it depends on your individual employment contract or the collective agreement that covers your sector. Some contracts also provide for a 14th salary, typically paid before summer. The 13th and 14th salaries are part of your total annual compensation and are fully taxable — there is no special tax exemption for them.</p>
+
+  <h2 data-i="h2eligible">Who gets a 13th salary?</h2>
+  <p data-i="pEligible">Eligibility is determined by your contract, not by law. In the private sector, many companies include a 13th salary in the employment terms, especially in banking, insurance, large retail chains and multinational firms. In the semi-government sector and some public-sector bodies, the 13th salary is established by collective agreements. If your contract does not mention it, you are not entitled to it — always check your contract or ask your HR department.</p>
+
+  <h2 data-i="h2faq">Frequently asked questions</h2>
+  <details><summary data-i="fq1">Is the 13th salary taxed differently?</summary><p data-i="fa1">No. The 13th and 14th salary are part of your annual gross and taxed at your marginal rate, along with Social Insurance and GESY. There is no separate bonus-tax rate in Cyprus.</p></details>
+  <details><summary data-i="fq2">Does getting 13 salaries mean more money overall?</summary><p data-i="fa2">Only if your monthly gross stays the same. If your contract states a monthly gross of €2,000 paid over 13 months, your annual gross is €26,000 — more than €24,000 (12 × €2,000). But some contracts simply divide the annual total into 13 payments, so each cheque is smaller. Check whether your stated salary is monthly or annual.</p></details>
+  <details><summary data-i="fq3">When is the 13th salary usually paid?</summary><p data-i="fa3">Typically in December, along with or just before the December salary. The 14th salary, where offered, is often paid in June or July, before the summer holidays.</p></details>
+  <details><summary data-i="fq4">Can my employer stop paying the 13th salary?</summary><p data-i="fa4">If the 13th salary is a term of your employment contract or collective agreement, your employer cannot unilaterally remove it without your consent. Any change to contractual terms requires agreement between both parties.</p></details>
+
   <div class="callout" data-i="callout"><strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). Whether a 13th/14th salary is owed depends on your contract.</div>
 
   <div class="related">
@@ -166,7 +178,7 @@ function calc13(){
 <script>
 window.T = {
   navGuides:{en:"Guides",el:"Οδηγοί",ru:"Гиды"},
-  navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
+  navContact:{en:"Contact",el:"Επικοινωνία",ru:"Контакты"},navAbout:{en:"About",el:"Σχετικά",ru:"О нас"},
   navPrivacy:{en:"Privacy",el:"Απόρρητο",ru:"Конфиденциальность"},
   crumbHome:{en:"Home",el:"Αρχική",ru:"Главная"},
   crumbHere:{en:"13th salary calculator",el:"Υπολογιστής 13ου μισθού",ru:"Калькулятор 13-й зарплаты"},
