@@ -145,9 +145,6 @@
   .nav{display:flex;gap:14px;font-size:14px;align-items:center}
   .nav a{color:var(--soft);text-decoration:none;font-weight:600}
   .nav a:hover{color:var(--brand)}
-  .adslot{margin:24px 0;min-height:90px;display:flex;align-items:center;justify-content:center;
-    border:1px dashed var(--line);border-radius:10px;color:var(--soft);font-size:12px;background:var(--card)}
-  .adslot[data-live="1"]{border:0;min-height:0;background:transparent}
   .guides h2{font-size:19px;color:var(--ink)}
   .guidelinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
   .guidelinks a{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px 14px;
@@ -155,7 +152,7 @@
   .guidelinks a:hover{border-color:var(--brand);color:var(--brand)}
   footer a{color:var(--soft)}
   .hide{display:none !important}
-  @media print{.modes,.actions,.adslot,.adv,.nav,.lang,.guides,.disc{display:none!important}}
+  @media print{.modes,.actions,.adv,.nav,.lang,.guides,.disc{display:none!important}}
 </style>
 </head>
 <body>
@@ -361,9 +358,6 @@
       <button class="btn" onclick="window.print()" data-i="print">Print / save PDF</button>
     </div>
   </div>
-
-  <div class="adslot" data-ad="top">Advertisement</div>
-
   <section class="guides">
     <h2 data-i="guidesTitle">Guides &amp; explainers</h2>
     <div class="guidelinks">
@@ -385,9 +379,6 @@
     <details class="faq"><summary data-i="q4">What gross salary do I need to take home a certain amount?</summary><p data-i="a4">Use the Reverse tab: enter the net take-home you want per month or per year and the calculator works out the gross salary you'd need to sign for.</p></details>
     <details class="faq"><summary data-i="q5">What is the 50% expat tax relief?</summary><p data-i="a5">Individuals taking up first employment in Cyprus with pay above €55,000 per year can exempt 50% of that employment income from income tax for up to 17 years. Tick "50% expat relief" under Advanced options to estimate it.</p></details>
   </section>
-
-  <div class="adslot" data-ad="bottom">Advertisement</div>
-
   <footer>
     <a href="/about">About</a> ·
     <a href="/contact">Contact</a> ·
@@ -712,26 +703,6 @@ try{const sl=localStorage.getItem('csLang'); if(sl==='el'||sl==='ru') setLang(sl
 loadFromURL();
 calc();
 
-/* ===== AdSense: needs a custom domain (pages.dev cannot run ads). After approval,
-   paste your "ca-pub-…" id here; the loader + slots activate automatically. ===== */
-const ADSENSE_CLIENT = ""; /* disabled until AdSense approval — was ca-pub-4547647290394610 */
-(function initAds(){
-  if(!ADSENSE_CLIENT) return;
-  const s=document.createElement('script');
-  s.async=true; s.crossOrigin="anonymous";
-  s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+ADSENSE_CLIENT;
-  document.head.appendChild(s);
-  document.querySelectorAll('.adslot').forEach(slot=>{
-    slot.dataset.live="1"; slot.textContent="";
-    const ins=document.createElement('ins');
-    ins.className="adsbygoogle"; ins.style.display="block"; ins.style.width="100%";
-    ins.setAttribute("data-ad-client",ADSENSE_CLIENT);
-    ins.setAttribute("data-ad-format","auto");
-    ins.setAttribute("data-full-width-responsive","true");
-    slot.appendChild(ins);
-    (window.adsbygoogle=window.adsbygoogle||[]).push({});
-  });
-})();
 </script>
 </body>
 </html>

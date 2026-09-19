@@ -26,7 +26,7 @@
   if(document.readyState!=='loading')build();else document.addEventListener('DOMContentLoaded',build);
 })();
 
-/* Cookie consent banner — required for AdSense GDPR compliance */
+/* Cookie consent banner — GDPR compliance */
 (function(){
   try{if(localStorage.getItem('cookieConsent'))return;}catch(e){return;}
   document.addEventListener('DOMContentLoaded',function(){
