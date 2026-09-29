@@ -335,6 +335,8 @@
         <div class="field"><span class="cur">€</span><input id="aBonus" type="number" min="0" step="100" value="3000" inputmode="decimal"></div>
         <label data-i="pension">Pension / provident fund contribution</label>
         <div class="field"><input id="aPen" class="nopre" type="number" min="0" max="30" step="0.5" value="8" inputmode="decimal"><span class="cur" style="left:auto;right:14px">%</span></div>
+        <label data-i="union">Trade union subscription</label>
+        <div class="field"><input id="aUni" class="nopre" type="number" min="0" max="10" step="0.1" value="0" inputmode="decimal"><span class="cur" style="left:auto;right:14px">%</span></div>
       </div>
       <div class="off">
         <h3><span data-i="offer">Offer</span> B</h3>
@@ -344,6 +346,8 @@
         <div class="field"><span class="cur">€</span><input id="bBonus" type="number" min="0" step="100" value="0" inputmode="decimal"></div>
         <label data-i="pension">Pension / provident fund contribution</label>
         <div class="field"><input id="bPen" class="nopre" type="number" min="0" max="30" step="0.5" value="3" inputmode="decimal"><span class="cur" style="left:auto;right:14px">%</span></div>
+        <label data-i="union">Trade union subscription</label>
+        <div class="field"><input id="bUni" class="nopre" type="number" min="0" max="10" step="0.1" value="0" inputmode="decimal"><span class="cur" style="left:auto;right:14px">%</span></div>
       </div>
     </div>
 
@@ -360,6 +364,7 @@
         <tr id="cTax"><td data-i="incomeTax">Income tax</td><td></td><td></td></tr>
         <tr id="cCon"><td data-i="contrib">Contributions (SI + GESY)</td><td></td><td></td></tr>
         <tr id="cPen"><td data-i="pensionRow">Pension / provident</td><td></td><td></td></tr>
+        <tr id="cUni"><td data-i="unionRow">Trade union</td><td></td><td></td></tr>
         <tr id="cNetY" class="win"><td data-i="netAnnualShort">Net per year</td><td></td><td></td></tr>
         <tr id="cNetM"><td data-i="netMonth">Net per month</td><td></td><td></td></tr>
       </tbody>
@@ -616,13 +621,15 @@ function renderSingle(){
 }
 
 function renderCompare(){
-  const A=compute((parseFloat($('aAmt').value)||0)+(parseFloat($('aBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('aPen').value)||0)}, 'none');
-  const B=compute((parseFloat($('bAmt').value)||0)+(parseFloat($('bBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('bPen').value)||0)}, 'none');
+  const A=compute((parseFloat($('aAmt').value)||0)+(parseFloat($('aBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('aPen').value)||0)}, 'none', {mode:'pct',val:Math.max(0,parseFloat($('aUni').value)||0)});
+  const B=compute((parseFloat($('bAmt').value)||0)+(parseFloat($('bBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('bPen').value)||0)}, 'none', {mode:'pct',val:Math.max(0,parseFloat($('bUni').value)||0)});
   const set=(id,a,b)=>{const tr=$(id);tr.children[1].textContent=a;tr.children[2].textContent=b;};
   set('cGross',eur(A.gross),eur(B.gross));
   set('cTax','−'+eur(A.tax),'−'+eur(B.tax));
   set('cCon','−'+eur(A.contrib),'−'+eur(B.contrib));
   set('cPen','−'+eur(A.pension),'−'+eur(B.pension));
+  set('cUni','−'+eur(A.union),'−'+eur(B.union));
+  $('cUni').style.display = A.union>0||B.union>0 ? '' : 'none';
   set('cNetY',eur(A.net),eur(B.net));
   set('cNetM',eur(A.net/12),eur(B.net/12));
   const diff=A.net-B.net;
@@ -670,7 +677,7 @@ function share(){
   const p=new URLSearchParams();
   p.set('mode',mode); p.set('lang',lang);
   if(mode==='compare'){
-    ['aAmt','aBonus','aPen','bAmt','bBonus','bPen'].forEach(id=>p.set(id,$(id).value));
+    ['aAmt','aBonus','aPen','aUni','bAmt','bBonus','bPen','bUni'].forEach(id=>p.set(id,$(id).value));
   } else if(mode==='reverse'){
     p.set('amt',$('revAmount').value); p.set('per',revPeriod);
   } else {
@@ -701,7 +708,7 @@ function loadFromURL(){
   if(p.get('pen')&&parseFloat(p.get('pen'))>0 || p.get('uni')&&parseFloat(p.get('uni'))>0 || p.get('expat')) $('advBox').open=true;
   const m=p.get('mode')||'take';
   if(m==='compare'){
-    ['aAmt','aBonus','aPen','bAmt','bBonus','bPen'].forEach(id=>{if(p.get(id)!=null)$(id).value=p.get(id);});
+    ['aAmt','aBonus','aPen','aUni','bAmt','bBonus','bPen','bUni'].forEach(id=>{if(p.get(id)!=null)$(id).value=p.get(id);});
   } else if(m==='reverse'){
     if(p.get('amt')!=null)$('revAmount').value=p.get('amt');
     if(p.get('per'))revPeriod=p.get('per');
