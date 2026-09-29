@@ -388,7 +388,7 @@ const TR={
   footer:{en:"<a href=\"/\">Cyprus Salary Calculator</a> · Payslip generator · Documents you create are estimates for record-keeping, not certified payroll · <a href=\"/privacy.html\">Privacy</a>",el:"<a href=\"/\">Υπολογιστής Μισθού Κύπρου</a> · Δημιουργία μισθοδοσίας · Τα έγγραφα είναι εκτιμήσεις για αρχείο, όχι πιστοποιημένη μισθοδοσία · <a href=\"/privacy.html\">Απόρρητο</a>",ru:"<a href=\"/\">Калькулятор зарплаты на Кипре</a> · Генератор расчётного листа · Создаваемые документы — оценки для учёта, а не заверенная платёжная ведомость · <a href=\"/privacy.html\">Конфиденциальность</a>"},
   /* presets (also used as line descriptions) */
   pBasic:{en:"Basic salary",el:"Βασικός μισθός",ru:"Базовый оклад"},pOvertime:{en:"Overtime",el:"Υπερωρίες",ru:"Сверхурочные"},pBonus:{en:"Bonus",el:"Μπόνους",ru:"Бонус"},pCommission:{en:"Commission",el:"Προμήθεια",ru:"Комиссия"},pAllowance:{en:"Allowance",el:"Επίδομα",ru:"Надбавка"},p13th:{en:"13th salary",el:"13ος μισθός",ru:"13-я зарплата"},
-  pIncomeTax:{en:"Income tax (PAYE)",el:"Φόρος εισοδήματος (PAYE)",ru:"Подоходный налог (PAYE)"},pSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις",ru:"Соц. страхование"},pGESY:{en:"GESY",el:"ΓεΣΥ",ru:"ГеСИ"},pPension:{en:"Pension / Provident",el:"Σύνταξη / Πρόνοια",ru:"Пенсия / фонд"},pHealth:{en:"Health insurance",el:"Ασφάλεια υγείας",ru:"Медицинская страховка"},
+  pIncomeTax:{en:"Income tax (PAYE)",el:"Φόρος εισοδήματος (PAYE)",ru:"Подоходный налог (PAYE)"},pSI:{en:"Social Insurance",el:"Κοιν. Ασφαλίσεις",ru:"Соц. страхование"},pGESY:{en:"GESY",el:"ΓεΣΥ",ru:"ГеСИ"},pUnion:{en:"Trade union subscription",el:"Εισφορές σε συντεχνίες",ru:"Профсоюзные взносы"},pPension:{en:"Pension / Provident",el:"Σύνταξη / Πρόνοια",ru:"Пенсия / фонд"},pHealth:{en:"Health insurance",el:"Ασφάλεια υγείας",ru:"Медицинская страховка"},
   pEmpSI:{en:"Employer Social Insurance",el:"Κοιν. Ασφαλίσεις εργοδότη",ru:"Соц. страхование работодателя"},pEmpGESY:{en:"Employer GESY",el:"ΓεΣΥ εργοδότη",ru:"ГеСИ работодателя"},pCohesion:{en:"Social Cohesion Fund",el:"Ταμείο Κοιν. Συνοχής",ru:"Фонд соц. сплочённости"},pRedundancy:{en:"Redundancy Fund",el:"Ταμείο Πλεονασμού",ru:"Фонд по сокращениям"},
   /* payslip document */
   dPayslip:{en:"Payslip",el:"Μισθοδοσία",ru:"Расчётный лист"},dEmployee:{en:"Employee",el:"Εργαζόμενος",ru:"Работник"},dPayment:{en:"Payment",el:"Πληρωμή",ru:"Выплата"},
@@ -653,7 +653,7 @@ function prefillFromURL(){
   const num=k=>{const v=parseFloat(p.get(k));return isNaN(v)?null:v;};
   const months=num('m')||12;
   const div=months;
-  const gross=num('gross'),tax=num('tax'),si=num('si'),gesy=num('gesy'),pension=num('pen_amt');
+  const gross=num('gross'),tax=num('tax'),si=num('si'),gesy=num('gesy'),pension=num('pen_amt'),union=num('uni_amt');
   if(gross==null) return false;
   $('earnLines').innerHTML='';$('dedLines').innerHTML='';
   addLine('earn',t('pBasic'),(gross/div).toFixed(2));
@@ -661,6 +661,7 @@ function prefillFromURL(){
   if(si)addLine('ded',t('pSI'),(si/div).toFixed(2));
   if(gesy)addLine('ded',t('pGESY'),(gesy/div).toFixed(2));
   if(pension)addLine('ded',t('pPension'),(pension/div).toFixed(2));
+  if(union)addLine('ded',t('pUnion'),(union/div).toFixed(2));
   $('pFreq').value = months>=12?'Monthly':'One-off';
   flash(t('flashPrefilled'));
   return true;
