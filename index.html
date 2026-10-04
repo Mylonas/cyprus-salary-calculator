@@ -267,7 +267,44 @@
             </div>
           </div>
         </details>
-        <p class="disc" data-i="disc"><strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are tax-deductible up to 1/5 of gross combined (pension up to 10% of pay); trade union dues are deductible in full. Not tax advice — verify with the Cyprus Tax Department or an accountant.</p>
+        <details class="adv" id="famBox">
+          <summary data-i="famTitle">Family &amp; home tax deductions (2026)</summary>
+          <div class="body">
+            <p class="hint" data-i="famIntro" style="margin-top:0">Optional. New 2026 deductions lower your income tax only; they are not taken off your pay.</p>
+            <label data-i="famStatus">Household</label>
+            <div class="seg" id="famSeg">
+              <button data-f="single" class="on" onclick="setFam('single')" data-i="famSingle">Single</button>
+              <button data-f="couple" onclick="setFam('couple')" data-i="famCouple">Married / cohabiting</button>
+              <button data-f="sp" onclick="setFam('sp')" data-i="famSP">Single parent</button>
+            </div>
+            <div id="partnerWrap" style="display:none">
+              <label data-i="partnerLbl">Partner's annual gross income</label>
+              <div class="field"><span class="cur">€</span><input id="partner" type="number" min="0" step="1000" value="0" inputmode="decimal"></div>
+            </div>
+            <div id="kidsWrap" style="display:none">
+              <label data-i="kidsLbl">Dependent children</label>
+              <div class="field"><input id="kids" class="nopre" type="number" min="0" max="15" step="1" value="0" inputmode="numeric"></div>
+              <p class="hint" data-i="kidsHint">Under 18, in National Guard service under 20, or a full-time student under 24. €1,000 for the 1st, €1,250 for the 2nd, €1,500 for each further child; doubled for single parents.</p>
+            </div>
+            <label data-i="rentLbl">Rent or home-loan interest (main residence)</label>
+            <div class="field"><span class="cur">€</span><input id="rent" type="number" min="0" step="50" value="0" inputmode="decimal"></div>
+            <p class="hint" data-i="rentHint">Per year. Deductible up to €2,000.</p>
+            <label data-i="greenLbl">Energy upgrades / electric vehicle</label>
+            <div class="field"><span class="cur">€</span><input id="green" type="number" min="0" step="50" value="0" inputmode="decimal"></div>
+            <p class="hint" data-i="greenHint">Per year, e.g. solar, insulation, heat pump, EV. Deductible up to €1,000.</p>
+            <label data-i="disLbl">Home natural-disaster insurance</label>
+            <div class="field"><span class="cur">€</span><input id="disaster" type="number" min="0" step="50" value="0" inputmode="decimal"></div>
+            <p class="hint" data-i="disHint">Per year. Deductible up to €500.</p>
+            <p class="hint" id="famNote" style="font-weight:700"></p>
+            <label data-i="lifeLbl">Life insurance premiums</label>
+            <div class="field"><span class="cur">€</span><input id="life" type="number" min="0" step="50" value="0" inputmode="decimal"></div>
+            <p class="hint" data-i="lifeHint">Per year. Shares the 1/5 cap with SI, GESY and pension (and limited to 7% of the sum insured). No income limit.</p>
+            <label data-i="donLbl">Donations to approved charities</label>
+            <div class="field"><span class="cur">€</span><input id="donations" type="number" min="0" step="50" value="0" inputmode="decimal"></div>
+            <p class="hint" data-i="donHint">Per year, with receipts. Fully deductible. No income limit.</p>
+          </div>
+        </details>
+        <p class="disc" data-i="disc"><strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are tax-deductible up to 1/5 of gross combined (pension up to 10% of pay); trade union dues are deductible in full. Child, housing, green and disaster deductions apply only within the 2026 household income limits (€40,000 single; €100,000–€200,000 families). Not tax advice — verify with the Cyprus Tax Department or an accountant.</p>
       </div>
 
       <div class="card">
@@ -293,6 +330,7 @@
           <tr class="ded"><td>− <span data-i="si">Social Insurance (8.8%)</span></td><td id="rSI">€0</td></tr>
           <tr class="ded"><td>− GESY (2.65%)</td><td id="rGesy">€0</td></tr>
           <tr class="tot"><td data-i="netAnnual">Net (annual)</td><td id="rNet">€0</td></tr>
+          <tr id="rowRelief" style="display:none;color:var(--soft);font-size:12px"><td data-i="reliefRow">Includes tax saved by family / home / other deductions</td><td id="rRelief">€0</td></tr>
         </table>
 
         <div class="bar" id="bar"></div>
@@ -436,13 +474,35 @@ const T = {
   union:{en:"Trade union subscription",el:"Εισφορές σε συντεχνίες",ru:"Профсоюзные взносы"},
   unionHint:{en:"Union dues (e.g. SEK, PEO, POED). Fully tax-deductible. Enter % of gross or € per year.",el:"Συνδρομή σε συντεχνία (π.χ. ΣΕΚ, ΠΕΟ, ΠΟΕΔ). Εκπίπτει πλήρως από το φορολογητέο εισόδημα. Βάλτε % του μικτού ή € ανά έτος.",ru:"Взносы в профсоюз (напр. SEK, PEO, POED). Полностью вычитаются из налоговой базы. Укажите % от валовой или € в год."},
   unionRow:{en:"Trade union",el:"Συντεχνία",ru:"Профсоюз"},
+  famTitle:{en:"Family &amp; home tax deductions (2026)",el:"Οικογενειακές &amp; στεγαστικές εκπτώσεις (2026)",ru:"Семейные и жилищные вычеты (2026)"},
+  famIntro:{en:"Optional. New 2026 deductions lower your income tax only; they are not taken off your pay.",el:"Προαιρετικό. Οι νέες εκπτώσεις του 2026 μειώνουν μόνο τον φόρο εισοδήματος· δεν αφαιρούνται από τον μισθό σας.",ru:"Необязательно. Новые вычеты 2026 года уменьшают только подоходный налог; из зарплаты они не удерживаются."},
+  famStatus:{en:"Household",el:"Νοικοκυριό",ru:"Домохозяйство"},
+  famSingle:{en:"Single",el:"Άγαμος/η",ru:"Одинокий"},
+  famCouple:{en:"Married / cohabiting",el:"Έγγαμος/η / συμβίωση",ru:"В браке / сожительство"},
+  famSP:{en:"Single parent",el:"Μονογονέας",ru:"Родитель-одиночка"},
+  partnerLbl:{en:"Partner's annual gross income",el:"Ετήσιο μικτό εισόδημα συζύγου/συντρόφου",ru:"Годовой валовой доход супруга/партнёра"},
+  kidsLbl:{en:"Dependent children",el:"Εξαρτώμενα τέκνα",ru:"Дети на иждивении"},
+  kidsHint:{en:"Under 18, in National Guard service under 20, or a full-time student under 24. €1,000 for the 1st, €1,250 for the 2nd, €1,500 for each further child; doubled for single parents.",el:"Κάτω των 18, στην Εθνική Φρουρά κάτω των 20 ή φοιτητής κάτω των 24. €1.000 για το 1ο, €1.250 για το 2ο, €1.500 για κάθε επόμενο τέκνο· διπλασιάζεται για μονογονείς.",ru:"До 18 лет, на службе в Национальной гвардии до 20 лет или студент очной формы до 24 лет. €1 000 за 1-го, €1 250 за 2-го, €1 500 за каждого следующего; вдвое для родителей-одиночек."},
+  rentLbl:{en:"Rent or home-loan interest (main residence)",el:"Ενοίκιο ή τόκοι στεγαστικού δανείου (κύρια κατοικία)",ru:"Аренда или проценты по ипотеке (основное жильё)"},
+  rentHint:{en:"Per year. Deductible up to €2,000.",el:"Ανά έτος. Εκπίπτει έως €2.000.",ru:"В год. Вычитается до €2 000."},
+  greenLbl:{en:"Energy upgrades / electric vehicle",el:"Ενεργειακή αναβάθμιση / ηλεκτρικό όχημα",ru:"Энергомодернизация / электромобиль"},
+  greenHint:{en:"Per year, e.g. solar, insulation, heat pump, EV. Deductible up to €1,000.",el:"Ανά έτος, π.χ. φωτοβολταϊκά, θερμομόνωση, αντλία θερμότητας, ηλεκτρικό όχημα. Εκπίπτει έως €1.000.",ru:"В год, напр. солнечные панели, утепление, тепловой насос, электромобиль. Вычитается до €1 000."},
+  disLbl:{en:"Home natural-disaster insurance",el:"Ασφάλιση κατοικίας για φυσικές καταστροφές",ru:"Страхование жилья от стихийных бедствий"},
+  disHint:{en:"Per year. Deductible up to €500.",el:"Ανά έτος. Εκπίπτει έως €500.",ru:"В год. Вычитается до €500."},
+  lifeLbl:{en:"Life insurance premiums",el:"Ασφάλιστρα ζωής",ru:"Взносы по страхованию жизни"},
+  lifeHint:{en:"Per year. Shares the 1/5 cap with SI, GESY and pension (and limited to 7% of the sum insured). No income limit.",el:"Ανά έτος. Μοιράζεται το όριο 1/5 με ΚΑ, ΓεΣΥ και σύνταξη (και έως 7% του ασφαλισμένου ποσού). Χωρίς εισοδηματικό όριο.",ru:"В год. Входит в общий лимит 1/5 вместе с соц. страхованием, ГеСИ и пенсией (и не более 7% страховой суммы). Без лимита дохода."},
+  donLbl:{en:"Donations to approved charities",el:"Δωρεές σε εγκεκριμένα φιλανθρωπικά ιδρύματα",ru:"Пожертвования одобренным благотворительным организациям"},
+  donHint:{en:"Per year, with receipts. Fully deductible. No income limit.",el:"Ανά έτος, με αποδείξεις. Εκπίπτουν πλήρως. Χωρίς εισοδηματικό όριο.",ru:"В год, при наличии квитанций. Вычитаются полностью. Без лимита дохода."},
+  famOk:{en:"✓ Eligible: household gross €{h} is within the €{l} limit.",el:"✓ Δικαιούστε: το μικτό εισόδημα νοικοκυριού €{h} είναι εντός του ορίου €{l}.",ru:"✓ Право есть: валовой доход домохозяйства €{h} в пределах лимита €{l}."},
+  famNo:{en:"✗ Not eligible: household gross €{h} is over the €{l} limit, so child, housing, green and disaster deductions don't apply.",el:"✗ Δεν δικαιούστε: το μικτό εισόδημα νοικοκυριού €{h} υπερβαίνει το όριο €{l}, άρα οι εκπτώσεις για τέκνα, στέγαση, πράσινες επενδύσεις και φυσικές καταστροφές δεν ισχύουν.",ru:"✗ Нет права: валовой доход домохозяйства €{h} превышает лимит €{l}, поэтому вычеты на детей, жильё, энергомодернизацию и страхование от бедствий не применяются."},
+  reliefRow:{en:"Includes tax saved by family / home / other deductions",el:"Περιλαμβάνει φόρο που εξοικονομείται από οικογενειακές / στεγαστικές / άλλες εκπτώσεις",ru:"Включает экономию налога за счёт семейных / жилищных / прочих вычетов"},
   pensionRow:{en:"Pension / provident",el:"Σύνταξη / πρόνοια",ru:"Пенсия / фонд"},
   expatLbl:{en:"Expat tax relief (first job in Cyprus)",el:"Έκπτωση φόρου ξένων (πρώτη εργασία στην Κύπρο)",ru:"Налоговая льгота для иностранцев (первая работа на Кипре)"},
   expatNone:{en:"None",el:"Καμία",ru:"Нет"},
   expatHint:{en:"20%: the lower of 20% of pay or €8,550 a year, for 7 years. 50%: half your pay, but only if you earn over €55,000 a year, for 17 years. You can claim one, not both.",el:"20%: το χαμηλότερο μεταξύ 20% των αποδοχών ή €8.550 ετησίως, για 7 έτη. 50%: το μισό των αποδοχών, αλλά μόνο αν κερδίζετε άνω των €55.000 ετησίως, για 17 έτη. Μπορείτε να επιλέξετε ένα, όχι και τα δύο.",ru:"20%: меньшее из 20% дохода или €8 550 в год, на 7 лет. 50%: половина дохода, но только при доходе свыше €55 000 в год, на 17 лет. Можно выбрать одно, не оба."},
   hoursWk:{en:"Hours / week",el:"Ώρες / εβδομάδα",ru:"Часов / неделю"}, daysWk:{en:"Days / week",el:"Ημέρες / εβδομάδα",ru:"Дней / неделю"},
   over60:{en:"Show employer cost too",el:"Εμφάνιση κόστους εργοδότη",ru:"Показать и расходы работодателя"},
-  disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are tax-deductible up to 1/5 of gross combined (pension up to 10% of pay); trade union dues are deductible in full. Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). ΚΑ, ΓεΣΥ και σύνταξη εκπίπτουν έως το 1/5 του μικτού συνολικά (η σύνταξη έως 10% των απολαβών)· οι εισφορές σε συντεχνίες εκπίπτουν πλήρως. Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή.",ru:"<strong>Только оценка.</strong> Ставки 2026: не облагается до €22 000; ступени 20/25/30/35%; Соц. страхование 8,8% (потолок €68 904); ГеСИ 2,65% (потолок €180 000). Соц. страхование, ГеСИ и пенсия вычитаются в сумме не более 1/5 валовой (пенсия — не более 10% зарплаты); профсоюзные взносы вычитаются полностью. Не является налоговой консультацией — уточняйте в Налоговом департаменте Кипра или у бухгалтера."},
+  disc:{en:"<strong>Estimate only.</strong> Uses 2026 rates: tax-free up to €22,000; bands 20/25/30/35%; Social Insurance 8.8% (cap €68,904); GESY 2.65% (cap €180,000). SI, GESY and pension are tax-deductible up to 1/5 of gross combined (pension up to 10% of pay); trade union dues are deductible in full. Child, housing, green and disaster deductions apply only within the 2026 household income limits (€40,000 single; €100,000–€200,000 families). Not tax advice — verify with the Cyprus Tax Department or an accountant.",el:"<strong>Εκτίμηση μόνο.</strong> Ρυθμίσεις 2026: αφορολόγητο έως €22.000· κλίμακες 20/25/30/35%· Κοιν. Ασφαλίσεις 8,8% (όριο €68.904)· ΓεΣΥ 2,65% (όριο €180.000). ΚΑ, ΓεΣΥ και σύνταξη εκπίπτουν έως το 1/5 του μικτού συνολικά (η σύνταξη έως 10% των απολαβών)· οι εισφορές σε συντεχνίες εκπίπτουν πλήρως. Οι εκπτώσεις για τέκνα, στέγαση, πράσινες επενδύσεις και φυσικές καταστροφές ισχύουν μόνο εντός των εισοδηματικών ορίων του 2026 (€40.000 άγαμοι· €100.000–€200.000 οικογένειες). Όχι φορολογική συμβουλή — επιβεβαιώστε με το Τμήμα Φορολογίας ή λογιστή.",ru:"<strong>Только оценка.</strong> Ставки 2026: не облагается до €22 000; ступени 20/25/30/35%; Соц. страхование 8,8% (потолок €68 904); ГеСИ 2,65% (потолок €180 000). Соц. страхование, ГеСИ и пенсия вычитаются в сумме не более 1/5 валовой (пенсия — не более 10% зарплаты); профсоюзные взносы вычитаются полностью. Вычеты на детей, жильё, энергомодернизацию и страхование от бедствий действуют только в пределах лимитов дохода 2026 (€40 000 для одиноких; €100 000–€200 000 для семей). Не является налоговой консультацией — уточняйте в Налоговом департаменте Кипра или у бухгалтера."},
   takehome:{en:"Net take-home",el:"Καθαρός μισθός",ru:"Чистая зарплата"},
   reqGross:{en:"Gross salary required",el:"Απαιτούμενος μικτός μισθός",ru:"Требуемая валовая зарплата"},
   grossAnnual:{en:"Gross (annual)",el:"Μικτός (ετήσιος)",ru:"Валовая (за год)"},
@@ -492,7 +552,7 @@ const T = {
 };
 
 let lang='en', mode='take', period='year', revPeriod='month', months=12;
-let expatMode='none', pensionUnit='pct', unionUnit='pct', cmpUniUnit={a:'pct',b:'pct'};
+let expatMode='none', pensionUnit='pct', unionUnit='pct', cmpUniUnit={a:'pct',b:'pct'}, famStatus='single';
 
 const BANDS=[[22000,0],[32000,.20],[42000,.25],[72000,.30],[Infinity,.35]];
 const SI_RATE=.088, SI_CAP=68904, GESY_RATE=.0265, GESY_CAP=180000;
@@ -500,7 +560,11 @@ const EMP_SI=.088, EMP_GESY=.029, EMP_OTHER=.047;
 const EXPAT_50_THRESHOLD=55000;   // 50% relief: salary must exceed this
 const EXPAT_20_CAP=8550;          // 20% relief: exemption capped at this per year
 const PENSION_DED_CAP=.10;        // pension/provident: deductible only up to 10% of pay
-const RELIEF_CAP=.20;             // SI + GESY + pension deductions together: max 1/5 of pay
+const RELIEF_CAP=.20;             // SI + GESY + pension + life insurance together: max 1/5 of chargeable income
+// 2026 family/home deductions, each per taxpayer, only under the household gross-income limit
+const CHILD_DED=[1000,1250,1500]; // 1st, 2nd, 3rd+ (doubled for single parents)
+const RENT_CAP=2000, GREEN_CAP=1000, DISASTER_CAP=500, SINGLE_LIMIT=40000;
+function familyLimit(status, kids){ return status==='single' ? SINGLE_LIMIT : kids<=2 ? 100000 : kids<=4 ? 150000 : 200000; }
 
 const $=id=>document.getElementById(id);
 const eur=n=>'€'+Math.round(n).toLocaleString(lang==='el'?'el-CY':'en-CY');
@@ -531,36 +595,53 @@ function expatExemption(gross, expat){
   return 0;
 }
 
+// 2026 family/home deductions: child, rent/loan interest, green, disaster insurance (hard income cut-off).
+function familyDeductions(gross, fam){
+  if(!fam) return {amt:0, eligible:false, household:gross, limit:SINGLE_LIMIT};
+  const kids = fam.status==='single' ? 0 : fam.kids;
+  const household = gross + (fam.status==='couple' ? fam.partner : 0);
+  const limit = familyLimit(fam.status, kids);
+  const eligible = household <= limit;
+  let child=0; for(let i=0;i<kids;i++) child += CHILD_DED[Math.min(i,2)];
+  if(fam.status==='sp') child*=2;
+  const amt = eligible ? child + Math.min(fam.rent,RENT_CAP) + Math.min(fam.green,GREEN_CAP) + Math.min(fam.disaster,DISASTER_CAP) : 0;
+  return {amt, eligible, household, limit};
+}
+
 // Core engine: annual gross -> full breakdown
-function compute(gross, pen, expat, uni){
+function compute(gross, pen, expat, uni, fam){
   const si = Math.min(gross,SI_CAP)*SI_RATE;
   const gesy = Math.min(gross,GESY_CAP)*GESY_RATE;
   const pension = pensionAmount(gross, pen);
   const union = pensionAmount(gross, uni);
   const exempt = expatExemption(gross, expat);
-  // SI, GESY and pension share the 1/5 cap; union dues are deductible in full, outside it.
-  const relief = Math.min(si + gesy + Math.min(pension, gross*PENSION_DED_CAP), gross*RELIEF_CAP);
-  let taxable = Math.max(0, gross - relief - union - exempt);
+  // SI, GESY, pension and life insurance share the 1/5 cap; union dues and donations are deductible in full.
+  const life = fam ? fam.life : 0, donations = fam ? fam.donations : 0;
+  const relief = Math.min(si + gesy + Math.min(pension, gross*PENSION_DED_CAP) + life, (gross-exempt)*RELIEF_CAP);
+  const famD = familyDeductions(gross, fam);
+  let taxable = Math.max(0, gross - relief - union - exempt - famD.amt - donations);
   const tax = incomeTax(taxable);
   const net = gross - si - gesy - pension - union - tax;
-  return {gross,si,gesy,pension,union,relief,exempt,tax,net,taxable,contrib:si+gesy};
+  return {gross,si,gesy,pension,union,relief,exempt,tax,net,taxable,contrib:si+gesy,fam:famD};
 }
 
 // Reverse: find gross that yields target annual net (monotonic -> binary search)
-function grossForNet(targetNet, pen, expat, uni){
+function grossForNet(targetNet, pen, expat, uni, fam){
   let lo=0, hi=Math.max(20000,targetNet*3);
-  while(compute(hi,pen,expat,uni).net < targetNet && hi<5e7) hi*=2;
+  while(compute(hi,pen,expat,uni,fam).net < targetNet && hi<5e7) hi*=2;
   for(let i=0;i<60;i++){
     const mid=(lo+hi)/2;
-    if(compute(mid,pen,expat,uni).net < targetNet) lo=mid; else hi=mid;
+    if(compute(mid,pen,expat,uni,fam).net < targetNet) lo=mid; else hi=mid;
   }
   return (lo+hi)/2;
 }
 
+const num0=id=>Math.max(0, parseFloat($(id).value)||0);
 function readAdvanced(){
   return {
     pen: {mode:pensionUnit, val:Math.max(0, parseFloat($('pension').value)||0)},
     uni: {mode:unionUnit, val:Math.max(0, parseFloat($('union').value)||0)},
+    fam: {status:famStatus, partner:num0('partner'), kids:Math.floor(num0('kids')), rent:num0('rent'), green:num0('green'), disaster:num0('disaster'), life:num0('life'), donations:num0('donations')},
     expat: expatMode,
     hours: Math.max(1, parseFloat($('hours').value)||40),
     days: Math.max(1, parseFloat($('days').value)||5)
@@ -573,12 +654,21 @@ function renderSingle(){
   if(mode==='reverse'){
     const amt=parseFloat($('revAmount').value)||0;
     const targetNet = revPeriod==='year'? amt : amt*12;
-    gross = grossForNet(targetNet, adv.pen, adv.expat, adv.uni);
+    gross = grossForNet(targetNet, adv.pen, adv.expat, adv.uni, adv.fam);
   } else {
     const amt=parseFloat($('amount').value)||0;
     gross = period==='year'? amt : amt*months;
   }
-  const r=compute(gross, adv.pen, adv.expat, adv.uni);
+  const r=compute(gross, adv.pen, adv.expat, adv.uni, adv.fam);
+  // tax saved by the optional family/home/life/donation inputs
+  const base=compute(gross, adv.pen, adv.expat, adv.uni);
+  const saved=base.tax-r.tax;
+  $('rRelief').textContent='+'+eur(saved);
+  $('rowRelief').style.display = saved>0.5 ? 'table-row':'none';
+  const f=adv.fam, anyFam=(f.status!=='single'&&f.kids>0)||f.rent>0||f.green>0||f.disaster>0;
+  const fmt=n=>Math.round(n).toLocaleString(lang==='el'?'el-CY':'en-CY');
+  $('famNote').textContent = anyFam ? T[r.fam.eligible?'famOk':'famNo'][lang].replace('{h}',fmt(r.fam.household)).replace('{l}',fmt(r.fam.limit)) : '';
+  $('famNote').style.color = r.fam.eligible ? 'var(--brand)' : 'var(--danger)';
 
   // headline
   if(mode==='reverse'){
@@ -686,6 +776,7 @@ function setCmpUniUnit(x,u){
   const inp=$(x+'Uni'); if(u==='eur'){inp.removeAttribute('max');inp.step='10';} else {inp.max='10';inp.step='0.1';}
   calc();
 }
+function setFam(f){famStatus=f;document.querySelectorAll('#famSeg button').forEach(b=>b.classList.toggle('on',b.dataset.f===f));$('partnerWrap').style.display=f==='couple'?'':'none';$('kidsWrap').style.display=f==='single'?'none':'';calc();}
 function setUnionUnit(u){unionUnit=u;document.querySelectorAll('#unionSeg button').forEach(b=>b.classList.toggle('on',b.dataset.u===u));$('unionUnit').textContent=u==='eur'?'€':'%';calc();}
 function setLang(l){
   lang=l;
@@ -696,6 +787,7 @@ function setLang(l){
   calc();
 }
 
+const FAM_IDS=['partner','kids','rent','green','disaster','life','donations'];
 function share(){
   const p=new URLSearchParams();
   p.set('mode',mode); p.set('lang',lang);
@@ -710,6 +802,8 @@ function share(){
   const adv=readAdvanced();
   p.set('pen',$('pension').value); p.set('pu',pensionUnit);
   if(parseFloat($('union').value)>0){ p.set('uni',$('union').value); p.set('uu',unionUnit); }
+  if(famStatus!=='single') p.set('fs',famStatus);
+  FAM_IDS.forEach(id=>{ if(parseFloat($(id).value)>0) p.set(id,$(id).value); });
   if(expatMode!=='none') p.set('expat',expatMode);
   p.set('h',adv.hours); p.set('d',adv.days);
   const url=location.origin+location.pathname+'?'+p.toString();
@@ -726,6 +820,9 @@ function loadFromURL(){
   if(p.get('pu')==='eur'||p.get('pu')==='pct') setPenUnit(p.get('pu'));
   if(p.get('uni')!=null)$('union').value=p.get('uni');
   if(p.get('uu')==='eur'||p.get('uu')==='pct') setUnionUnit(p.get('uu'));
+  FAM_IDS.forEach(id=>{ if(p.get(id)!=null) $(id).value=p.get(id); });
+  if(['couple','sp'].includes(p.get('fs'))) setFam(p.get('fs'));
+  if(p.get('fs') || FAM_IDS.some(id=>parseFloat(p.get(id))>0)) $('famBox').open=true;
   const ex=p.get('expat'); if(ex) setExpat(ex==='1'?'50':ex); // '1' = legacy 50% links
   if(p.get('h'))$('hours').value=p.get('h');
   if(p.get('d'))$('days').value=p.get('d');
