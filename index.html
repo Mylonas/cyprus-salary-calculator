@@ -401,6 +401,8 @@
       </div>
     </div>
 
+    <div id="famSlotCmp" style="margin-bottom:16px"></div>
+
     <div class="verdict">
       <div class="lab" style="font-size:13px;color:var(--soft);font-weight:700;text-transform:uppercase;letter-spacing:.08em" id="vLabel">Offer A is better</div>
       <div class="big" id="vDiff">€0</div>
@@ -415,6 +417,7 @@
         <tr id="cCon"><td data-i="contrib">Contributions (SI + GESY)</td><td></td><td></td></tr>
         <tr id="cPen"><td data-i="pensionRow">Pension / provident</td><td></td><td></td></tr>
         <tr id="cUni"><td data-i="unionRow">Trade union</td><td></td><td></td></tr>
+        <tr id="cFam" style="display:none"><td data-i="cmpFamRow">Tax saved by family / home / other deductions</td><td></td><td></td></tr>
         <tr id="cNetY" class="win"><td data-i="netAnnualShort">Net per year</td><td></td><td></td></tr>
         <tr id="cNetM"><td data-i="netMonth">Net per month</td><td></td><td></td></tr>
       </tbody>
@@ -495,6 +498,9 @@ const T = {
   donHint:{en:"Per year, with receipts. Fully deductible. No income limit.",el:"Ανά έτος, με αποδείξεις. Εκπίπτουν πλήρως. Χωρίς εισοδηματικό όριο.",ru:"В год, при наличии квитанций. Вычитаются полностью. Без лимита дохода."},
   famOk:{en:"✓ Eligible: household gross €{h} is within the €{l} limit.",el:"✓ Δικαιούστε: το μικτό εισόδημα νοικοκυριού €{h} είναι εντός του ορίου €{l}.",ru:"✓ Право есть: валовой доход домохозяйства €{h} в пределах лимита €{l}."},
   famNo:{en:"✗ Not eligible: household gross €{h} is over the €{l} limit, so child, housing, green and disaster deductions don't apply.",el:"✗ Δεν δικαιούστε: το μικτό εισόδημα νοικοκυριού €{h} υπερβαίνει το όριο €{l}, άρα οι εκπτώσεις για τέκνα, στέγαση, πράσινες επενδύσεις και φυσικές καταστροφές δεν ισχύουν.",ru:"✗ Нет права: валовой доход домохозяйства €{h} превышает лимит €{l}, поэтому вычеты на детей, жильё, энергомодернизацию и страхование от бедствий не применяются."},
+  cmpFamRow:{en:"Tax saved by family / home / other deductions",el:"Φόρος που εξοικονομείται από οικογενειακές / στεγαστικές / άλλες εκπτώσεις",ru:"Экономия налога за счёт семейных / жилищных / прочих вычетов"},
+  famOver:{en:"over €{l} limit",el:"άνω του ορίου €{l}",ru:"выше лимита €{l}"},
+  famCmpNote:{en:"Eligibility is checked separately for each offer, using that offer's salary plus your partner's income — see the comparison table.",el:"Η επιλεξιμότητα ελέγχεται χωριστά για κάθε προσφορά, με τον μισθό της προσφοράς συν το εισόδημα του/της συζύγου — δείτε τον πίνακα σύγκρισης.",ru:"Право на вычеты проверяется отдельно для каждого предложения — по его зарплате плюс доходу партнёра; см. таблицу сравнения."},
   reliefRow:{en:"Includes tax saved by family / home / other deductions",el:"Περιλαμβάνει φόρο που εξοικονομείται από οικογενειακές / στεγαστικές / άλλες εκπτώσεις",ru:"Включает экономию налога за счёт семейных / жилищных / прочих вычетов"},
   pensionRow:{en:"Pension / provident",el:"Σύνταξη / πρόνοια",ru:"Пенсия / фонд"},
   expatLbl:{en:"Expat tax relief (first job in Cyprus)",el:"Έκπτωση φόρου ξένων (πρώτη εργασία στην Κύπρο)",ru:"Налоговая льгота для иностранцев (первая работа на Кипре)"},
@@ -727,8 +733,13 @@ function renderSingle(){
 }
 
 function renderCompare(){
-  const A=compute((parseFloat($('aAmt').value)||0)+(parseFloat($('aBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('aPen').value)||0)}, 'none', {mode:cmpUniUnit.a,val:Math.max(0,parseFloat($('aUni').value)||0)});
-  const B=compute((parseFloat($('bAmt').value)||0)+(parseFloat($('bBonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($('bPen').value)||0)}, 'none', {mode:cmpUniUnit.b,val:Math.max(0,parseFloat($('bUni').value)||0)});
+  const fam=readAdvanced().fam;
+  const offer=(x,withFam)=>compute((parseFloat($(x+'Amt').value)||0)+(parseFloat($(x+'Bonus').value)||0), {mode:'pct',val:Math.max(0,parseFloat($(x+'Pen').value)||0)}, 'none', {mode:cmpUniUnit[x],val:Math.max(0,parseFloat($(x+'Uni').value)||0)}, withFam?fam:undefined);
+  const A=offer('a',true), B=offer('b',true), A0=offer('a',false), B0=offer('b',false);
+  const anyFam=(fam.status!=='single'&&fam.kids>0)||fam.rent>0||fam.green>0||fam.disaster>0;
+  const fmt=n=>Math.round(n).toLocaleString(lang==='el'?'el-CY':'en-CY');
+  const famCell=(r,r0)=>{ const saved=r0.tax-r.tax; let t=saved>0.5?'+'+eur(saved):eur(0);
+    if(anyFam && !r.fam.eligible) t+=' · ✗ '+T.famOver[lang].replace('{l}',fmt(r.fam.limit)); return t; };
   const set=(id,a,b)=>{const tr=$(id);tr.children[1].textContent=a;tr.children[2].textContent=b;};
   set('cGross',eur(A.gross),eur(B.gross));
   set('cTax','−'+eur(A.tax),'−'+eur(B.tax));
@@ -736,6 +747,10 @@ function renderCompare(){
   set('cPen','−'+eur(A.pension),'−'+eur(B.pension));
   set('cUni','−'+eur(A.union),'−'+eur(B.union));
   $('cUni').style.display = A.union>0||B.union>0 ? '' : 'none';
+  set('cFam',famCell(A,A0),famCell(B,B0));
+  $('cFam').style.display = (A0.tax-A.tax>0.5)||(B0.tax-B.tax>0.5)||anyFam ? '' : 'none';
+  $('famNote').textContent = anyFam ? T.famCmpNote[lang] : '';
+  $('famNote').style.color = 'var(--soft)';
   set('cNetY',eur(A.net),eur(B.net));
   set('cNetM',eur(A.net/12),eur(B.net/12));
   const diff=A.net-B.net;
@@ -755,8 +770,15 @@ function gotoPayslip(){
   location.href='/payslip-generator.html?'+p.toString();
 }
 
+let famHome=null;
+function placeFamBox(m){
+  const box=$('famBox');
+  if(!famHome) famHome={parent:box.parentNode, next:box.nextElementSibling};
+  if(m==='compare') $('famSlotCmp').appendChild(box); else famHome.parent.insertBefore(box, famHome.next);
+}
 function setMode(m){
   mode=m;
+  placeFamBox(m);
   document.querySelectorAll('#modes button').forEach(b=>b.classList.toggle('on',b.dataset.mode===m));
   $('single').classList.toggle('hide', m==='compare');
   $('compare').classList.toggle('hide', m!=='compare');
