@@ -887,26 +887,7 @@ try{const sl=localStorage.getItem('csLang'); if(sl==='el'||sl==='ru') setLang(sl
 loadFromURL();
 calc();
 
-/* ===== AdSense: needs a custom domain (pages.dev cannot run ads). After approval,
-   paste your "ca-pub-…" id here; the loader + slots activate automatically. ===== */
-const ADSENSE_CLIENT = "ca-pub-4547647290394610";
-(function initAds(){
-  if(!ADSENSE_CLIENT) return;
-  const s=document.createElement('script');
-  s.async=true; s.crossOrigin="anonymous";
-  s.src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+ADSENSE_CLIENT;
-  document.head.appendChild(s);
-  document.querySelectorAll('.adslot').forEach(slot=>{
-    slot.dataset.live="1"; slot.textContent="";
-    const ins=document.createElement('ins');
-    ins.className="adsbygoogle"; ins.style.display="block"; ins.style.width="100%";
-    ins.setAttribute("data-ad-client",ADSENSE_CLIENT);
-    ins.setAttribute("data-ad-format","auto");
-    ins.setAttribute("data-full-width-responsive","true");
-    slot.appendChild(ins);
-    (window.adsbygoogle=window.adsbygoogle||[]).push({});
-  });
-})();
+/* Ad slots are activated by theme.js. */
 </script>
 </body>
 </html>
